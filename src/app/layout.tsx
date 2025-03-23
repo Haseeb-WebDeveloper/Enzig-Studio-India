@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-
-
+import SmoothScrolling from "@/components/Smooth-scrolling";  
+import Navbar from "@/components/layout/navbar";
 
 export const metadata: Metadata = {
   title: "Enzig India Agency",
@@ -24,7 +24,10 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <SmoothScrolling>
+            <Navbar />
+            {children}
+          </SmoothScrolling>
         </ThemeProvider>
       </body>
     </html>
