@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 
 export default function Hero() {
@@ -55,22 +54,13 @@ export default function Hero() {
 
 
     return (
-        <section className="relative sm:min-h-screen 2xl:min-h-auto h-full overflow-hidden flex flex-col justify-center items-center bg-background">
-            {/* Gradient Background */}
-            {/* <div className="z-10 absolute top-0 right-28 w-1/2 h-full  -rotate-16 bg-gradient-to-r from-background to-transparent"></div> */}
-            <div className="z-10 absolute top-0 right-0 w-full md:w-[50%] h-full bg-gradient-to-br from-background from-25% to-transparent"></div>
-            <div className="z-10 absolute top-0 right-20 w-full md:w-1/2 h-full bg-gradient-to-r from-background to-transparent"></div>
-            <div className="z-1 absolute top-0 right-0 w-full md:w-1/2 h-full">
-                <Image src="/hero-gradient.png" alt="Hero Background" width={1000} height={1000} className="w-full h-full object-cover" />
-            </div>
-            <div className="max-w-7xl mx-auto px-6 z-20 py-[15vh] md:py-[20vh]">
+        <section className="flex flex-col justify-center items-center bg-background">
+            <div className="max-w-7xl mx-auto px-6 z-20 py-[15vh]">
                 <div className="grid gap-16 md:gap-12 lg:grid-cols-2">
                     {/* Left Content */}
                     <div className="flex flex-col justify-center space-y-8">
                         <h1 className="text-4xl text-center md:text-left font-bold leading-tight tracking-tighter md:text-6xl lg:leading-[1.1]">
-                            <span className="block">The Best</span>
-                            <span className="block">Digital Marketing</span>
-                            <span className="block">Company</span>
+                            <span className="block">The Best Digital Marketing Company</span>
                         </h1>
 
                         <p className="text-lg text-center md:text-left text-muted-foreground md:text-xl">

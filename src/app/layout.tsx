@@ -25,7 +25,6 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <SmoothScrolling>
-            <Navbar />
             {children}
           </SmoothScrolling>
         </ThemeProvider>

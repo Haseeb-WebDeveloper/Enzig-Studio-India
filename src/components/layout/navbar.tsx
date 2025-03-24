@@ -70,10 +70,10 @@ export default function Navbar() {
     };
 
     return (
-        <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "py-2" : "py-4"}`}>
+        <header className={`sticky top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "py-2" : "py-4"}`}>
             <div className="max-w-7xl mx-auto px-4">
                 <nav 
-                    className={`${scrolled ? "bg-foreground/90" : "bg-foreground/80"} backdrop-blur-lg rounded-full px-4 md:px-8 transition-all duration-300`} 
+                    className={`${scrolled ? "bg-foreground/90" : "bg-foreground"} backdrop-blur-lg rounded-full px-4 md:px-8 transition-all duration-300`} 
                     aria-label="Global"
                 >
                     <div className="flex items-center justify-between py-3">
