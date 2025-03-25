@@ -3,11 +3,10 @@ import { GeistSans } from "geist/font/sans";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import SmoothScrolling from "@/components/Smooth-scrolling";  
-import Navbar from "@/components/layout/navbar";
 
 export const metadata: Metadata = {
-  title: "Enzig India Agency",
-  description: "Enzig India Agency",
+  title: "Enzig Studio | Creative Digital Marketing Agency in Gurgaon,India",
+  description: "Enzig Studio is a creative digital marketing agency in Gurgaon, India that offers a range of services to help businesses grow and succeed online.",
 };
 
 export default function RootLayout({

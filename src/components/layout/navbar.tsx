@@ -4,25 +4,57 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { ChevronDown, Menu, X } from "lucide-react";
+import { 
+    FaChartLine, 
+    FaUsers, 
+    FaBriefcase, 
+    FaRocket, 
+    FaBox, 
+    FaPalette, 
+    FaHashtag, 
+    FaPen, 
+    FaLaptopCode, 
+    FaSearch, 
+    FaImages, 
+    FaFileAlt, 
+    FaComments, 
+    FaBook, 
+    FaFileAlt as FaFileAlt2,
+    FaDownload
+} from "react-icons/fa";
 
 const navigation = [
     { name: "Home", href: "/" },
-    { name: "About Us", href: "/about" },
+    {
+        name: "About Us",
+        href: "#",
+        dropdown: [
+            { name: "About Us", description: "What we actually do.", href: "/about-us", icon: FaChartLine },
+            { name: "Our Team", description: "Our accomplished team!", href: "/our-team", icon: FaUsers },
+            { name: "Careers", description: "Are you a problem solver?", href: "/careers", icon: FaBriefcase },
+        ],
+    },
     {
         name: "Solutions",
         href: "#",
         dropdown: [
-            { name: "Web Development", href: "/solutions/web-development" },
-            { name: "Digital Marketing", href: "/solutions/digital-marketing" },
-            { name: "Branding", href: "/solutions/branding" },
+            { name: "Strategy And Analysis", description: "Data-driven insights for growth.", href: "/solutions/strategy-analysis", icon: FaChartLine },
+            { name: "Marketing", description: "Google Ads, Meta Ads", href: "/solutions/marketing", icon: FaRocket },
+            { name: "Packaging And Printing", description: "Designs that sell impact.", href: "/solutions/packaging-printing", icon: FaBox },
+            { name: "Logo And Branding", description: "Identity that stands out.", href: "/solutions/branding", icon: FaPalette },
+            { name: "Social Media Management", description: "Engage. Grow. Dominate.", href: "/solutions/social-media", icon: FaHashtag },
+            { name: "Content Creation", description: "Stories that captivate audiences.", href: "/solutions/content-creation", icon: FaPen },
+            { name: "Website And App Development", description: "Crafting seamless digital experiences.", href: "/solutions/web-dev", icon: FaLaptopCode },
+            { name: "Search Engine Optimization (SEO)", description: "Rank higher, grow faster.", href: "/solutions/seo", icon: FaSearch },
         ],
     },
     {
         name: "Our Work",
         href: "#",
         dropdown: [
-            { name: "Case Studies", href: "/work/case-studies" },
-            { name: "Portfolio", href: "/work/portfolio" },
+            { name: "Portfolio", description: "Creativity at its best", href: "/work/portfolio", icon: FaImages },
+            { name: "Case Studies", description: "Real growth stories", href: "/work/case-studies", icon: FaFileAlt },
+            { name: "Testimonials", description: "Who believe in us", href: "/work/testimonials", icon: FaComments },
         ],
     },
     { name: "Blog", href: "/blog" },
@@ -30,9 +62,9 @@ const navigation = [
         name: "Resources",
         href: "#",
         dropdown: [
-            { name: "Guides", href: "/resources/guides" },
-            { name: "Templates", href: "/resources/templates" },
-            { name: "Tools", href: "/resources/tools" },
+            { name: "Our Creative Space", description: "Real growth stories.", href: "/resources/creative-space", icon: FaPalette },
+            { name: "Templates", description: "Creativity at its best", href: "/resources/templates", icon: FaFileAlt2 },
+            { name: "E-books", description: "Real growth stories.", href: "/resources/ebooks", icon: FaBook },
         ],
     },
 ];
@@ -41,6 +73,7 @@ export default function Navbar() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
     const [scrolled, setScrolled] = useState(false);
+
 
     // Handle scroll effect
     useEffect(() => {
@@ -65,13 +98,31 @@ export default function Navbar() {
         };
     }, [mobileMenuOpen]);
 
-    const toggleDropdown = (name: string | null) => {
-        setActiveDropdown(activeDropdown === name ? null : name);
+        const toggleDropdown = (name: string | null) => {
+            setActiveDropdown(activeDropdown === name ? null : name);
+        };
+    
+        // Function to calculate dynamic grid layout
+        const calculateGridLayout = (items: number) => {
+            if (items <= 4) {
+                return "grid-cols-1";
+            } else if (items <= 8) {
+                return "grid-cols-2";
+            }
+            return "grid-cols-2";
+        };
+    
+        // Function to calculate grid rows
+        const calculateGridRows = (items: number) => {
+            if (items <= 4) {
+                return `grid-rows-${items}`;
+            }
+            return "grid-rows-4";
     };
 
     return (
         <header className={`sticky top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "py-2" : "py-4"}`}>
-            <div className="max-w-7xl mx-auto px-4">
+            <div className="max-w-7xl mx-auto px-6">
                 <nav 
                     className={`${scrolled ? "bg-foreground/90" : "bg-foreground"} backdrop-blur-lg rounded-full px-4 md:px-8 transition-all duration-300`} 
                     aria-label="Global"
@@ -106,50 +157,71 @@ export default function Navbar() {
                             </button>
                         </div>
 
-                        {/* Desktop navigation */}
                         <div className="hidden lg:flex lg:gap-x-8">
-                            {navigation.map((item) => (
-                                <div key={item.name} className="relative group">
-                                    {item.dropdown ? (
-                                        <>
-                                            <button
-                                                onClick={() => toggleDropdown(item.name)}
-                                                className="flex items-center gap-1 text-sm text-background font-medium leading-6 cursor-pointer"
-                                            >
-                                                {item.name}
-                                                <ChevronDown 
-                                                    className={`h-4 w-4 text-background transition-transform duration-200 ${activeDropdown === item.name ? 'rotate-180' : ''}`} 
-                                                    aria-hidden="true" 
-                                                />
-                                            </button>
-                                            
-                                            {/* Dropdown menu */}
-                                            <div 
-                                                className={`absolute left-0 top-full mt-2 w-48 rounded-md bg-background py-2 shadow-lg ring-1 ring-border transition-all duration-200 origin-top-left 
-                                                ${activeDropdown === item.name ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'}`}
-                                            >
-                                                {item.dropdown.map((subItem) => (
-                                                    <Link
-                                                        key={subItem.name}
-                                                        href={subItem.href}
-                                                        className="block px-4 py-2 text-sm text-foreground hover:bg-muted transition-colors"
-                                                    >
-                                                        {subItem.name}
-                                                    </Link>
-                                                ))}
-                                            </div>
-                                        </>
-                                    ) : (
-                                        <Link
-                                            href={item.href}
-                                            className="text-sm text-background font-medium leading-6 cursor-pointer"
+                        {navigation.map((item) => (
+                            <div key={item.name} className="relative group">
+                                {item.dropdown ? (
+                                    <>
+                                        <button
+                                            onClick={() => toggleDropdown(item.name)}
+                                            className="flex items-center gap-1 text-sm text-background font-medium leading-6 cursor-pointer"
                                         >
                                             {item.name}
-                                        </Link>
-                                    )}
-                                </div>
-                            ))}
-                        </div>
+                                            <ChevronDown 
+                                                className={`h-4 w-4 text-background transition-transform duration-200 ${activeDropdown === item.name ? 'rotate-180' : ''}`} 
+                                                aria-hidden="true" 
+                                            />
+                                        </button>
+                                        
+                                        {/* Dynamic Dropdown Menu Style */}
+                                        <div 
+                                            className={`absolute left-1/2 -translate-x-1/2 top-10 mt-4 w-full ${
+                                                item.dropdown.length > 4 ? 'min-w-[650px]' : 'min-w-[300px]'
+                                            } rounded-2xl bg-foreground text-background p-6 shadow-2xl ring-1 ring-border transition-all duration-300 origin-top-left 
+                                            ${activeDropdown === item.name ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'}`}
+                                        >
+                                            <div className="relative">
+                                                <div 
+                                                    className={`grid ${item.dropdown.length > 4 ? 'grid-cols-2' : 'grid-cols-1'} gap-6 max-h-[320px] w-full overflow-auto relative`}
+                                                >
+                                                    {item.dropdown.map((subItem, index) => (
+                                                        <Link
+                                                            key={subItem.name}
+                                                            href={subItem.href}
+                                                            className="group w-full flex items-center gap-3 rounded-lg transition-colors hover:bg-background/5"
+                                                        >
+                                                            <span className="text-xl text-background/80 group-hover:text-background">
+                                                                <subItem.icon className="w-5 h-5" />
+                                                            </span>
+                                                            <div className="flex flex-col min-w-[200px]">
+                                                                <span className="text-sm text-background font-medium">
+                                                                    {subItem.name}
+                                                                </span>
+                                                                <span className="text-xs text-background/80">
+                                                                    {subItem.description}
+                                                                </span>
+                                                            </div>
+                                                        </Link>
+                                                    ))}
+                                                    {/* Add divider for two-column layout */}
+                                                    {item.dropdown.length > 4 && (
+                                                        <div className="absolute top-0 bottom-0 left-1/2 -translate-x-[20px] w-[1px] bg-background/40" />
+                                                    )}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </>
+                                ) : (
+                                    <Link
+                                        href={item.href}
+                                        className="text-sm text-background font-medium leading-6 cursor-pointer"
+                                    >
+                                        {item.name}
+                                    </Link>
+                                )}
+                            </div>
+                        ))}
+                    </div>
 
                         {/* CTA Button */}
                         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
@@ -206,16 +278,24 @@ export default function Navbar() {
                                                 />
                                             </button>
                                             <div 
-                                                className={`mt-2 space-y-1 pl-4 overflow-hidden transition-all duration-300 ${activeDropdown === item.name ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}
+                                                className={`mt-2 space-y-2 pl-4 overflow-hidden transition-all duration-300 ${activeDropdown === item.name ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'}`}
                                             >
                                                 {item.dropdown.map((subItem) => (
                                                     <Link
                                                         key={subItem.name}
                                                         href={subItem.href}
-                                                        className="block py-2 text-lg font-normal text-background/80 hover:text-background"
+                                                        className="block py-2 text-base font-normal text-background/80 hover:text-background"
                                                         onClick={() => setMobileMenuOpen(false)}
                                                     >
-                                                        {subItem.name}
+                                                        <div className="flex items-center gap-3">
+                                                            <span className="text-xl">
+                                                                <subItem.icon className="w-5 h-5" />
+                                                            </span>
+                                                            <div className="flex flex-col">
+                                                                <span>{subItem.name}</span>
+                                                                <span className="text-sm text-background/60">{subItem.description}</span>
+                                                            </div>
+                                                        </div>
                                                     </Link>
                                                 ))}
                                             </div>
