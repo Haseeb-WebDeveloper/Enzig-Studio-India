@@ -176,7 +176,7 @@ export default function Navbar() {
                                         {/* Dynamic Dropdown Menu Style */}
                                         <div 
                                             className={`absolute left-1/2 -translate-x-1/2 top-10 mt-4 w-full ${
-                                                item.dropdown.length > 4 ? 'min-w-[650px]' : 'min-w-[300px]'
+                                                item.dropdown.length > 4 ? 'min-w-[650px]' : 'min-w-[280px]'
                                             } rounded-2xl bg-foreground text-background p-6 shadow-2xl ring-1 ring-border transition-all duration-300 origin-top-left 
                                             ${activeDropdown === item.name ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'}`}
                                         >
@@ -188,7 +188,7 @@ export default function Navbar() {
                                                         <Link
                                                             key={subItem.name}
                                                             href={subItem.href}
-                                                            className="group w-full flex items-center gap-3 rounded-lg transition-colors hover:bg-background/5"
+                                                            className="group w-full flex items-center gap-3 rounded-lg"
                                                         >
                                                             <span className="text-xl text-background/80 group-hover:text-background">
                                                                 <subItem.icon className="w-5 h-5" />
@@ -238,9 +238,9 @@ export default function Navbar() {
 
             {/* Mobile menu - Full Screen */}
             <div className={`lg:hidden fixed inset-0 bg-foreground z-50 transition-all duration-300 ${mobileMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
-                <div className="flex flex-col h-full overflow-auto px-6 py-8">
+                <div className="flex flex-col h-full overflow-auto px-6 py-6">
                     {/* Mobile Header */}
-                    <div className="flex items-center justify-between mb-8">
+                    <div className="flex items-center justify-between mb-8 px-2">
                         <Link href="/" className="-m-1.5 p-1.5" onClick={() => setMobileMenuOpen(false)}>
                             <Image
                                 src="/logo.png"
