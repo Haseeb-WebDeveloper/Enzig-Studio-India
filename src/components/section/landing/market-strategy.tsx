@@ -4,20 +4,20 @@ import { IoStarSharp } from "react-icons/io5";
 
 export default function MarketStrategy() {
     return (
-        <section className="bg-background py-16 px-4 sm:px-6 lg:px-8">
-            <div className="max-w-[960px] mx-auto relative">
+        <section className="bg-background ">
+            <div className="max-w-[960px] py-16 px-4 lg:px-0 mx-auto">
                 <div className="flex flex-col gap-16">
                     <div className="space-y-8">
                         <h2 className="text-[24px] md:text-[32px] font-bold text-foreground">
                             Market & Strategy
                         </h2>
-                        <h3 className="text-[32px] md:text-[56px] leading-[40px] md:leading-[64px] tracking-[-3%] font-semibold text-foreground">
+                        <h3 className="text-[32px] md:text-[56px] leading-[40px] md:leading-[64px] tracking-[-3%] font-bold text-foreground">
                             Work with our expert<br />
                             marketing team
                         </h3>
                     </div>
 
-                    <div className="bg-background py-10 px-12 rounded-4xl overflow-y-hidden"
+                    <div className="bg-background py-10 px-12 rounded-4xl relative overflow-y-hidden"
                         style={{
                             boxShadow: "2px 2px 20px 5px rgba(255, 255, 255, 0.5)",
                             border: "1px solid rgba(255, 255, 255, 0.5)",
@@ -51,7 +51,7 @@ export default function MarketStrategy() {
                                         <Link href="/">Learn more with our expert team</Link>
                                     </div>
                                 </div>
-                                <div className="absolute bottom-0 right-4 ">
+                                <div className="absolute bottom-0 right-4">
                                     <div className="relative">
                                         <Image
                                             src="/market-Strategy.png"

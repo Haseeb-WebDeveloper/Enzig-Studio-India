@@ -30,7 +30,7 @@ export default function Family() {
 
     return (
         <section className="bg-background  py-[15vh] md:py-[20vh]">
-            <div className="max-w-4xl mx-auto h-full px-6 z-20">
+            <div className="max-w-[960px] mx-auto h-full px-6 xl:px-0 z-20">
                 <div className="grid grid-cols-[40%_20%_40%] grid-rows-[38%_24%_38%] relative gap-4">
 
                     {/* 1st row */}

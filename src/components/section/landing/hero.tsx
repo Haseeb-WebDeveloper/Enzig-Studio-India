@@ -55,7 +55,7 @@ export default function Hero() {
 
     return (
         <section className="flex flex-col justify-center items-center bg-background">
-            <div className="max-w-7xl mx-auto px-6 z-20 py-[15vh]">
+            <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-20 z-20 py-[15vh] md:py-[10vh] 2xl:py-[20vh]">
                 <div className="grid gap-16 md:gap-12 lg:grid-cols-2">
                     {/* Left Content */}
                     <div className="flex flex-col justify-center space-y-8">
@@ -67,7 +67,7 @@ export default function Hero() {
                             We create impactful marketing, high-converting designs, and data-driven campaigns to grow your brand. Our aesthetic studio offers photoshoots, reels, podcasts, and more—bringing your brand to life!
                         </p>
 
-                        <Link href="/contact" className="w-full md:w-fit mt-8 text-center font-medium rounded-md px-10 py-4 bg-primary text-background">
+                        <Link href="/contact" className="w-full md:w-fit  text-center font-medium rounded-md px-10 py-4 bg-primary text-background">
                             Get in Touch
                         </Link>
 

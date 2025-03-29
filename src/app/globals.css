@@ -123,13 +123,13 @@
 
 
 
-html.lenis {
+/* html.lenis {
   height: auto;
 }
 
 .lenis {
   overflow: hidden;
-}
+} */
 
 
 .gradient-background {
@@ -141,4 +141,10 @@ html.lenis {
     transparent 100% /* Transparent fade */
   );
 }
+
+
+.masonry-grid {
+ columns: 320px;
+}
+
 
