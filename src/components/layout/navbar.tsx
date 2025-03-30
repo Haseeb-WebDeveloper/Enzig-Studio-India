@@ -3,25 +3,38 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import { ChevronDown, Menu, X } from "lucide-react";
 import { 
-    FaChartLine, 
-    FaUsers, 
-    FaBriefcase, 
-    FaRocket, 
-    FaBox, 
-    FaPalette, 
-    FaHashtag, 
-    FaPen, 
-    FaLaptopCode, 
-    FaSearch, 
-    FaImages, 
-    FaFileAlt, 
-    FaComments, 
-    FaBook, 
-    FaFileAlt as FaFileAlt2,
-    FaDownload
-} from "react-icons/fa";
+  ChevronDown, 
+  Menu, 
+  X,
+  BarChart2,
+  Users,
+  Briefcase,
+  Rocket,
+  Package,
+  Palette,
+  Hash,
+  PenTool,
+  Code,
+  Search,
+  Images,
+  FileText,
+  MessageSquare,
+  BookOpen,
+  FileSpreadsheet,
+  Download,
+  Zap,
+  Target,
+  TrendingUp,
+  Layers,
+  Edit3,
+  Monitor,
+  Globe,
+  Database,
+  Heart,
+  Award,
+  ThumbsUp
+} from "lucide-react";
 
 const navigation = [
     { name: "Home", href: "/" },
@@ -29,32 +42,32 @@ const navigation = [
         name: "About Us",
         href: "#",
         dropdown: [
-            { name: "About Us", description: "What we actually do.", href: "/about-us", icon: FaChartLine },
-            { name: "Our Team", description: "Our accomplished team!", href: "/our-team", icon: FaUsers },
-            { name: "Careers", description: "Are you a problem solver?", href: "/careers", icon: FaBriefcase },
+            { name: "About Us", description: "What we actually do.", href: "/about-us", icon: Target },
+            { name: "Our Team", description: "Our accomplished team!", href: "/our-team", icon: Users },
+            { name: "Careers", description: "Are you a problem solver?", href: "/careers", icon: Briefcase },
         ],
     },
     {
         name: "Solutions",
         href: "#",
         dropdown: [
-            { name: "Strategy And Analysis", description: "Data-driven insights for growth.", href: "/solutions/strategy-analysis", icon: FaChartLine },
-            { name: "Marketing", description: "Google Ads, Meta Ads", href: "/solutions/marketing", icon: FaRocket },
-            { name: "Packaging And Printing", description: "Designs that sell impact.", href: "/solutions/packaging-printing", icon: FaBox },
-            { name: "Logo And Branding", description: "Identity that stands out.", href: "/solutions/branding", icon: FaPalette },
-            { name: "Social Media Management", description: "Engage. Grow. Dominate.", href: "/solutions/social-media", icon: FaHashtag },
-            { name: "Content Creation", description: "Stories that captivate audiences.", href: "/solutions/content-creation", icon: FaPen },
-            { name: "Website And App Development", description: "Crafting seamless digital experiences.", href: "/solutions/web-dev", icon: FaLaptopCode },
-            { name: "Search Engine Optimization (SEO)", description: "Rank higher, grow faster.", href: "/solutions/seo", icon: FaSearch },
+            { name: "Strategy And Analysis", description: "Data-driven insights for growth.", href: "/solutions/strategy-analysis", icon: TrendingUp },
+            { name: "Marketing", description: "Google Ads, Meta Ads", href: "/solutions/marketing", icon: Zap },
+            { name: "Packaging And Printing", description: "Designs that sell impact.", href: "/solutions/packaging-printing", icon: Package },
+            { name: "Logo And Branding", description: "Identity that stands out.", href: "/solutions/branding", icon: Palette },
+            { name: "Social Media Management", description: "Engage. Grow. Dominate.", href: "/solutions/social-media", icon: Hash },
+            { name: "Content Creation", description: "Stories that captivate audiences.", href: "/solutions/content-creation", icon: Edit3 },
+            { name: "Website And App Development", description: "Crafting seamless digital experiences.", href: "/solutions/web-dev", icon: Monitor },
+            { name: "Search Engine Optimization (SEO)", description: "Rank higher, grow faster.", href: "/solutions/seo", icon: Globe },
         ],
     },
     {
         name: "Our Work",
         href: "#",
         dropdown: [
-            { name: "Portfolio", description: "Creativity at its best", href: "/work/portfolio", icon: FaImages },
-            { name: "Case Studies", description: "Real growth stories", href: "/work/case-studies", icon: FaFileAlt },
-            { name: "Testimonials", description: "Who believe in us", href: "/work/testimonials", icon: FaComments },
+            { name: "Portfolio", description: "Creativity at its best", href: "/work/portfolio", icon: Layers },
+            { name: "Case Studies", description: "Real growth stories", href: "/work/case-studies", icon: FileText },
+            { name: "Testimonials", description: "Who believe in us", href: "/work/testimonials", icon: ThumbsUp },
         ],
     },
     { name: "Blog", href: "/blog" },
@@ -62,9 +75,9 @@ const navigation = [
         name: "Resources",
         href: "#",
         dropdown: [
-            { name: "Our Creative Space", description: "Real growth stories.", href: "/resources/creative-space", icon: FaPalette },
-            { name: "Templates", description: "Creativity at its best", href: "/resources/templates", icon: FaFileAlt2 },
-            { name: "E-books", description: "Real growth stories.", href: "/resources/ebooks", icon: FaBook },
+            { name: "Our Creative Space", description: "Real growth stories.", href: "/resources/creative-space", icon: Heart },
+            { name: "Templates", description: "Creativity at its best", href: "/resources/templates", icon: FileSpreadsheet },
+            { name: "E-books", description: "Real growth stories.", href: "/resources/ebooks", icon: BookOpen },
         ],
     },
 ];
@@ -121,22 +134,22 @@ export default function Navbar() {
     };
 
     return (
-        <header className={`sticky top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "py-2" : "py-4"}`}>
-            <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+        <header className={`sticky top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "pt-4" : "pt-4"}`}>
+            <div className="max-w-[1200px] px-6 md:px-8 mx-auto">
                 <nav 
-                    className={`${scrolled ? "bg-foreground/90" : "bg-foreground"} backdrop-blur-lg rounded-full px-4 md:px-8 transition-all duration-300`} 
+                    className={`${scrolled ? "bg-foreground" : "bg-foreground"}  px-[32px] md:px-[60px] py-[16px] backdrop-blur-lg rounded-full  transition-all duration-300`} 
                     aria-label="Global"
                 >
-                    <div className="flex items-center justify-between py-3">
+                    <div className="flex items-center justify-between">
                         {/* Logo */}
                         <div className="flex lg:flex-1">
-                            <Link href="/" className="-m-1.5 p-1.5">
+                            <Link href="/" className="-m-1.5 p-1.5 inline-block">
                                 <Image
                                     src="/logo.png"
                                     alt="Enzig Studio"
-                                    width={120}
-                                    height={40}
-                                    className="h-8 w-auto"
+                                    width={400}
+                                    height={200}
+                                    className="h-10 w-auto"
                                 />
                             </Link>
                         </div>
@@ -164,7 +177,7 @@ export default function Navbar() {
                                     <>
                                         <button
                                             onClick={() => toggleDropdown(item.name)}
-                                            className="flex items-center gap-1 text-sm text-background font-medium leading-6 cursor-pointer"
+                                            className="flex items-center gap-1 text-[16px] lora-medium text-background leading-6 cursor-pointer"
                                         >
                                             {item.name}
                                             <ChevronDown 
@@ -176,8 +189,8 @@ export default function Navbar() {
                                         {/* Dynamic Dropdown Menu Style */}
                                         <div 
                                             className={`absolute left-1/2 -translate-x-1/2 top-10 mt-4 w-full ${
-                                                item.dropdown.length > 4 ? 'min-w-[650px]' : 'min-w-[280px]'
-                                            } rounded-2xl bg-foreground text-background p-6 shadow-2xl ring-1 ring-border transition-all duration-300 origin-top-left 
+                                                item.dropdown.length > 4 ? 'min-w-[720px]' : 'min-w-[320px]'
+                                            } rounded-2xl bg-foreground text-background p-8 shadow-2xl ring-1 ring-border transition-all duration-300 origin-top-left 
                                             ${activeDropdown === item.name ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'}`}
                                         >
                                             <div className="relative">
@@ -190,14 +203,14 @@ export default function Navbar() {
                                                             href={subItem.href}
                                                             className="group w-full flex items-center gap-3 rounded-lg"
                                                         >
-                                                            <span className="text-xl text-background/80 group-hover:text-background">
-                                                                <subItem.icon className="w-5 h-5" />
+                                                            <span className="text-xl text-secondary">
+                                                                <subItem.icon className="w-8 h-8" />
                                                             </span>
                                                             <div className="flex flex-col min-w-[200px]">
-                                                                <span className="text-sm text-background font-medium">
+                                                                <span className="text-[16px] text-secondary inter-medium">
                                                                     {subItem.name}
                                                                 </span>
-                                                                <span className="text-xs text-background/80">
+                                                                <span className="text-[14px] text-background/80">
                                                                     {subItem.description}
                                                                 </span>
                                                             </div>
@@ -214,7 +227,7 @@ export default function Navbar() {
                                 ) : (
                                     <Link
                                         href={item.href}
-                                        className="text-sm text-background font-medium leading-6 cursor-pointer"
+                                            className="text-[16px] text-background lora-medium  cursor-pointer"
                                     >
                                         {item.name}
                                     </Link>
@@ -227,7 +240,7 @@ export default function Navbar() {
                         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
                             <Link
                                 href="/contact"
-                                className="rounded-md bg-[#B0CF2E] px-6 py-3 text-sm font-medium text-background shadow-sm hover:bg-primary/90 transition-colors duration-200 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-primary"
+                                className="rounded-md bg-primary py-[8px] px-[16px] text-[16px] lora-medium text-background hover:bg-primary/90 transition-colors duration-200"
                             >
                                 Get in Touch
                             </Link>
@@ -238,16 +251,16 @@ export default function Navbar() {
 
             {/* Mobile menu - Full Screen */}
             <div className={`lg:hidden fixed inset-0 bg-foreground z-50 transition-all duration-300 ${mobileMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
-                <div className="flex flex-col h-full overflow-auto px-6 py-6">
+                <div className="flex flex-col h-[100dvh] overflow-auto px-6 pt-4">
                     {/* Mobile Header */}
-                    <div className="flex items-center justify-between mb-8 px-2">
+                    <div className="flex items-center justify-between mb-4 px-6 py-4 bg-primary rounded-full">
                         <Link href="/" className="-m-1.5 p-1.5" onClick={() => setMobileMenuOpen(false)}>
                             <Image
                                 src="/logo.png"
                                 alt="Enzig Studio"
-                                width={120}
-                                height={40}
-                                className="h-8 w-auto"
+                                width={300}
+                                height={100}
+                                className="h-10 w-auto"
                             />
                         </Link>
                         <button
@@ -262,9 +275,9 @@ export default function Navbar() {
                     
                     {/* Mobile Navigation */}
                     <div className="flex-1 flex flex-col">
-                        <div className="space-y-4 py-6 mb-auto">
+                        <div className="space-y-6 py-6 mb-auto">
                             {navigation.map((item) => (
-                                <div key={item.name} className="border-b border-background/10 pb-4 last:border-b-0">
+                                <div key={item.name} className="border-b border-background/10 last:border-b-0">
                                     {item.dropdown ? (
                                         <>
                                             <button
@@ -284,15 +297,15 @@ export default function Navbar() {
                                                     <Link
                                                         key={subItem.name}
                                                         href={subItem.href}
-                                                        className="block py-2 text-base font-normal text-background/80 hover:text-background"
+                                                        className="block py-2 text-base font-normal"
                                                         onClick={() => setMobileMenuOpen(false)}
                                                     >
                                                         <div className="flex items-center gap-3">
-                                                            <span className="text-xl">
+                                                            <span className="text-xl text-secondary">
                                                                 <subItem.icon className="w-5 h-5" />
                                                             </span>
                                                             <div className="flex flex-col">
-                                                                <span>{subItem.name}</span>
+                                                                <span className="text-secondary">{subItem.name}</span>
                                                                 <span className="text-sm text-background/60">{subItem.description}</span>
                                                             </div>
                                                         </div>
@@ -317,7 +330,7 @@ export default function Navbar() {
                         <div className="mt-6 py-6">
                             <Link
                                 href="/contact"
-                                className="block w-full rounded-md bg-[#B0CF2E] px-6 py-4 text-center text-base font-medium text-background shadow-sm hover:bg-primary/90 transition-colors duration-200"
+                                className="block w-full text-center text-base font-medium shadow-sm rounded-md bg-primary py-[16px] px-[16px] text-[16px] lora-medium text-background hover:bg-primary/90 transition-colors duration-200"
                                 onClick={() => setMobileMenuOpen(false)}
                             >
                                 Get in Touch

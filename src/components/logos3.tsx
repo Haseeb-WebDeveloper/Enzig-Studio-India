@@ -20,6 +20,7 @@ interface Logos3Props {
   heading?: string;
   logos?: Logo[];
   className?: string;
+  absolute?: string | boolean;
 }
 
 const Logos3 = ({
@@ -29,51 +30,52 @@ const Logos3 = ({
       id: "logo-1",
       description: "Logo 1",
       image: "/logo.png",
-      className: "h-7 w-auto",
+      className: "h-10 w-auto",
     },
     {
       id: "logo-2",
       description: "Logo 2",
       image: "/logo.png",
-      className: "h-7 w-auto",
+      className: "h-10 w-auto",
     },
     {
       id: "logo-3",
       description: "Logo 3",
       image: "/logo.png",
-      className: "h-7 w-auto",
+      className: "h-10 w-auto",
     },
     {
       id: "logo-4",
       description: "Logo 4",
       image: "/logo.png",
-      className: "h-7 w-auto",
+      className: "h-10 w-auto",
     },
     {
       id: "logo-5",
       description: "Logo 5",
       image: "/logo.png",
-      className: "h-7 w-auto",
+      className: "h-10 w-auto",
     },
     {
       id: "logo-6",
       description: "Logo 6",
       image: "/logo.png",
-      className: "h-7 w-auto",
+      className: "h-10 w-auto",
     },
     {
       id: "logo-7",
       description: "Logo 7",
       image: "/logo.png",
-      className: "h-7 w-auto",
+      className: "h-10 w-auto",
     },
     {
       id: "logo-8",
       description: "Logo 8",
       image: "/logo.png",
-      className: "h-7 w-auto",
+      className: "h-10 w-auto",
     },
   ],
+  absolute,
 }: Logos3Props) => {
   return (
     <section className="">
@@ -82,17 +84,17 @@ const Logos3 = ({
           {heading}
         </h1>
       </div> */}
-      <div className="">
+      <div className={`${absolute ? "absolute bottom-16 left-0 w-full h-full" : ""}`}>
         <div className="relative mx-auto flex items-center justify-center lg:max-w-5xl">
           <Carousel
             opts={{ loop: true }}
             plugins={[AutoScroll({ playOnInit: true })]}
           >
-            <CarouselContent className="ml-0">
+            <CarouselContent className="">
               {logos.map((logo) => (
                 <CarouselItem
                   key={logo.id}
-                  className="flex basis-1/3 justify-center pl-0 sm:basis-1/4 md:basis-1/5 lg:basis-1/6"
+                  className="flex basis-1/3 justify-center pl-0 sm:basis-1/4 md:basis-1/5 lg:basis-1/6 md:ml-[5px]"
                 >
                   <div className="mx-10 flex shrink-0 items-center justify-center">
                     <div>
@@ -100,8 +102,8 @@ const Logos3 = ({
                         src={logo.image}
                         alt={logo.description}
                         className={logo.className}
-                        width={100}
-                        height={100}
+                        width={150}
+                        height={150}
                       />
                     </div>
                   </div>

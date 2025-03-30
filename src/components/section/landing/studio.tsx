@@ -30,9 +30,9 @@ export default function Studio() {
   }, []);
 
   return (
-    <section className="max-w-[1600px] mx-auto px-4 py-52 md:pb-24 md:pt-26 flex flex-col gap-12">
+    <section className="max-w-[1600px] mx-auto px-6 pb-16 pt-26 md:pb-24 md:pt-26 flex flex-col gap-12">
       <div className='flex flex-col items-center justify-center'>
-        <h2 ref={textRef} className='md:text-6xl text-[35px] font-bold'>Where we do Magic</h2>
+        <h2 ref={textRef} className='montserrat-extrabold text-[32px] md:text-[56px] leading-[40px] md:leading-[60px] text-center'>Where we do Magic</h2>
       </div>
       <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
         {[
@@ -48,7 +48,7 @@ export default function Studio() {
         ].map((src, index) => (
           <div key={index} className="break-inside-avoid overflow-hidden">
             <Image
-              className='rounded hover:scale-105 transition transform duration-75 ease-in-out'
+              className='rounded hover:scale-105 transition transform duration-300 ease-in-out'
               src={src}
               alt="Studio"
               width={500}
@@ -57,8 +57,14 @@ export default function Studio() {
           </div>
         ))}
 
-        <div className="break-inside-avoid overflow-hidden bg-gray-100 h-80 flex items-center justify-center rounded">
-          <p className='text-2xl font-bold text-background'>Learn More</p>
+        <div className="break-inside-avoid overflow-hidden bg-gray-100 h-80 flex items-center justify-center rounded"
+          // style={{
+          //   backgroundImage: "url('/studio-1.avif')",
+          //   backgroundSize: "cover",
+          //   backgroundPosition: "center",
+          // }}
+        >
+          <p className='montserrat-mediem text-[24px] md:text-[32px] leading-[32px] md:leading-[40px] text-background'>Learn More</p>
         </div>
       </div>
     </section>
