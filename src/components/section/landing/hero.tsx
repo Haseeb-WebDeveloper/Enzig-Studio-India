@@ -60,7 +60,7 @@ export default function Hero() {
                     {/* Left Content */}
                     <div className="flex flex-col justify-center space-y-8">
                         <h1 className="text-4xl text-center md:text-left font-bold leading-tight tracking-tighter md:text-6xl lg:leading-[1.1]">
-                            <span className="block">The Best Digital Marketing Company</span>
+                            <span className="block text-[#B0CF2E]">The Best Digital Marketing Company</span>
                         </h1>
 
                         <p className="text-lg text-center md:text-left text-muted-foreground md:text-xl">

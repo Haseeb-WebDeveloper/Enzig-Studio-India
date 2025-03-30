@@ -30,9 +30,9 @@ export default function Studio() {
   }, []);
 
   return (
-    <section className="max-w-[1600px] mx-auto px-4 pb-24 py-26 flex flex-col gap-12">
+    <section className="max-w-[1600px] mx-auto px-4 py-52 md:pb-24 md:pt-26 flex flex-col gap-12">
       <div className='flex flex-col items-center justify-center'>
-        <h2 ref={textRef} className='text-6xl font-bold'>Where we do Magic</h2>
+        <h2 ref={textRef} className='md:text-6xl text-[35px] font-bold'>Where we do Magic</h2>
       </div>
       <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
         {[

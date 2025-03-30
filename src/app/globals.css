@@ -143,6 +143,16 @@
 }
 
 
+.cta-gradient-background {
+  background: linear-gradient(
+    to right,
+    #7b00ff 0%,     /* Purple */
+    #00d1ff 30%,    /* Cyan */
+    #ff0080 60%,    /* Pink */
+    transparent 100% /* Transparent fade */
+  );
+}
+
 .masonry-grid {
  columns: 320px;
 }

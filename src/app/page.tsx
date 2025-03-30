@@ -7,6 +7,11 @@ import CreativityContent from "@/components/section/landing/creativity-content";
 import Services from "@/components/section/landing/services";
 import Studio from "@/components/section/landing/studio";
 import Creator from "@/components/section/landing/creator";
+import Resources from "@/components/section/landing/resources";
+import CTA from "@/components/section/landing/cta";
+import Footer from "@/components/section/landing/footer";
+
+
 export default function Home() {
   return (
     <main className="">
@@ -25,6 +30,9 @@ export default function Home() {
       <Services />
       <Studio />
       <Creator />
+      <Resources />
+      <CTA />
+      <Footer />
     </main>
   );
 }
