@@ -24,7 +24,6 @@ export default function Studio() {
           start: 'top 80%', // Starts animating when 80% of the viewport is reached
           end: 'top 20%', // Ends when 20% of the viewport is reached
           scrub: 1, // Smooth parallax effect
-          markers: true,
         },
       }
     );

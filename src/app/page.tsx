@@ -6,7 +6,7 @@ import MarketStrategy from "@/components/section/landing/market-strategy";
 import CreativityContent from "@/components/section/landing/creativity-content";
 import Services from "@/components/section/landing/services";
 import Studio from "@/components/section/landing/studio";
-
+import Creator from "@/components/section/landing/creator";
 export default function Home() {
   return (
     <main className="">
@@ -24,6 +24,7 @@ export default function Home() {
       <CreativityContent />
       <Services />
       <Studio />
+      <Creator />
     </main>
   );
 }
