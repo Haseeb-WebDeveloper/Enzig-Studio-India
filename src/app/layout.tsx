@@ -3,6 +3,8 @@ import { GeistSans } from "geist/font/sans";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import SmoothScrolling from "@/components/Smooth-scrolling";  
+import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export const metadata: Metadata = {
   title: "Enzig Studio | Creative Digital Marketing Agency in Gurgaon, India",
@@ -63,6 +65,8 @@ export default function RootLayout({
         >
           <SmoothScrolling>
             {children}
+            <Analytics />
+            <SpeedInsights />
           </SmoothScrolling>
         </ThemeProvider>
       </body>
