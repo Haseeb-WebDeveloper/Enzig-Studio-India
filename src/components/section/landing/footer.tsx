@@ -50,11 +50,11 @@ export default function Footer() {
           <div className="flex flex-col w-full gap-2 text-sm">
             <p className="montserrat-bold text-[20px] leading-[28px]">FOLLOW US ON</p>
             <div className="flex items-center gap-2">
-              <Link href="https://www.instagram.com/studioenzig" className="text-secondary hover:underline text-[16px] montserrat-regular">INSTAGRAM</Link>
+              <Link target="_blank" href="https://www.instagram.com/studioenzig" className="text-secondary hover:underline text-[16px] montserrat-regular">INSTAGRAM</Link>
               <span>/</span>
-              <Link href="https://www.facebook.com/share/1XmpS9Hidu/?mibextid=wwXIfr" className="text-secondary hover:underline text-[16px] montserrat-regular">FACEBOOK</Link>
+              <Link target="_blank" href="https://www.facebook.com/share/1XmpS9Hidu/?mibextid=wwXIfr" className="text-secondary hover:underline text-[16px] montserrat-regular">FACEBOOK</Link>
               <span>/</span>
-              <Link href="https://x.com/enzigstudio?s=21" className="text-secondary hover:underline text-[16px] montserrat-regular">X</Link>
+              <Link target="_blank" href="https://x.com/enzigstudio?s=21" className="text-secondary hover:underline text-[16px] montserrat-regular">X</Link>
             </div>
           </div>
         </div>
@@ -69,7 +69,7 @@ export default function Footer() {
           <Link href="#" className="text-[16px] lora-regular">Site Map</Link>
         </div>
         <div>
-          <p className="mt-2 md:mt-0 text-center md:text-left text-[16px] lora-regular">Enzig Studio © {currentYear}. All Rights Reserved.</p>
+          <p className="mt-2 md:mt-0 text-center md:text-left text-[16px] lora-regular"><a href="/">Enzig Studio</a> © {currentYear}. All Rights Reserved.</p>
         </div>
       </div>
     </footer>
