@@ -75,7 +75,6 @@ export default function RootLayout({
             `,
           }}
         /> */}
-        
 
         {/* Google Tag Manager */}
         <script
