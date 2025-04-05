@@ -61,7 +61,7 @@ export default function RootLayout({
         <link rel="canonical" href="https://enzigstudio.com" />
 
         {/* Google Analytics */}
-        <script
+        {/* <script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-PX9PM707FF"
         ></script>
@@ -74,7 +74,7 @@ export default function RootLayout({
               gtag('config', 'G-PX9PM707FF');
             `,
           }}
-        />
+        /> */}
 
         {/* Google Tag Manager */}
         <script
