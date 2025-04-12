@@ -14,7 +14,7 @@ import Footer from "@/components/section/landing/footer";
 
 export default function Home() {
   return (
-    <main className="">
+    <>
       <div className="relative min-h-screen h-full overflow-hidden">
         <div className="z-10 absolute top-0 right-0 w-full md:w-[50%] h-full bg-gradient-to-br from-background from-25% to-transparent"></div>
         <div className="z-10 absolute top-0 right-20 w-full md:w-1/2 h-full bg-gradient-to-r from-background to-transparent"></div>
@@ -28,11 +28,11 @@ export default function Home() {
       <MarketStrategy />
       <CreativityContent />
       <Services />
-      <Studio />
+      {/* <Studio /> */}
       <Creator />
       <Resources />
       <CTA />
       <Footer />
-    </main>
+    </>
   );
 }

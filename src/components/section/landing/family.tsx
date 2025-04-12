@@ -51,6 +51,49 @@ export default function Family() {
         // }
     ]
 
+    const logos = [
+        {
+            src: "/test-logo.png",
+            alt: "logo",
+        },
+        {
+            src: "/test-logo.png",
+            alt: "logo",
+        },
+        {
+            src: "/test-logo.png",
+            alt: "logo",
+        },
+        {
+            src: "/test-logo.png",
+            alt: "logo",
+        },
+        {
+            src: "/test-logo.png",
+            alt: "logo",
+        },
+        {
+            src: "/test-logo.png",
+            alt: "logo",
+        },
+        {
+            src: "/logo.png",
+            alt: "logo",
+        },
+        {
+            src: "/test-logo.png",
+            alt: "logo",
+        },
+        {
+            src: "/test-logo.png",
+            alt: "logo",
+        },
+        {
+            src: "/logo.png",
+            alt: "logo",
+        },
+    ]
+
 
     return (
         <section className="bg-background  py-[15vh] md:py-[20vh]">
@@ -79,7 +122,7 @@ export default function Family() {
 
                     {/* 2nd row */}
                     <div className="row-span-2 col-start-1 row-start-2 rounded-4xl p-6 bg-foreground h-auto">
-                        <div className="montserrat-bold text-[32px] md:text-[72px] leading-[40px] md:leading-[80px] bg-gradient-to-r from-[#E018FA] to-[#B0CF2E] bg-clip-text text-transparent">Clear Pricing. Real Results. Always.</div>
+                        <div className="montserrat-extrabold text-[32px] md:text-[72px] leading-[40px] md:leading-[80px] bg-gradient-to-r from-[#E018FA] to-[#B0CF2E] bg-clip-text text-transparent">Clear Pricing. Real Results. Always.</div>
                     </div>
 
                     {/* 2nd row 2nd column*/}
@@ -102,12 +145,21 @@ export default function Family() {
                     </div>
 
                     {/* 1th row 3rd column*/}
-                    <div className="row-span-2 col-start-3 row-start-1 rounded-4xl pt-5 bg-foreground text-background h-auto flex flex-col justify-between overflow-hidden relative">
+                    <div className="row-span-2 col-start-3 row-start-1 rounded-4xl pt-5  bg-foreground text-background h-auto flex flex-col justify-between overflow-hidden relative">
                         <div className="px-7 bg-gradient-to-r from-[#E018FA] to-[#B0CF2E] bg-clip-text text-transparent">
-                            <span className="montserrat-bold text-[32px] md:text-[56px] leading-[40px] md:leading-[64px]">Brands that believe in growth trust us.</span>
-                        </div>
-                        <div className="flex flex-col gap-2 relative">
-                            <Logos3 absolute="true" />
+                            <span className=" montserrat-extrabold text-[32px] md:text-[56px] leading-[40px] md:leading-[64px]">Brands that believe in growth trust us.</span>
+                            <div className="-mb-10 pt-4 flex flex-row flex-wrap  items-center gap-x-4 gap-y-4">
+                                {logos.map((logo, index) => (
+                                    <Image
+                                        key={index}
+                                        src={logo.src}
+                                        alt={logo.alt}
+                                        width={100}
+                                        height={100}
+                                        className="object-contain h-fit max-h-[20px] w-fit"
+                                    />
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -133,8 +185,8 @@ export default function Family() {
                                 <p className="montserrat-bold text-[32px] md:text-[56px] leading-[40px] md:leading-[64px]">Happy clients <br /> Family style.</p>
                             </div>
                         </div>
-                        <div className="rounded-4xl p-6 bg-foreground h-auto">
-                            <div className="montserrat-bold text-[32px] md:text-[72px] leading-[40px] md:leading-[80px] bg-gradient-to-r from-[#E018FA] to-[#B0CF2E] bg-clip-text text-transparent">Clear Pricing. Real Results. Always.</div>
+                        <div className="rounded-4xl bg-foreground h-auto">
+                            <div className="montserrat-extrabold text-[32px] md:text-[72px] leading-[40px] md:leading-[80px] bg-gradient-to-r from-[#E018FA] to-[#B0CF2E] bg-clip-text text-transparent p-6 ">Clear Pricing. Real Results. Always.</div>
                         </div>
                         <div className="p-6 rounded-4xl bg-foreground text-black flex justify-center items-center h-auto">
                             <Image
@@ -151,12 +203,21 @@ export default function Family() {
                             </div>
                             <div className="w-full montserrat-bold text-[20px] leading-[30px]">From strategy to design, design to market and market to results—driving ROI every step.</div>
                         </div>
-                        <div className="rounded-4xl pt-5 bg-foreground text-background h-auto flex flex-col justify-between overflow-hidden relative">
+                        <div className="rounded-4xl py-5 bg-foreground text-background h-auto flex flex-col justify-between overflow-hidden relative">
                             <div className="px-7 bg-gradient-to-r from-[#E018FA] to-[#B0CF2E] bg-clip-text text-transparent">
                                 <span className="montserrat-bold text-[32px] md:text-[56px] leading-[40px] md:leading-[64px]">Brands that believe in growth trust us.</span>
                             </div>
-                            <div className="flex flex-col gap-2 py-8">
-                                <Logos3 absolute={false} />
+                            <div className="px-6 pb-3 pt-8 flex flex-row flex-wrap  items-center gap-x-4 gap-y-4">
+                                {logos.map((logo, index) => (
+                                    <Image
+                                        key={index}
+                                        src={logo.src}
+                                        alt={logo.alt}
+                                        width={100}
+                                        height={100}
+                                        className="object-contain h-fit max-h-[20px] w-fit"
+                                    />
+                                ))}
                             </div>
                         </div>
                     </div>

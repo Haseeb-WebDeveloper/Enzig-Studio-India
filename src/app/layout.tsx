@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import SmoothScrolling from "@/components/Smooth-scrolling";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Enzig Studio | Creative Digital Marketing Agency in Gurgaon, India",
@@ -109,7 +110,13 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <SmoothScrolling>
-            {children}
+            <main className="relative">
+              {/* Whatsapp Chat */}
+              <div className="fixed bottom-5 right-5 z-50">
+                <Image src="/whatsapp-icon.png" alt="Whatsapp" width={100} height={100} className="w-[50px] h-[50px]" />
+              </div>
+              {children}
+            </main>
             <Analytics />
             <SpeedInsights />
           </SmoothScrolling>
