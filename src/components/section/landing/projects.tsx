@@ -160,7 +160,7 @@ export default function Projects() {
           </div>
 
           {/* Main content area */}
-          <div className="w-full md:w-[70%] relative h-[300px] sm:h-[400px]">
+          <div className="w-full md:w-[70%] relative h-[300px] md:h-auto">
             <div className="relative h-full rounded-2xl sm:rounded-3xl overflow-hidden">
               <Image
                 src={projects[currentProject].projectsImageUrl[currentSlide]}
