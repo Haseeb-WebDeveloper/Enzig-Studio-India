@@ -83,34 +83,34 @@ export default function MarketStrategy() {
                     >
                         <div className="flex gap-12 md:gap-20 flex-col">
                             {/* logo */}
-                            <div className="w-full flex flex-row overflow-x-auto md:overflow-x-visible pt-8 px-8 md:pt-0 md:px-0 gap-12 items-center justify-between">
+                            <div className="w-full flex flex-row overflow-x-auto md:overflow-x-visible pt-8 px-6 md:pt-0 md:px-0 gap-12 items-center justify-between">
                                 <button 
                                     onClick={() => handleCategoryClick('strategies')}
                                     className={`cursor-pointer flex-shrink-0 flex gap-[8px] items-center pb-2 ${activeCategory === 'strategies' ? 'border-b-[5px] border-primary' : 'border-b-[5px] border-transparent'}`}
                                 >
-                                    <Image src="/market-strategy/strategy-logo.svg" alt="Strategies Logo" width={100} height={100} className="w-[22px] h-[22px] hidden md:block" />
-                                    <p className="text-[18px] md:text-[20px] montserrat-bold">Strategies</p>
+                                    <Image src="/market-strategy/strategy-logo.svg" alt="Strategies Logo" width={100} height={100} className="md:w-[22px] md:h-[22px] w-[16px] h-[16px]" />
+                                    <p className="text-[14px] md:text-[20px] montserrat-bold">Strategies</p>
                                 </button>
                                 <button 
                                     onClick={() => handleCategoryClick('googleAds')}
                                     className={`cursor-pointer flex-shrink-0 flex gap-[8px] items-center pb-2 ${activeCategory === 'googleAds' ? 'border-b-[5px] border-primary' : 'border-b-[5px] border-transparent'}`}
                                 >
-                                    <Image src="/market-strategy/google-ads-logo.svg" alt="Google Ads Logo" width={100} height={100} className="w-[22px] h-[22px] hidden md:block" />
-                                    <p className="text-[18px] md:text-[20px] montserrat-bold">Google Ads</p>
+                                    <Image src="/market-strategy/google-ads-logo.svg" alt="Google Ads Logo" width={100} height={100} className="md:w-[22px] md:h-[22px] w-[16px] h-[16px]" />
+                                    <p className="text-[14px] md:text-[20px] montserrat-bold">Google Ads</p>
                                 </button>
                                 <button 
                                     onClick={() => handleCategoryClick('metaAds')}
                                     className={`cursor-pointer flex-shrink-0 flex gap-[8px] items-center pb-2 ${activeCategory === 'metaAds' ? 'border-b-[5px] border-primary' : 'border-b-[5px] border-transparent'}`}
                                 >
-                                    <Image src="/market-strategy/meta-ads-logo.svg" alt="Meta Ads Logo" width={100} height={100} className="w-[22px] h-[22px] hidden md:block" />
-                                    <p className="text-[18px] md:text-[20px] montserrat-bold">Meta Ads</p>
+                                    <Image src="/market-strategy/meta-ads-logo.svg" alt="Meta Ads Logo" width={100} height={100} className="md:w-[22px] md:h-[22px] w-[16px] h-[16px]" />
+                                    <p className="text-[14px] md:text-[20px] montserrat-bold">Meta Ads</p>
                                 </button>
                                 <button 
                                     onClick={() => handleCategoryClick('analysisRoi')}
                                     className={`cursor-pointer flex-shrink-0 flex gap-[8px] items-center pb-2 ${activeCategory === 'analysisRoi' ? 'border-b-[5px] border-primary' : 'border-b-[5px] border-transparent'}`}
                                 >
-                                    <Image src="/market-strategy/analysis-roi-logo.svg" alt="Analysis ROI Logo" width={100} height={100} className="w-[22px] h-[22px] hidden md:block" />
-                                    <p className="text-[18px] md:text-[20px] montserrat-bold">Analysis & ROI</p>
+                                    <Image src="/market-strategy/analysis-roi-logo.svg" alt="Analysis ROI Logo" width={100} height={100} className="md:w-[22px] md:h-[22px] w-[16px] h-[16px]" />
+                                    <p className="text-[14px] md:text-[20px] montserrat-bold">Analysis & ROI</p>
                                 </button>
                             </div>
 

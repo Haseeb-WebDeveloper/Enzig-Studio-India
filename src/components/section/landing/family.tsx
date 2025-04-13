@@ -157,8 +157,8 @@ export default async function Family() {
                             />
                         </div>
                         <div className="space-y-4 rounded-4xl p-6 bg-secondary h-auto">
-                            <div className="w-full">
-                                <Image alt="s" src="/family-last-card-pic.png" width={200} height={200} className="w-full h-full object-contain rounded-4xl"></Image>
+                            <div className="w-full px-2 pt-2 md:p-0">
+                                <Image alt="s" src="/family-last-card-pic.png" width={200} height={200} className="w-full  h-full object-contain md:rounded-4xl rounded-sm"></Image>
                             </div>
                             <div className="w-full montserrat-bold text-[20px] leading-[30px]">From strategy to design, design to market and market to results—driving ROI every step.</div>
                         </div>

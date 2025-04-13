@@ -59,7 +59,7 @@ export default function Services() {
                             </div>
 
                             {/* Image Section */}
-                            <div className="md:w-[40%] w-full">
+                            <div className="md:w-[40%] w-full px-2 pt-2 md:p-0">
                                 <Image
                                     src={card.image}
                                     alt={card.category}

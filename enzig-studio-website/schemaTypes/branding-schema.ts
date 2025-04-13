@@ -27,7 +27,7 @@ export const brandingSchema = defineType({
             of: [{
               type: 'string',
               options: {
-                list: ['Web & App Development', 'Digital Art & Illustration', '3D Modeling & Animation', 'Game Development', 'UI/UX Design', 'Branding & Marketing']
+                list: ['Web & App Development', 'Digital Art & Illustration', '3D Modeling & Animation', 'Social Media Management', 'Branding & Marketing']
               }
             }]
           })

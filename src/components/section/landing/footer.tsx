@@ -4,17 +4,17 @@ import Link from "next/link";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
-  
+
   return (
     <footer className="max-w-[1200px] mx-auto bg-background p-6 pt-24 pb-6 md:pb-2">
-      <div className="mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 justify-between">
+      <div className="mx-auto flex flex-col md:flex-row gap-6 justify-between">
         {/* Left section with logo and contact */}
-        <div className="flex flex-col justify-between space-y-6">
+        <div className="w-full flex flex-col justify-between space-y-6">
           {/* Logo */}
           <div className="flex items-center justify-between">
             <Image src="/logo-for-dark-bg.png" alt="Studio Logo" width={100} height={60} className="max-h-[92px] w-fit" />
           </div>
-          
+
           {/* Work with us */}
           <div className="flex flex-col">
             <h4 className="montserrat-bold text-[20px] leading-[28px] mb-1">WORK WITH US</h4>
@@ -24,8 +24,7 @@ export default function Footer() {
         </div>
 
         {/* Middle section with nav links */}
-        <div 
-          className="flex flex-col gap-[8px] justify-end bg-secondary py-5 px-7 text-foreground" 
+        <div className="w-full flex flex-col gap-[8px] justify-end bg-secondary py-5 px-7 text-foreground"
           style={{
             clipPath: "polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%)"
           }}
@@ -39,7 +38,7 @@ export default function Footer() {
         </div>
 
         {/* Right section with social */}
-        <div className="flex flex-col gap-4 justify-between p-6 border border-secondary">
+        <div className="w-full flex flex-col gap-4 justify-between p-6 border border-secondary">
           <div className="flex justify-end items-center mb-4">
             <div className="bg-red-500 w-8 h-8 rounded-md flex items-center justify-center">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-white" viewBox="0 0 20 20" fill="currentColor">
@@ -49,12 +48,14 @@ export default function Footer() {
           </div>
           <div className="flex flex-col w-full gap-2 text-sm">
             <p className="montserrat-bold text-[20px] leading-[28px]">FOLLOW US ON</p>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center flex-wrap md:flex-nowrap gap-2">
               <Link target="_blank" href="https://www.instagram.com/studioenzig" className="text-secondary hover:underline text-[16px] montserrat-regular">INSTAGRAM</Link>
               <span>/</span>
               <Link target="_blank" href="https://www.facebook.com/share/1XmpS9Hidu/?mibextid=wwXIfr" className="text-secondary hover:underline text-[16px] montserrat-regular">FACEBOOK</Link>
               <span>/</span>
               <Link target="_blank" href="https://x.com/enzigstudio?s=21" className="text-secondary hover:underline text-[16px] montserrat-regular">X</Link>
+              <span>/</span>
+              <Link target="_blank" href="https://www.linkedin.com/company/enzig-studio" className="text-secondary hover:underline text-[16px] montserrat-regular">LINKEDIN</Link>
             </div>
           </div>
         </div>
