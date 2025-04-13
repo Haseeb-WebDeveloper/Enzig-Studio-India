@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { GeistSans } from "geist/font/sans";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import SmoothScrolling from "@/components/Smooth-scrolling";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Image from "next/image";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Enzig Studio | Creative Digital Marketing Agency in Gurgaon, India",
@@ -57,7 +57,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={GeistSans.className}>
+    <html lang="en">
       <head>
         <link rel="canonical" href="https://enzigstudio.com" />
 
@@ -112,9 +112,9 @@ export default function RootLayout({
           <SmoothScrolling>
             <main className="relative">
               {/* Whatsapp Chat */}
-              <div className="fixed bottom-5 right-5 z-50">
-                <Image src="/whatsapp-icon.png" alt="Whatsapp" width={100} height={100} className="w-[50px] h-[50px]" />
-              </div>
+              <Link href="https://wa.me/919625831925" target="_blank" className=" fixed bottom-5 right-5 z-50">
+                <Image src="/whatsapp-icon.png" alt="Whatsapp" width={100} height={100} className="w-[50px] h-[50px] cursor-pointer" />
+              </Link>
               {children}
             </main>
             <Analytics />

@@ -1,7 +1,10 @@
-import { Logos3 } from "@/components/logos3";
 import Image from "next/image";
+import { fetchSecondSectionLogo } from "@/lib/sanity";
+import { urlFor } from "@/lib/sanity";
 
-export default function Family() {
+export default async function Family() {
+
+    const secondSectionLogos = await fetchSecondSectionLogo();
 
     const card1pics = [
         {
@@ -51,50 +54,6 @@ export default function Family() {
         // }
     ]
 
-    const logos = [
-        {
-            src: "/test-logo.png",
-            alt: "logo",
-        },
-        {
-            src: "/test-logo.png",
-            alt: "logo",
-        },
-        {
-            src: "/test-logo.png",
-            alt: "logo",
-        },
-        {
-            src: "/test-logo.png",
-            alt: "logo",
-        },
-        {
-            src: "/test-logo.png",
-            alt: "logo",
-        },
-        {
-            src: "/test-logo.png",
-            alt: "logo",
-        },
-        {
-            src: "/logo.png",
-            alt: "logo",
-        },
-        {
-            src: "/test-logo.png",
-            alt: "logo",
-        },
-        {
-            src: "/test-logo.png",
-            alt: "logo",
-        },
-        {
-            src: "/logo.png",
-            alt: "logo",
-        },
-    ]
-
-
     return (
         <section className="bg-background  py-[15vh] md:py-[20vh]">
             <div className="max-w-[960px] mx-auto h-full px-6 xl:px-0 z-20">
@@ -121,7 +80,7 @@ export default function Family() {
                     </div>
 
                     {/* 2nd row */}
-                    <div className="row-span-2 col-start-1 row-start-2 rounded-4xl p-6 bg-foreground h-auto">
+                    <div className="row-span-2 col-start-1 row-start-2 rounded-4xl p-6 pb-0 bg-foreground h-auto">
                         <div className="montserrat-extrabold text-[32px] md:text-[72px] leading-[40px] md:leading-[80px] bg-gradient-to-r from-[#E018FA] to-[#B0CF2E] bg-clip-text text-transparent">Clear Pricing. Real Results. Always.</div>
                     </div>
 
@@ -148,11 +107,11 @@ export default function Family() {
                     <div className="row-span-2 col-start-3 row-start-1 rounded-4xl pt-5  bg-foreground text-background h-auto flex flex-col justify-between overflow-hidden relative">
                         <div className="px-7 bg-gradient-to-r from-[#E018FA] to-[#B0CF2E] bg-clip-text text-transparent">
                             <span className=" montserrat-extrabold text-[32px] md:text-[56px] leading-[40px] md:leading-[64px]">Brands that believe in growth trust us.</span>
-                            <div className="-mb-10 pt-4 flex flex-row flex-wrap  items-center gap-x-4 gap-y-4">
-                                {logos.map((logo, index) => (
+                            <div className="-mb-12 pt-4 flex flex-row flex-wrap  items-center gap-x-4 gap-y-4">
+                                {secondSectionLogos[0].logos.map((logo: any, index: any) => (
                                     <Image
                                         key={index}
-                                        src={logo.src}
+                                        src={logo.logo.asset.url}
                                         alt={logo.alt}
                                         width={100}
                                         height={100}
@@ -208,13 +167,13 @@ export default function Family() {
                                 <span className="montserrat-bold text-[32px] md:text-[56px] leading-[40px] md:leading-[64px]">Brands that believe in growth trust us.</span>
                             </div>
                             <div className="px-6 pb-3 pt-8 flex flex-row flex-wrap  items-center gap-x-4 gap-y-4">
-                                {logos.map((logo, index) => (
+                                {secondSectionLogos[0].logos.map((logo: any, index: any) => (
                                     <Image
                                         key={index}
-                                        src={logo.src}
+                                        src={logo.logo.asset.url}
                                         alt={logo.alt}
-                                        width={100}
-                                        height={100}
+                                        width={300}
+                                        height={300}
                                         className="object-contain h-fit max-h-[20px] w-fit"
                                     />
                                 ))}
