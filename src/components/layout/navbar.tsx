@@ -67,7 +67,7 @@ const navigation = [
         dropdown: [
             { name: "Portfolio", description: "Creativity at its best", href: "/work/portfolio", icon: Layers },
             { name: "Case Studies", description: "Real growth stories", href: "/work/case-studies", icon: FileText },
-            { name: "Testimonials", description: "Who believe in us", href: "/work/testimonials", icon: ThumbsUp },
+            // { name: "Testimonials", description: "Who believe in us", href: "/work/testimonials", icon: ThumbsUp },
         ],
     },
     { name: "Blog", href: "/blog" },
