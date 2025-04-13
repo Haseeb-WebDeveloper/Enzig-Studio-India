@@ -10,6 +10,7 @@ import Creator from "@/components/section/landing/creator";
 import Resources from "@/components/section/landing/resources";
 import CTA from "@/components/section/landing/cta";
 import Footer from "@/components/section/landing/footer";
+import Projects from "@/components/section/landing/projects";
 
 
 export default function Home() {
@@ -28,6 +29,7 @@ export default function Home() {
       <MarketStrategy />
       <CreativityContent />
       <Services />
+      <Projects />
       {/* <Studio /> */}
       <Creator />
       <Resources />

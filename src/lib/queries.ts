@@ -10,3 +10,17 @@ export const secondSectionLogoQuery = `
   }
 }
 `
+
+export const brandForLandingQuery = `
+  *[_type == "branding" && showAtLanding == true]{
+    title,
+    images[]{
+      asset->{
+        url
+      },
+      categories
+    },
+    showAtLanding
+  }
+`
+

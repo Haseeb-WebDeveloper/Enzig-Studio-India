@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { fetchSecondSectionLogo } from "@/lib/sanity";
+import { fetchBrandingForLanding, fetchSecondSectionLogo } from "@/lib/sanity";
 import { urlFor } from "@/lib/sanity";
 
 export default async function Family() {

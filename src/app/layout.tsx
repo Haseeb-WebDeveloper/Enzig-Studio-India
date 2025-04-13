@@ -8,6 +8,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://enzigstudio.com'),
   title: "Enzig Studio | Creative Digital Marketing Agency in Gurgaon, India",
   description:
     "Enzig Studio is a creative digital marketing agency in Gurgaon, India that offers a range of services to help businesses grow and succeed online. Specializing in strategy, design, and marketing solutions that drive ROI.",
@@ -48,7 +49,6 @@ export const metadata: Metadata = {
     width: "device-width",
     initialScale: 1,
   },
-  themeColor: "#000000",
 };
 
 export default function RootLayout({
@@ -117,8 +117,8 @@ export default function RootLayout({
               </Link>
               {children}
             </main>
-            <Analytics />
-            <SpeedInsights />
+            {/* <Analytics /> */}
+            {/* <SpeedInsights /> */}
           </SmoothScrolling>
         </ThemeProvider>
       </body>
