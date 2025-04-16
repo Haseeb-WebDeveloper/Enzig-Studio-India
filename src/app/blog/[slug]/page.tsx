@@ -112,7 +112,7 @@ export default async function BlogPost({
           {/* Post metadata and author */}
           <div className="flex items-center py-3 px-4 gap-4 border border-background/[0.05] rounded-lg">
             {post.author.image && (
-              <div className="relative h-12 w-12 rounded-full overflow-hidden">
+              <div className="relative h-12 w-12 rounded-[29%] overflow-hidden">
                 <Image
                   src={urlFor(post.author.image).url()}
                   alt={post.author.name}
@@ -180,10 +180,10 @@ export default async function BlogPost({
 
         {/* Sidebar */}
         <div className="lg:col-span-4">
-          <div className="bg-gray-50 p-6 rounded-lg mb-8">
-            <div className="flex items-center gap-3 mb-4">
+          <div className="bg-primary p-4 rounded-lg mb-8">
+            <div className="flex items-center gap-3">
               {post.author.image && (
-                <div className="relative h-14 w-14 rounded-full overflow-hidden">
+                <div className="relative h-14 w-14 rounded-[20%] overflow-hidden">
                   <Image
                     src={urlFor(post.author.image).url()}
                     alt={post.author.name}
@@ -193,15 +193,16 @@ export default async function BlogPost({
                 </div>
               )}
               <div>
-                <p className="font-bold text-sm">About the author</p>
-                <p className="text-gray-700">{post.author.name}</p>
+                <p className="">{post.author.name}</p>
+                <p className="text-sm ">{post.author.role}</p>
+                {post.author.bio && (
+                  <div className="prose prose-sm">
+                    <PortableText value={post.author.bio} />
+                  </div>
+                )}
               </div>
             </div>
-            {post.author.bio && (
-              <div className="prose prose-sm">
-                <PortableText value={post.author.bio} />
-              </div>
-            )}
+
           </div>
 
           {/* CTA box */}
