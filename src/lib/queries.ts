@@ -88,6 +88,7 @@ export const singlePostQuery = `
   "author": author->{
     name,
     image,
+    role,
     bio
   },
   "category": category->{
@@ -134,5 +135,50 @@ export const allFaqQuery = `
   question,
   answer
 }
+`
+
+// leading post query
+export const leadingPostQuery = `
+*[_type == "post" && category->title == "Leading"][0]{
+  _id,
+  title,
+  slug,
+  description,
+  mainImage,
+  publishedAt,
+  "author": author->{
+    name,
+    image
+  },
+  "category": category->{
+    title,
+    description
+  }
+}
+`
+
+// posts by category with pagination
+export const postsByCategoryQuery = `
+*[_type == "post" && ($category == "all" || category->title == $category)] | order(publishedAt desc) [$start...$end] {
+  _id,
+  title,
+  slug,
+  description,
+  mainImage,
+  publishedAt,
+  "author": author->{
+    name,
+    image
+  },
+  "category": category->{
+    title,
+    description
+  }
+}
+`
+
+// total posts count by category
+export const totalPostsByCategoryQuery = `
+count(*[_type == "post" && ($category == "all" || category->title == $category)])
 `
 

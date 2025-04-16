@@ -34,7 +34,6 @@ export default function Home() {
       <Creator />
       <Resources />
       <CTA />
-      <Footer />
     </>
   );
 }

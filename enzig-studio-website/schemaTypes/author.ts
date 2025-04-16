@@ -16,6 +16,11 @@ export const author = defineType({
       type: 'image'
     }),
     defineField({
+      name: 'role',
+      title: 'Role',
+      type: 'string'
+    }),
+    defineField({
       name: 'bio',
       title: 'Bio',
       type: 'array',
