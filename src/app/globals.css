@@ -264,3 +264,125 @@
  columns: 320px;
 }
 
+
+
+
+/* Montserrat Semi Bold with  h2, h3, h4 */
+.montserrat-sb-h2{
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 56px;
+  line-height: 64px;
+}
+/* on sm */
+@media (max-width: 768px) {
+  .montserrat-sb-h3{
+    font-size: 24px;
+    line-height: 32px;
+  }
+}
+
+.montserrat-sb-h3{
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 32px;
+  line-height: 40px;
+}
+/* on sm */
+@media (max-width: 768px) {
+  .montserrat-sb-h3{
+    font-size: 24px;
+    line-height: 32px;
+  }
+}
+
+.montserrat-sb-h4{
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 32px;
+}
+/* on sm */
+@media (max-width: 768px) {
+  .montserrat-sb-h4{
+    font-size: 20px;
+    line-height: 28px;
+  }
+}
+
+
+
+.montserrat-m-h2{
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 28px;
+}
+/* on sm */
+@media (max-width: 768px) {
+  .montserrat-m-h2{
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+
+.montserrat-m-h4{
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 24px;
+}
+/* on sm */
+@media (max-width: 768px) {
+  .montserrat-m-h4{
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+
+
+/* Lora medium with h1 h4 */
+
+.lora-m-h1 {
+  font-family: "Lora", serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 32px;
+}
+/* on sm */
+@media (max-width: 768px) {
+  .lora-m-h1{
+    font-size: 20px;
+    line-height: 28px;
+  }
+}
+
+.lora-m-h4 {
+  font-family: "Lora", serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 28px;
+} 
+/* on sm */
+@media (max-width: 768px) {
+  .lora-m-h4{
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
