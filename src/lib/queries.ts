@@ -102,6 +102,8 @@ export const singlePostQuery = `
   "relatedPosts": relatedPosts[]->{
     _id,
     title,
+    description,
+    publishedAt,
     slug,
     mainImage
   }
@@ -182,3 +184,11 @@ export const totalPostsByCategoryQuery = `
 count(*[_type == "post" && ($category == "all" || category->title == $category)])
 `
 
+
+
+// blog sidebar image
+export const blogSidebarImageQuery = `
+*[_type == "blogSidebarImage"][0]{
+  "imageUrl": image.asset._ref
+}
+`

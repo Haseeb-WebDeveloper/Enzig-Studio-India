@@ -4,6 +4,7 @@ import { allCategoriesQuery, allPostsQuery, leadingPostQuery } from "@/lib/queri
 import ClientPosts from "@/components/blog/client-posts";
 import { urlFor } from "@/lib/sanity";
 import Link from "next/link";
+import CTA from "@/components/section/landing/cta";
 
 // Revalidate every hour
 export const revalidate = 3600;
@@ -75,6 +76,7 @@ export default async function BlogPage() {
   const { leadingPost, categories, posts } = await getInitialData();
 
   return (
+   <>
     <main className="max-w-[1220px] mx-auto px-4 py-12">
       <div className="space-y-12">
         {/* Leading Post - Always shown regardless of category */}
@@ -126,11 +128,13 @@ export default async function BlogPage() {
           </div>
         )}
 
-        <div className="flex flex-col max-w-[1080px] mx-auto">
+        <div className="flex flex-col max-w-[1080px] mx-auto pb-24">
           {/* Client-side Posts Grid with Category Filtering */}
           <ClientPosts categories={categories} initialPosts={posts} />
         </div>
       </div>
     </main>
+      <CTA />
+   </>
   );
 } 

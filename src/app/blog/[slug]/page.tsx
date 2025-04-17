@@ -2,69 +2,34 @@
 
 import { client } from "@/lib/sanity";
 import { urlFor } from "@/lib/sanity";
-import { singlePostQuery } from "@/lib/queries";
+import { blogSidebarImageQuery, singlePostQuery } from "@/lib/queries";
 import Image from "next/image";
 import { PortableText } from "@portabletext/react";
 import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
-import { Calendar } from "lucide-react";
+import { Calendar, Loader2 } from "lucide-react";
 import { Metadata } from "next";
 import { useEffect, useState } from "react";
-
-// Types
-interface Author {
-  name: string;
-  image: any;
-  role?: string;
-  bio?: any[];
-}
-
-interface Category {
-  title: string;
-  description: string;
-}
-
-interface FAQ {
-  question: string;
-  answer: any[];
-}
-
-interface RelatedPost {
-  _id: string;
-  title: string;
-  slug: { current: string };
-  mainImage: any;
-}
-
-interface Post {
-  _id: string;
-  title: string;
-  slug: { current: string };
-  description: string;
-  mainImage: any;
-  publishedAt: string;
-  updatedAt?: string;
-  content: any[];
-  author: Author;
-  category: Category;
-  faq?: FAQ[];
-  relatedPosts?: RelatedPost[];
-}
+import { Post } from "@/types/interface";
+import PostCard from "@/components/blog/post-card";
+import SidebarRelatedPostCard from "@/components/blog/sidebar-related-post-card";
 
 export default function BlogPost() {
   const params = useParams();
   const router = useRouter();
   const [post, setPost] = useState<Post | null>(null);
+  const [sidebarImage, setSidebarImage] = useState<any>(null);
 
   useEffect(() => {
     fetchPost();
+    fetchSidebarImage();
   }, [params.slug]);
 
   const fetchPost = async () => {
     try {
       const post = await client.fetch(singlePostQuery, { slug: params.slug });
+      console.log("post", post);
       if (!post) {
-        // router.push('/404');
         console.log("Post not found");
         return;
       }
@@ -72,17 +37,32 @@ export default function BlogPost() {
       updateMeta(post);
     } catch (error) {
       console.error("Error fetching post:", error);
-      // router.push('/404');
+    }
+  };
+
+  const fetchSidebarImage = async () => {
+    try {
+      const sidebarImageData = await client.fetch(blogSidebarImageQuery);
+      if (sidebarImageData && sidebarImageData.imageUrl) {
+        setSidebarImage(sidebarImageData.imageUrl);
+      }
+    } catch (error) {
+      console.error("Error fetching sidebar image:", error);
     }
   };
 
   const updateMeta = (post: Post) => {
     document.title = `${post.title} | Enzig Studio India`;
-    // more meta data will be added here
   };
 
   if (!post) {
-    return <div>Loading...</div>;
+    return <>
+      <div className="max-w-6xl mx-auto px-4 py-8">
+        <div className="flex items-center justify-center h-screen">
+          <Loader2 size={32} className="animate-spin" />
+        </div>
+      </div>
+    </>;
   }
 
   return (
@@ -170,12 +150,13 @@ export default function BlogPost() {
                 components={{
                   types: {
                     image: ({ value }) => (
-                      <div className="relative h-[400px] w-full my-8 rounded-lg overflow-hidden">
+                      <div className="relative border border-gray-200 min-h-fit h-full w-full my-8 rounded-lg overflow-hidden">
                         <Image
                           src={urlFor(value).url()}
                           alt={value.alt || "Blog post image"}
-                          fill
-                          className="object-cover"
+                          width={500}
+                          height={500}
+                          className="object-contain h-full w-full"
                         />
                       </div>
                     ),
@@ -184,32 +165,22 @@ export default function BlogPost() {
               />
             )}
           </div>
-
-          {/* FAQ section */}
-          {post.faq && post.faq.length > 0 && (
-            <div className="mb-12">
-              <h2 className="text-2xl font-bold mb-6">
-                Frequently Asked Questions
-              </h2>
-              <div className="space-y-6">
-                {post.faq.map((item, index) => (
-                  <div key={index} className="bg-gray-50 p-6 rounded-lg">
-                    <h3 className="text-xl font-semibold mb-3">
-                      {item.question}
-                    </h3>
-                    <div className="prose">
-                      <PortableText value={item.answer} />
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
         </div>
 
         {/* Sidebar */}
         <div className="lg:col-span-4">
-          <div className="bg-primary p-4 rounded-lg mb-8">
+          {sidebarImage && (
+            <div className="w-full h-fit overflow-hidden mb-2">
+              <Image
+                src={urlFor(sidebarImage).url()}
+                alt="Blog sidebar image"
+                width={500}
+                height={500}
+                className="object-contain w-full h-full"
+              />
+            </div>
+          )}
+          <div className="bg-primary/80 p-4 rounded-lg mb-8">
             <div className="flex items-center gap-3">
               {post.author.image && (
                 <div className="relative h-14 w-14 rounded-[20%] overflow-hidden">
@@ -235,46 +206,70 @@ export default function BlogPost() {
             </div>
           </div>
 
-          {/* CTA box */}
-          <div className="bg-yellow-50 border border-yellow-200 p-6 rounded-lg mb-8">
-            <h3 className="text-xl font-bold mb-3">Grow Your Business with the #1 Digital Marketing Agency!</h3>
-            <p className="text-gray-700 mb-4">Transform your digital presence and compete to rank—the right way, every step.</p>
-            <a href="/contact" className="bg-black text-white px-4 py-2 rounded inline-block font-medium hover:bg-gray-800">
-              Talk to us →
-            </a>
+          {/* social links */}
+          <div className="bg-primary/80 p-4 rounded-lg mb-8 space-y-3">
+          <p className="text-sm text-gray-500">Share with your community!</p>
+         <div className="flex items-center gap-2">
+         <Link href="https://wa.me/919625831925" target="_blank" className="">
+                <Image src="/whatsapp-icon.png" alt="Whatsapp" width={100} height={100} className="w-[30px] h-[30px] cursor-pointer" />
+              </Link>
+          <Link href="https://wa.me/919625831925" target="_blank" className="">
+                <Image src="/whatsapp-icon.png" alt="Whatsapp" width={100} height={100} className="w-[30px] h-[30px] cursor-pointer" />
+              </Link>
+          <Link href="https://wa.me/919625831925" target="_blank" className="">
+                <Image src="/whatsapp-icon.png" alt="Whatsapp" width={100} height={100} className="w-[30px] h-[30px] cursor-pointer" />
+              </Link>
+          <Link href="https://wa.me/919625831925" target="_blank" className="">
+                <Image src="/whatsapp-icon.png" alt="Whatsapp" width={100} height={100} className="w-[30px] h-[30px] cursor-pointer" />
+              </Link>
+         </div>
           </div>
 
-          {/* Related posts */}
-          {post.relatedPosts && post.relatedPosts.length > 0 && (
-            <div className="bg-white border border-gray-100 rounded-lg p-6">
-              <h3 className="text-lg font-bold mb-4">Related Posts</h3>
-              <div className="space-y-4">
-                {post.relatedPosts.slice(0, 3).map((relatedPost) => (
-                  <Link
-                    key={relatedPost._id}
-                    href={`/blog/${relatedPost.slug.current}`}
-                    className="group flex gap-3 items-center"
-                  >
-                    {relatedPost.mainImage && (
-                      <div className="relative h-16 w-16 rounded overflow-hidden flex-shrink-0">
-                        <Image
-                          src={urlFor(relatedPost.mainImage).url()}
-                          alt={relatedPost.title}
-                          fill
-                          className="object-cover"
-                        />
-                      </div>
-                    )}
-                    <h4 className="text-sm font-medium group-hover:text-blue-600">
-                      {relatedPost.title}
-                    </h4>
-                  </Link>
+            {/* related posts */}
+            <div className="mb-8">
+              <h2 className="text-2xl font-bold mb-3">The Latest</h2>
+              <div className="gap-4">
+                {post.relatedPosts && post.relatedPosts.length > 0 && post.relatedPosts.map((relatedPost) => (
+                  <SidebarRelatedPostCard post={relatedPost} key={relatedPost._id} />
                 ))}
               </div>
             </div>
-          )}
         </div>
       </div>
+
+        {/* FAQ section */}
+        {post.faq && post.faq.length > 0 && (
+        <div className="mt-16">
+          <h2 className="text-2xl font-bold mb-6">
+            Frequently Asked Questions
+          </h2>
+          <div className="space-y-6">
+            {post.faq.map((item, index) => (
+              <div key={index} className="bg-gray-50 p-6 rounded-lg">
+                <h3 className="text-xl font-semibold mb-3">
+                  {item.question}
+                </h3>
+                <div className="prose">
+                  <PortableText value={item.answer} />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Related Posts Section */}
+      {post.relatedPosts && post.relatedPosts.length > 0 && (
+        <div className="mt-16">
+          <h2 className="text-3xl font-bold mb-8">Related Articles</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {post.relatedPosts.map((relatedPost) => (
+              <PostCard post={relatedPost} key={relatedPost._id} />
+            ))}
+          </div>
+        </div>
+      )}
+
     </div>
   );
 }

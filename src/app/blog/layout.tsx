@@ -12,7 +12,7 @@ export default function BlogLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="min-h-screen bg-white text-background">
+    <div className="relative min-h-screen bg-white text-background">
         <Navbar />
         {children}
     </div>
