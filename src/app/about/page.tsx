@@ -36,14 +36,14 @@ export default function AboutPage() {
   return (
     <main className="relative">
       {/* Hero Section */}
-      <section className="relative bg-background h-full min-h-[600px] px-6 flex items-center justify-center">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0 w-full px-6">
+      <section className="relative bg-background h-full min-h-[620px] px-6 flex items-center justify-center">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0 w-full px-2">
           <Image
             src="/about/hero.png"
             alt="About Hero"
             width={1000}
             height={1000}
-            className="h-full md:max-w-[560px] max-w-full"
+            className="h-full md:max-w-[680px] rotate-270 md:rotate-0 mx-auto w-full"
             priority
           />
         </div>
