@@ -1,36 +1,117 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Enzig Studio India - Digital Marketing Agency Website
+
+A modern, responsive website for Enzig Studio India - a digital marketing agency offering comprehensive marketing solutions, built with Next.js 15 and Sanity CMS.
+
+## Features
+
+- 🚀 Built with Next.js 15 and TypeScript
+- 📝 Content management with Sanity CMS
+- 🎨 Styled with Tailwind CSS
+- 📱 Fully responsive design
+- ⚡ Fast page loads with static generation
+- 🖼️ Optimized image handling with Next/Image
+- 📊 Analytics integration with Vercel
+- 🎭 Beautiful animations with Framer Motion and GSAP
+- 🎠 Carousel functionality with Embla Carousel
+
+## Services Showcased
+
+- Google Ads
+- E-Commerce Solutions
+- Website Development
+- Graphics & Video Production
+- Social Media Management
+- SEO Optimization
+- Content Creation
+- Meta Ads
+- Graphics Design
+- Analysis & ROI
+- Branding & Logo Design
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
+- Node.js 18+ 
+- npm or yarn or bun
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone [repository-url]
+cd enzig-studio-india
+```
+
+2. Install dependencies:
+```bash
+npm install
+# or
+yarn install
+# or
+bun install
+```
+
+3. Set up environment variables:
+Create a `.env.local` file in the root directory and add necessary Sanity credentials:
+```env
+NEXT_PUBLIC_SANITY_PROJECT_ID=your_project_id
+NEXT_PUBLIC_SANITY_DATASET=your_dataset
+NEXT_PUBLIC_SANITY_API_VERSION=your_api_version
+```
+
+4. Run the development server:
 ```bash
 npm run dev
 # or
 yarn dev
 # or
-pnpm dev
-# or
-bun dev
+bun dev --turbopack
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The site will be available at [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Sanity Studio
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The Sanity Studio is located in the `enzig-studio-website` directory. To run it:
 
-## Learn More
+```bash
+cd enzig-studio-website
+npm install
+npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+The Sanity Studio will be available at [http://localhost:3333](http://localhost:3333).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `/src/app` - Next.js pages and routing
+- `/src/components` - React components
+- `/src/lib` - Utility functions and Sanity client configuration
+- `/public` - Static assets
+- `/enzig-studio-website` - Sanity Studio configuration
 
-## Deploy on Vercel
+## Technologies Used
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- [Next.js](https://nextjs.org/) - React framework
+- [Sanity](https://www.sanity.io/) - Headless CMS
+- [TypeScript](https://www.typescriptlang.org/) - Type safety
+- [Tailwind CSS](https://tailwindcss.com/) - Styling
+- [Framer Motion](https://www.framer.com/motion/) - Animations
+- [GSAP](https://greensock.com/gsap/) - Advanced animations
+- [Embla Carousel](https://www.embla-carousel.com/) - Carousel functionality
+- [Vercel Analytics](https://vercel.com/analytics) - Performance monitoring
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Deployment
+
+The project is configured for deployment on Vercel. Simply connect your repository to Vercel for automatic deployments.
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/yourusername/enzig-studio-india)
+
+## License
+
+This project is private and proprietary. All rights reserved.
+
+## Author
+
+Enzig Studio India

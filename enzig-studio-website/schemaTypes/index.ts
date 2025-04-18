@@ -5,6 +5,7 @@ import { author } from './author'
 import { category } from './category'
 import { faq } from './faq'
 import { blogSidebarImageSchema } from './blog-sidebar-image'
+import { blogCtaImageSchema } from './blog-cta-image'
 
 export const schemaTypes = [
     secondSectionLogo, 
@@ -13,5 +14,6 @@ export const schemaTypes = [
     author, 
     category, 
     faq, 
-    blogSidebarImageSchema
+    blogSidebarImageSchema,
+    blogCtaImageSchema
 ]

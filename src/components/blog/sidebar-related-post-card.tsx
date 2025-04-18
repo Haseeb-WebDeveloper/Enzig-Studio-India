@@ -21,10 +21,10 @@ export default function SidebarRelatedPostCard({ post }: any) {
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
                             <div className="absolute bottom-0 left-0 p-3 w-full">
-                                <h2 className="text-white text-sm font-semibold montserrat-m-h2 line-clamp-2 mb-1">
+                                <h2 className="text-white montserrat-m-h2 line-clamp-2 mb-1">
                                     {post.title}
                                 </h2>
-                                <p className="text-white/80 text-xs lora-regular">
+                                <p className="text-white/90 text-sm lora-regular">
                                     {new Date(post.publishedAt).toLocaleDateString("en-US", {
                                         day: "numeric",
                                         month: "long",

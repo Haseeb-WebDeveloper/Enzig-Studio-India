@@ -1,6 +1,6 @@
 import { client } from "@/lib/sanity";
 import Image from "next/image";
-import { allCategoriesQuery, allPostsQuery, leadingPostQuery } from "@/lib/queries";
+import { allCategoriesQuery, allPostsQuery, blogCtaImageQuery, blogSidebarImageQuery, leadingPostQuery } from "@/lib/queries";
 import ClientPosts from "@/components/blog/client-posts";
 import { urlFor } from "@/lib/sanity";
 import Link from "next/link";
@@ -72,13 +72,16 @@ async function getInitialData() {
   }
 }
 
+
 export default async function BlogPage() {
   const { leadingPost, categories, posts } = await getInitialData();
+  const blogCTAImage = await client.fetch(blogCtaImageQuery);
+  console.log("blogCTAImage", blogCTAImage);
 
   return (
    <>
     <main className="max-w-[1220px] mx-auto px-4 py-12">
-      <div className="space-y-12">
+      <div className="space-y-16">
         {/* Leading Post - Always shown regardless of category */}
         {leadingPost && (
           <div className="pb-12 relative">
@@ -88,13 +91,14 @@ export default async function BlogPage() {
                 alt={leadingPost.title}
                 width={1000}
                 height={1000}
+                priority
                 className="w-full h-full object-cover"
               />
             </div>
             <Link href={`/blog/${leadingPost.slug.current}`}>
-              <div className="absolute bottom-0 left-12 p-8 border border-background/50 rounded-lg max-w-lg bg-foreground text-background">
+              <div className="absolute bottom-0 left-4 md:left-12 p-6 md:p-8 border border-background/50 rounded-lg max-w-lg bg-foreground text-background">
                 {leadingPost.category && (
-                  <span className="bg-secondary text-foreground text-[16px] lora-medium px-2.5 py-1.5 rounded-md">
+                  <span className="bg-secondary text-foreground text-[14px] md:text-[16px] lora-medium px-2.5 py-1.5 rounded-md">
                     {leadingPost.category.title}
                   </span>
                 )}
@@ -109,7 +113,8 @@ export default async function BlogPage() {
                       className="object-cover"
                     />
                   </div>
-                  <p className="lora-m-h4 text-background">
+                 <div className="flex flex-col md:flex-row gap-1 md:gap-4">
+                 <p className="lora-m-h4 text-background">
                     {leadingPost.author.name.slice(0, 12)}
                   </p>
                   <p className="lora-m-h4 text-background">
@@ -122,13 +127,25 @@ export default async function BlogPage() {
                       }
                     )}
                   </p>
+                 </div>
                 </div>
               </div>
             </Link>
           </div>
         )}
 
-        <div className="flex flex-col max-w-[1080px] mx-auto pb-24">
+        <div className="max-w-[1080px] mx-auto w-full h-fit border border-background/10 rounded-xl overflow-hidden">
+          <Image
+            src={urlFor(blogCTAImage.imageUrl).url()}
+            alt={blogCTAImage.title}
+            width={1000}
+            height={1000}
+            priority
+            className="w-full h-fit "
+          />
+        </div>
+
+        <div className="flex flex-col max-w-[1080px] mx-auto">
           {/* Client-side Posts Grid with Category Filtering */}
           <ClientPosts categories={categories} initialPosts={posts} />
         </div>

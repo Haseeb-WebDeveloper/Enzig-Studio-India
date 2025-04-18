@@ -7,6 +7,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import Image from "next/image";
 import Link from "next/link";
 import Footer from "@/components/section/landing/footer";
+import Navbar from "@/components/layout/navbar";
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://enzigstudio.com'),

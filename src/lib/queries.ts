@@ -192,3 +192,10 @@ export const blogSidebarImageQuery = `
   "imageUrl": image.asset._ref
 }
 `
+
+// blog cta image
+export const blogCtaImageQuery = `
+*[_type == "blogCtaImage"][0]{
+  "imageUrl": image.asset._ref
+}
+`

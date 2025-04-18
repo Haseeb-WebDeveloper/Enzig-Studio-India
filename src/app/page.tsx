@@ -22,7 +22,7 @@ export default function Home() {
         <div className="z-1 absolute top-0 right-0 w-full md:w-1/2 h-full">
           <Image src="/hero-gradient.png" alt="Hero Background" width={1000} height={1000} className="w-full h-full object-cover" />
         </div>
-        <Navbar />
+        <Navbar bg="bg-white" bgOnScrolled="bg-white" />
         <Hero />
       </div>
       <Family />

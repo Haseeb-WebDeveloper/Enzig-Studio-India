@@ -82,7 +82,7 @@ const navigation = [
     },
 ];
 
-export default function Navbar() {
+export default function Navbar({bg, bgOnScrolled}: {bg: string, bgOnScrolled: string}) {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
     const [scrolled, setScrolled] = useState(false);
@@ -134,10 +134,10 @@ export default function Navbar() {
     };
 
     return (
-        <header className={`sticky top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "pt-4" : "pt-4"}`}>
+        <header className={`relative top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "pt-4" : "pt-4"}`}>
             <div className="max-w-[1200px] px-6 md:px-8 mx-auto">
                 <nav 
-                    className={`${scrolled ? "bg-foreground" : "bg-foreground"}  px-[32px] md:px-[60px] py-[16px] backdrop-blur-lg rounded-full  transition-all duration-300`} 
+                    className={`${scrolled ? bg : bgOnScrolled}  px-[32px] md:px-[60px] py-[16px] backdrop-blur-lg rounded-full  transition-all duration-300`} 
                     aria-label="Global"
                 >
                     <div className="flex items-center justify-between">
