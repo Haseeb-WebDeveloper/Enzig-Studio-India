@@ -42,7 +42,7 @@ const navigation = [
         name: "About Us",
         href: "#",
         dropdown: [
-            { name: "About Us", description: "What we actually do.", href: "/about-us", icon: Target },
+            { name: "About Us", description: "What we actually do.", href: "/about", icon: Target },
             { name: "Our Team", description: "Our accomplished team!", href: "/our-team", icon: Users },
             { name: "Careers", description: "Are you a problem solver?", href: "/careers", icon: Briefcase },
         ],
@@ -137,7 +137,7 @@ export default function Navbar({bg, bgOnScrolled}: {bg: string, bgOnScrolled: st
         <header className={`relative top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "pt-4" : "pt-4"}`}>
             <div className="max-w-[1200px] px-6 md:px-8 mx-auto">
                 <nav 
-                    className={`${scrolled ? bg : bgOnScrolled}  px-[32px] md:px-[60px] py-[16px] backdrop-blur-lg rounded-full  transition-all duration-300`} 
+                    className={`${scrolled ? bgOnScrolled : bg}  px-[32px] md:px-[60px] py-[16px] backdrop-blur-lg rounded-full  transition-all duration-300`} 
                     aria-label="Global"
                 >
                     <div className="flex items-center justify-between">

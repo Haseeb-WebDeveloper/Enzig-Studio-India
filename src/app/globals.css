@@ -409,8 +409,8 @@
   font-optical-sizing: auto;
   font-weight: 500;
   font-style: normal;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 24px;
+  line-height: 32px;
 }
 
 .lora-blog-h3 {
@@ -418,6 +418,6 @@
   font-optical-sizing: auto;
   font-weight: 500;
   font-style: normal;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 20px;
+  line-height: 30px;
 }
