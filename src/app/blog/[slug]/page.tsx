@@ -66,6 +66,9 @@ export default function BlogPost() {
     </>;
   }
 
+
+  console.log("content", post.content);
+
   const toggleFaq = (index: number) => {
     if (openFaqIndex === index) {
       setOpenFaqIndex(null); // Close if already open
