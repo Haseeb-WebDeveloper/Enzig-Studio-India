@@ -10,7 +10,8 @@ import { useCallback, useEffect, useState } from 'react';
 import { SolutionPageData } from "@/types/solutions-interface";
 import CTA from "@/components/section/landing/cta";
 import { FaQuoteLeft } from "react-icons/fa";
-import SectionLoading from "./section/loading";
+import SectionLoading from "./loading";
+import NotFound from "./not-found";
 
 export default function SolutionPage({pageName}: {pageName: string}) {
     const [data, setData] = useState<SolutionPageData | null>(null);
@@ -44,6 +45,12 @@ export default function SolutionPage({pageName}: {pageName: string}) {
 
     if (!data) {
         return <SectionLoading />;
+    }
+
+    
+
+    if (data === null || data === undefined) {
+        return <NotFound />;
     }
 
     return (
