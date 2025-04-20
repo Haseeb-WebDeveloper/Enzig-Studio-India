@@ -97,13 +97,13 @@ export default function SolutionPage({pageName}: {pageName: string}) {
                 <div className="max-w-7xl mx-auto px-4">
                     <div className="flex flex-col md:flex-row gap-12 items-center">
                         <div className="space-y-6">
-                            <h2 className="montserrat-sb-h2 mb-8 w-lg">{data.secondSectionHeading}</h2>
+                            <h2 className="montserrat-sb-h2 mb-8 max-w-lg ">{data.secondSectionHeading}</h2>
                             <Image
                                 src={data.secondSectionImage.asset.url}
                                 alt="Second section"
                                 width={465}
                                 height={290}
-                                className="object-cover rounded-lg"
+                                className="object-cover rounded-lg "
                             />
                         </div>
                         <div className="space-y-6 flex flex-col gap-4 justify-between">
