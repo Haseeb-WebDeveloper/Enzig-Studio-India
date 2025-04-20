@@ -29,10 +29,22 @@ export async function fetchSecondSectionLogo() {
 export async function fetchBrandingForLanding() {
   try {
     const data = await client.fetch(brandForLandingQuery);
-    console.dir(data, { depth: null });
     return data;
   } catch (error) {
     console.error('Error fetching branding:', error);
+    return [];
+  }
+}
+
+
+// Reusable function to fetch data from sanity
+export async function sanityFetch(query: string) {
+  try {
+    const data = await client.fetch(query);
+    console.dir(data, { depth: null });
+    return data;
+  } catch (error) {
+    console.error('Error fetching data:', error);
     return [];
   }
 }

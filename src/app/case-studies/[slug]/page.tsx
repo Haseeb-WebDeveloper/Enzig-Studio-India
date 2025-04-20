@@ -77,8 +77,6 @@ export default function CaseStudyPost() {
     }
   };
 
-  console.dir(caseStudy, { depth: null });
-
   return (
     <div className="bg-background text-foreground">
       <div className=" px-4 py-12">
@@ -89,7 +87,7 @@ export default function CaseStudyPost() {
               <Image src={urlFor(caseStudy.logo).url()} alt={caseStudy.title} width={300} height={300} className="object-contain max-h-[100px]" />
             </div>
             {caseStudy.firstDescription && (
-              <div className="prose prose-lg max-w-none text-primary montserrat-eb-h2">
+              <div className="prose prose-lg max-w-none text-primary montserrat-semibold text-[20px] leading-[28px]">
                 <p>{caseStudy.firstDescription}</p>
               </div>
             )}
