@@ -95,9 +95,9 @@ export default function SolutionPage({pageName}: {pageName: string}) {
             {/* Second Section */}
             <section className="bg-foreground text-background py-20">
                 <div className="max-w-7xl mx-auto px-4">
-                    <div className="flex flex-col md:flex-row gap-12 items-center">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                         <div className="space-y-6">
-                            <h2 className="montserrat-sb-h2 mb-8 max-w-lg ">{data.secondSectionHeading}</h2>
+                            <h2 className="montserrat-sb-h2 mb-8 ">{data.secondSectionHeading}</h2>
                             <Image
                                 src={data.secondSectionImage.asset.url}
                                 alt="Second section"
