@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { Loader2 } from 'lucide-react';
 
 
 const allServices = [
@@ -59,14 +60,59 @@ export default function ContactPage() {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
-        phone: '',
         message: ''
+    });
+
+    const [status, setStatus] = useState({
+        loading: false,
+        success: false,
+        error: ''
     });
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        // Handle form submission
-        console.log(formData);
+        setStatus({ loading: true, success: false, error: '' });
+
+        try {
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                throw new Error(data.error || 'Failed to send message');
+            }
+
+            setStatus({
+                loading: false,
+                success: true,
+                error: ''
+            });
+
+            // Reset form
+            setFormData({
+                name: '',
+                email: '',
+                message: ''
+            });
+
+            // Reset success message after 5 seconds
+            setTimeout(() => {
+                setStatus(prev => ({ ...prev, success: false }));
+            }, 5000);
+
+        } catch (error) {
+            setStatus({
+                loading: false,
+                success: false,
+                error: error instanceof Error ? error.message : 'Failed to send message'
+            });
+        }
     };
 
     return (
@@ -127,7 +173,20 @@ export default function ContactPage() {
                     <div className=" text-background pl-5 pb-5 bg-cover bg-center z-0" style={{ backgroundImage: 'url(/contact/mask-bg.png)' }}>
                         <form onSubmit={handleSubmit} className="space-y-6 rounded-b-lg rounded-t-lg bg-white">
                             <div className='space-y-6 p-10'>
-                                <p className="lora-m-h1  text-end pl-8 pb-4">You can find us writing a brand story or busy growing the brand to new heights.</p>
+                                <p className="lora-m-h1  text-end pl-8 pb-4"><span className='text-primary'>You can find us</span> writing a brand story or busy growing the brand to new heights.</p>
+                                
+                                {status.error && (
+                                    <div className="bg-red-50 text-red-500 p-3 rounded-md mb-4">
+                                        {status.error}
+                                    </div>
+                                )}
+                                
+                                {status.success && (
+                                    <div className="bg-green-50 text-green-500 p-3 rounded-md mb-4">
+                                        Thank you for your message! We'll get back to you soon.
+                                    </div>
+                                )}
+
                                 <div>
                                     <label htmlFor="name" className="block montserrat-medium mb-2">Name</label>
                                     <input
@@ -137,6 +196,7 @@ export default function ContactPage() {
                                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                                         className="w-full lora-blog-h2 border-b-[2px] border-background/50 focus:outline-none ring-0"
                                         required
+                                        disabled={status.loading}
                                     />
                                 </div>
                                 <div>
@@ -148,6 +208,7 @@ export default function ContactPage() {
                                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                                         className="w-full lora-blog-h2 border-b-[2px] border-background/50 focus:outline-none ring-0"
                                         required
+                                        disabled={status.loading}
                                     />
                                 </div>
                                 <div>
@@ -159,14 +220,23 @@ export default function ContactPage() {
                                         rows={4}
                                         className="w-full lora-blog-h2 border-b-[2px] border-background/50 focus:outline-none ring-0"
                                         required
+                                        disabled={status.loading}
                                     />
                                 </div>
                             </div>
                             <button
                                 type="submit"
-                                className="w-full lora-sb-h3 rounded-b-lg bg-primary text-foreground py-4 montserrat-bold text-lg hover:bg-primary/90 transition-colors"
+                                disabled={status.loading}
+                                className="cursor-pointer w-full lora-sb-h3 rounded-b-lg bg-primary text-foreground py-5 montserrat-bold text-lg hover:bg-primary/90 transition-colors flex justify-center items-center gap-4 disabled:opacity-50 disabled:cursor-not-allowed"
                             >
-                                Let's Connect <Image src="/icons/arrow-right.svg" alt='arrow right' width={20} height={20} />
+                                {status.loading ? (
+                                    <Loader2 className="animate-spin" />
+                                ) : (
+                                    <>
+                                        <p>Let's Connect</p>
+                                        <Image src="/arrow.png" alt='arrow right' width={400} height={400} className='w-fit h-6 font-bold' />
+                                    </>
+                                )}
                             </button>
                         </form>
                     </div>

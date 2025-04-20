@@ -25,7 +25,7 @@ export interface PostCardProps {
   
   export interface Category {
     title: string;
-    description: string;
+    description?: string;
   }
   
   export interface FAQ {
@@ -46,6 +46,31 @@ export interface PostCardProps {
     slug: { current: string };
     description: string;
     mainImage: any;
+    publishedAt: string;
+    updatedAt?: string;
+    content: any[];
+    author: Author;
+    category: Category;
+    faq?: FAQ[];
+    relatedPosts?: RelatedPost[];
+  }
+
+
+
+
+
+
+
+  export interface CaseStudy {
+    _id: string;
+    title: string;
+    logo: any;
+    slug: { current: string };
+    description: string;
+    mainImage: any;
+    firstDescription: any[];
+    secondDescription: any[];
+    stats: any[];
     publishedAt: string;
     updatedAt?: string;
     content: any[];

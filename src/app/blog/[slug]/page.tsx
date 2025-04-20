@@ -29,9 +29,9 @@ export default function BlogPost() {
   const fetchPost = async () => {
     try {
       const post = await client.fetch(singlePostQuery, { slug: params.slug });
-      console.log("post", post);
+      // console.log("post", post);
       if (!post) {
-        console.log("Post not found");
+        // console.log("Post not found");
         return;
       }
       setPost(post);
@@ -67,7 +67,7 @@ export default function BlogPost() {
   }
 
 
-  console.log("content", post.content);
+  // console.log("content", post.content);
 
   const toggleFaq = (index: number) => {
     if (openFaqIndex === index) {
@@ -250,7 +250,7 @@ raleway-medium text-[14px]">
               <h2 className="lora-medium text-[20px] leading-[28px] mb-3">The Latest</h2>
               <div className="gap-4">
                 {post.relatedPosts && post.relatedPosts.length > 0 && post.relatedPosts.map((relatedPost) => (
-                  <SidebarRelatedPostCard post={relatedPost} key={relatedPost._id} />
+                  <SidebarRelatedPostCard post={relatedPost} key={relatedPost._id} redirectPage="blog" />
                 ))}
               </div>
             </div>

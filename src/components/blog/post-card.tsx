@@ -3,12 +3,12 @@ import Image from "next/image";
 import Link from "next/link";
 
 
-export default function PostCard({ post }: any) {
+export default function PostCard({ post, redirectPage }: any) {
     return (
         <>
             <Link
                 key={post._id}
-                href={`/blog/${post.slug.current}`}
+                href={`/${redirectPage}/${post.slug.current}`}
                 className="group h-full"
             >
                 <article className="bg-foreground/70 rounded-lg overflow-hidden border border-black/[0.04] transition-all duration-300 flex flex-col p-2 gap-2">

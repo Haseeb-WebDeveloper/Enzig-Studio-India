@@ -29,9 +29,10 @@ interface Post {
 interface ClientPostsProps {
   categories: Category[];
   initialPosts: Post[];
+  redirectPage: string;
 }
 
-export default function ClientPosts({ categories, initialPosts }: ClientPostsProps) {
+export default function ClientPosts({ categories, initialPosts, redirectPage }: ClientPostsProps) {
   const [activeCategory, setActiveCategory] = useState('all');
   
   // Filter posts based on active category
@@ -49,7 +50,7 @@ export default function ClientPosts({ categories, initialPosts }: ClientPostsPro
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
         {filteredPosts.map((post) => (
-          <PostCard post={post} key={post._id} />
+          <PostCard post={post} key={post._id} redirectPage={redirectPage} />
         ))}
       </div>
     </>

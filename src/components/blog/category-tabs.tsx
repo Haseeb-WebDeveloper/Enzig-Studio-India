@@ -18,7 +18,7 @@ export function CategoryTabs({
   activeCategory, 
   onCategoryChange 
 }: CategoryTabsProps) {
-  const allCategories = [{ title: "all", description: "All posts" }, ...categories.filter(cat => cat.title !== "Leading")];
+  const allCategories = [{ title: "all", description: "All posts" }, ...categories.filter(cat => cat.title !== "Featured")];
 
   return (
     <div className="flex flex-wrap justify-start gap-6 border-b border-background/10">

@@ -2,12 +2,12 @@ import { urlFor } from "@/lib/sanity";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function SidebarRelatedPostCard({ post }: any) {
+export default function SidebarRelatedPostCard({ post, redirectPage }: any) {
     return (
         <>
             <Link
                 key={post._id}
-                href={`/blog/${post.slug.current}`}
+                href={`/${redirectPage}/${post.slug.current}`}
                 className="group block mb-4"
             >
                 <article className="relative">

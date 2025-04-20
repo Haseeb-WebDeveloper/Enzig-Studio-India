@@ -199,3 +199,100 @@ export const blogCtaImageQuery = `
   "imageUrl": image.asset._ref
 }
 `
+
+
+
+
+
+
+// case studies
+// posts by category with pagination
+export const caseStudiesByCategoryQuery = `
+*[_type == "caseStudies" && ($category == "all" || category->title == $category)] | order(publishedAt desc) [$start...$end] {
+  _id,
+  title,
+  slug,
+  description,
+  mainImage,
+  publishedAt,
+  "author": author->{
+    name,
+    image
+  },
+  "category": category->{
+    title,
+  }
+}
+`
+
+// total posts count by category
+export const totalCaseStudiesByCategoryQuery = `
+count(*[_type == "caseStudies" && ($category == "all" || category->title == $category)])
+`
+
+
+export const featuredCaseStudiesQuery = `
+*[_type == "caseStudies" && category->title == "Featured"][0]{
+  _id,
+  title,
+  slug,
+  description,
+  mainImage,
+  publishedAt,
+  "author": author->{
+    name,
+    image
+  },
+  "category": category->{
+    title,
+  }
+}
+`
+
+export const allCaseStudiesCategoryQuery = `
+*[_type == "caseStudiesCategory"]{
+  _id,
+  title,
+}
+`
+
+
+
+// single case study
+export const singleCaseStudyQuery = `
+*[_type == "caseStudies" && slug.current == $slug][0]{
+  _id,
+  title,
+  slug,
+  description,
+  mainImage,
+  firstDescription,
+  secondDescription,
+  logo,
+  stats,
+  publishedAt,
+  updatedAt,
+  content,
+  "author": author->{
+    name,
+    image,
+    role,
+    bio
+  },
+  "category": category->{
+    title,
+  },
+  "faq": faq[]->{
+    question,
+    answer
+  },
+  "relatedPosts": relatedPosts[]->{
+    _id,
+    title,
+    description,
+    publishedAt,
+    slug,
+    mainImage
+  }
+}
+`
