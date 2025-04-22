@@ -13,6 +13,7 @@ import { useEffect, useState } from "react";
 import { Post } from "@/types/interface";
 import PostCard from "@/components/blog/post-card";
 import SidebarRelatedPostCard from "@/components/blog/sidebar-related-post-card";
+import RichText from "@/components/rich-text";
 
 
 export default function BlogPost() {
@@ -160,24 +161,7 @@ raleway-medium text-[14px]">
           {/* Post content */}
           <div className="prose prose-lg max-w-none text-wrap mb-12 overflow-x-hidden prose-p:lora-blog-h1 prose-h2-montserrat-sb-h3 ">
             {post.content && (
-              <PortableText
-                value={post.content}
-                components={{
-                  types: {
-                    image: ({ value }) => (
-                      <div className="relative border border-gray-200 min-h-fit h-full w-full mb-8 rounded-lg overflow-hidden">
-                        <Image
-                          src={urlFor(value).url()}
-                          alt={value.alt || "Blog post image"}
-                          width={500}
-                          height={500}
-                          className="object-contain h-full w-full"
-                        />
-                      </div>
-                    ),
-                  },
-                }}
-              />
+              <RichText content={post.content} />
             )}
           </div>
         </div>

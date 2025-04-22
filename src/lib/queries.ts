@@ -141,7 +141,7 @@ export const allFaqQuery = `
 
 // leading post query
 export const leadingPostQuery = `
-*[_type == "post" && category->title == "Leading"][0]{
+*[_type == "post" && category->title == "Featured"][0]{
   _id,
   title,
   slug,
