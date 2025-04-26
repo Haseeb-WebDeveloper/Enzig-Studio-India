@@ -41,7 +41,6 @@ export async function fetchBrandingForLanding() {
 export async function sanityFetch(query: string) {
   try {
     const data = await client.fetch(query);
-    console.dir(data, { depth: null });
     return data;
   } catch (error) {
     console.error('Error fetching data:', error);

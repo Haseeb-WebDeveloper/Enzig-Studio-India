@@ -12,6 +12,7 @@ import CTA from "@/components/section/landing/cta";
 import { FaQuoteLeft } from "react-icons/fa";
 import SectionLoading from "./loading";
 import NotFound from "./not-found";
+import Testimonials from "../layout/testimonials";
 
 export default function SolutionPage({pageName}: {pageName: string}) {
     const [data, setData] = useState<SolutionPageData | null>(null);
@@ -116,59 +117,7 @@ export default function SolutionPage({pageName}: {pageName: string}) {
             </section>
 
             {/* Testimonials Section */}
-            <section className="py-20 px-6">
-                <div className="max-w-[1200px] mx-auto">
-                    <div className="relative">
-                        <div className="overflow-hidden" ref={emblaRef}>
-                            <div className="flex">
-                                {data?.testimonials?.map((testimonial, index) => (
-                                    <div key={index} className="flex-[0_0_100%] min-w-0">
-                                        <div className="grid md:grid-cols-2">
-                                            <div className="bg-primary text-background p-12 flex flex-col justify-center relative">
-                                                <FaQuoteLeft className="absolute text-foreground top-12 left-12 text-[36px]" />
-                                                <p className="montserrat-eb-h4 mb-8 mt-8">{testimonial.text}</p>
-                                                <div>
-                                                    <p className="montserrat-eb-h3">{testimonial.name}</p>
-                                                    <p className="lora-blog-h1 text-background/70">{testimonial.category}</p>
-                                                </div>
-                                            </div>
-                                            <div className="relative h-[500px] w-full">
-                                                <Image
-                                                    src={testimonial.image.asset.url}
-                                                    alt={testimonial.name}
-                                                    fill
-                                                    className="object-cover"
-                                                    style={{
-                                                        filter: 'brightness(0.8) contrast(1.2)',
-                                                    }}
-                                                />
-                                                {/* Blue overlay for the image */}
-                                                <div className="absolute inset-0 bg-blue-500/20 mix-blend-multiply"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-
-                        {/* Navigation Buttons */}
-                        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-10">
-                            <button
-                                className="bg-black text-white p-2 rounded-none"
-                                onClick={scrollPrev}
-                            >
-                                <ChevronLeft size={24} />
-                            </button>
-                            <button
-                                className="bg-black text-white p-2 rounded-none"
-                                onClick={scrollNext}
-                            >
-                                <ChevronRight size={24} />
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <Testimonials testimonials={data.testimonials} />
 
             {/* Services Section */}
             <section className="py-20 px-6">

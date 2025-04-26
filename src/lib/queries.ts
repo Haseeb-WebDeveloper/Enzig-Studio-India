@@ -415,3 +415,57 @@ export const solutionPageQuery = (pageName: string) => `
   }
 }
 `
+
+
+export const threeDProjectsQuery = () => `
+*[_type == "3d-projects"][0] {
+  title,
+  video {
+    asset->{
+      url
+    }
+  },
+  image[] {
+    asset->{
+      url,
+    }
+  },
+  testimonials[] {
+    text,
+    name,
+    category,
+    image {
+      asset->{
+        url
+      }
+    }
+  }
+}
+`
+
+
+export const graphicsDesignQuery = () => `
+*[_type == "graphics-design"][0] {
+  title,
+  homeImages[] {
+    asset->{
+      url,
+    }
+  },
+  image[] {
+    asset->{
+      url,
+    }
+  },
+  testimonials[] {
+    text,
+    name,
+    category,
+    image {
+      asset->{
+        url
+      }
+    }
+  }
+}
+`

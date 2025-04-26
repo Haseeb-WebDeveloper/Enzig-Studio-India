@@ -75,7 +75,6 @@ async function getInitialData() {
 export default async function CaseStudiesPage() {
   const { featuredCaseStudies, categories, posts } = await getInitialData();
   const blogCTAImage = await client.fetch(blogCtaImageQuery);
-  console.log("blogCTAImage", blogCTAImage);
 
   return (
    <>

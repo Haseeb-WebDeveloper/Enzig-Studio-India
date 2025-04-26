@@ -16,6 +16,9 @@ import { solutionSocialMediaManagement } from './solution-social-media-managemen
 import { solutionContentCreation } from './solution-content-creation'
 import { solutionWebsiteAppDevelopment } from './solution-website-app-development'
 import { solutionSeo } from './solution-seo'
+import { threeDProjects } from './3d-projects'
+import { graphicsDesign } from './graphics-design'
+
 export const schemaTypes = [
     secondSectionLogo, 
     brandingSchema, 
@@ -34,5 +37,7 @@ export const schemaTypes = [
     solutionSocialMediaManagement,
     solutionContentCreation,
     solutionWebsiteAppDevelopment,
-    solutionSeo
+    solutionSeo,
+    threeDProjects,
+    graphicsDesign
 ]
