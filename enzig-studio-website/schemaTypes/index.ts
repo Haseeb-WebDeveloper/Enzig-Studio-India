@@ -18,6 +18,9 @@ import { solutionWebsiteAppDevelopment } from './solution-website-app-developmen
 import { solutionSeo } from './solution-seo'
 import { threeDProjects } from './3d-projects'
 import { graphicsDesign } from './graphics-design'
+import { socialMedia } from './social-media'
+import { content } from './content'
+import { uiUx } from './ui-ux'
 
 export const schemaTypes = [
     secondSectionLogo, 
@@ -39,5 +42,8 @@ export const schemaTypes = [
     solutionWebsiteAppDevelopment,
     solutionSeo,
     threeDProjects,
-    graphicsDesign
+    graphicsDesign,
+    socialMedia,
+    content,
+    uiUx
 ]

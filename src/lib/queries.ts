@@ -469,3 +469,116 @@ export const graphicsDesignQuery = () => `
   }
 }
 `
+
+
+export const socialMediaQuery = () => `
+*[_type == "social-media"][0] {
+  title,
+  topImage[] {
+    asset->{
+      url
+    }
+  },
+  bottomImage[] {
+    asset->{
+      url
+    }
+  },
+  carouselImage[] {
+    asset->{
+      url
+    }
+  },
+  testimonials[] {
+    text,
+    name,
+    category,
+    image {
+      asset->{
+        url
+      }
+    }
+  }
+}
+`;
+
+
+export const contentQuery = () => `
+*[_type == "content"][0] {
+  title,
+  firstSectionImage[] {
+    asset->{
+      url
+    }
+  },
+  secondSectionImage[] {
+    asset->{
+      url
+    }
+  },
+  carouselImage[] {
+    asset->{
+      url
+    }
+  },
+  fourthSectionImage {
+    asset->{
+      url
+    }
+  },
+  fifthSectionImage[] {
+    asset->{
+      url
+    }
+  },
+  sixthSectionImage[] {
+    asset->{
+      url
+    }
+  },
+  testimonials[] {
+    text,
+    name,
+    category,
+    image {
+      asset->{
+        url
+      }
+    }
+  }
+}
+`;
+
+
+export const uiUxQuery = () => {
+  return `
+*[_type == "ui-ux"][0]{
+  title,
+  carouselCards[]{
+    image{
+      asset->{
+        url
+      }
+    },
+    title,
+    description
+  },
+  secondSectionImage[]{
+    asset->{
+      url
+    }
+  },
+  testimonials[]{
+    text,
+    name,
+    category,
+    image{
+      asset->{
+        _id,
+        url
+      }
+    }
+  }
+}
+  `
+}

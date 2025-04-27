@@ -26,7 +26,7 @@ export default function Testimonials({testimonials}: {testimonials: any}) {
     return (
         <>
          {/* Testimonials Section */}
-         <section className="py-20 px-6">
+         <section className="px-6">
                 <div className="max-w-[1200px] mx-auto">
                     <div className="relative">
                         <div className="overflow-hidden" ref={emblaRef}>
