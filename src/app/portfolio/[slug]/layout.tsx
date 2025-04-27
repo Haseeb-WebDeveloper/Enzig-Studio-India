@@ -12,7 +12,8 @@ export default function PortfolioLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="relative min-h-screen bg-background text-foreground">
+    <div className="relative min-h-screen bg-primary text-foreground">
+      <Navbar bg="bg-foreground" bgOnScrolled="bg-foreground" />
       {children}
     </div>
   );

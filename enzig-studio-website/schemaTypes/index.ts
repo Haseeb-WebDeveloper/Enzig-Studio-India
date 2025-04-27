@@ -23,6 +23,7 @@ import { content } from './content'
 import { uiUx } from './ui-ux'
 import { brandingPortfolio } from './branding'
 import { portfolio } from './portfolio'
+import { singleProjects } from './single-projects'
 
 export const schemaTypes = [
     secondSectionLogo, 
@@ -49,5 +50,6 @@ export const schemaTypes = [
     content,
     uiUx,
     brandingPortfolio,
-    portfolio
+    portfolio,
+    singleProjects
 ]

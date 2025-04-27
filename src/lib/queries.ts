@@ -706,3 +706,43 @@ export const portfolioQuery = () => {
 }
 `
 }
+
+// singleProjectsQuery.ts
+export const singleProjectsQuery = `
+*[_type == "single-projects" && slug.current == $slug][0]{
+  title,
+  description,
+  "slug": slug.current,
+  "logo": logo.asset->url,
+  "rightSideImage": rightSideImage.asset->url,
+  secondSectionHeading,
+  secondSectionDescription,
+  "secondSectionImage": secondSectionImage.asset->url,
+  projectGoals[] {
+    goal,
+    "icon": icon.asset->url
+  },
+  projectImages[] {
+    "image": image.asset->url,
+    title
+  },
+  testimonials[]{
+    text,
+    name,
+    category,
+    image{
+      asset->{
+        _id,
+        url
+      }
+    }
+  },
+  projectOverviewDescription,
+  projectOverviewImage{
+    asset->{
+      url
+    }
+  }
+}
+`;
+
