@@ -21,6 +21,7 @@ import { graphicsDesign } from './graphics-design'
 import { socialMedia } from './social-media'
 import { content } from './content'
 import { uiUx } from './ui-ux'
+import { brandingPortfolio } from './branding'
 
 export const schemaTypes = [
     secondSectionLogo, 
@@ -45,5 +46,6 @@ export const schemaTypes = [
     graphicsDesign,
     socialMedia,
     content,
-    uiUx
+    uiUx,
+    brandingPortfolio
 ]

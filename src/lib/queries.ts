@@ -582,3 +582,46 @@ export const uiUxQuery = () => {
 }
   `
 }
+
+
+
+export const brandingPortfolioQuery = () => {
+  return `
+*[_type == "brandingPortfolio"][0]{
+  title,
+  brands[]{
+    brandName,
+    fontName,
+    brandColors,
+    feedback,
+    logo{
+      asset->{
+        url
+      }
+    },
+    clientImage{
+      asset->{
+        url
+      }
+    },
+    brandImages[]{
+      asset->{
+        url
+      }
+    }
+  },
+  testimonials[]{
+    text,
+    name,
+    category,
+    image{
+      asset->{
+        _id,
+        url
+      }
+    }
+  }
+}
+`
+}
+

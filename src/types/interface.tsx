@@ -133,3 +133,41 @@ export interface GraphicsDesign {
     };
   }[];
 }
+
+
+
+
+export interface BrandingPortfolio {
+  title: string;
+  brands: {
+    brandName: string;
+    fontName: string;
+    brandColors: string[];
+    feedback: string;
+    logo: {
+      asset: {
+        url: string;
+      };
+    };
+    clientImage: {
+      asset: {
+        url: string;
+      };
+    };
+    brandImages: {
+      asset: {
+        url: string;
+      };
+    }[];
+  }[];
+  testimonials: {
+    text: string;
+    name: string;
+    category: string;
+    image?: {
+      asset: {
+        url: string;
+      };
+    };
+  }[];
+}
