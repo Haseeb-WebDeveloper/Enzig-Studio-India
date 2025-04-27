@@ -5,17 +5,18 @@ import { Raleway } from "next/font/google";
 import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
 import { BrandingPortfolio } from "@/types/interface";
+import { useState } from "react";
 
 const raleway = Raleway({ subsets: ['latin'] });
 
-export const BrandPortfolio = ({ brands }: { brands: BrandingPortfolio['brands'] }) => {
+export const BrandPortfolio = ({ brands, page }: { brands: BrandingPortfolio['brands'], page: string }) => {
     return (
         <section className="max-w-[1200px] mx-auto px-4 space-y-32">
             {brands.map((brand, index) => (
                 <div key={index}>
                     {/* Title Section */}
                     <div className="mx-auto px-4 mb-12">
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center">{brand.brandName}</h1>
+                        {page === "portfolio" ? <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold">Branding & Identity</h1> : <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center">{brand.brandName}</h1>}
                     </div>
 
                     <div className="flex flex-col lg:flex-row gap-4">
@@ -24,8 +25,7 @@ export const BrandPortfolio = ({ brands }: { brands: BrandingPortfolio['brands']
                             {/* Brand Experience Card */}
                             <div className="bg-foreground text-background rounded-4xl p-6 space-y-4">
                                 <h3 className="text-xl text-center font-bold">ENHANCE YOUR</h3>
-                                <Image src="/brand-strip.png" alt="Brand Experience" width={1024} height={768} className="w-
-                                [80%] mx-auto h-auto" />
+                                <Image src="/brand-strip.png" alt="Brand Experience" width={400} height={400} className="w-80 mx-auto h-auto" />
                                 <p className="text-lg text-gray-400 text-center">EXPERIENCE WITH US!</p>
                             </div>
 
@@ -116,47 +116,85 @@ interface BrandCarouselProps {
 }
 
 function BrandCarousel({ images, brandName }: BrandCarouselProps) {
+    const autoplay = Autoplay({ delay: 2000, stopOnInteraction: false, stopOnMouseEnter: false })
     const [emblaRef, emblaApi] = useEmblaCarousel(
         {
             loop: true,
             align: "center",
             dragFree: true,
         },
-        [
-            Autoplay({
-                delay: 2000,
-                stopOnInteraction: false,
-                stopOnMouseEnter: false,
-                rootNode: (emblaRoot) => emblaRoot.parentElement,
-            })
-        ]
+        [autoplay]
     );
+
+    const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
     // Triple the images array for smoother infinite looping
     const tripleImages = [...images, ...images, ...images];
 
     return (
-        <div className="relative overflow-hidden py-8 border border-secondary rounded-4xl">
-            <div className="overflow-hidden" ref={emblaRef}>
-                <div className="flex cursor-grab active:cursor-grabbing">
-                    {tripleImages.map((image, index) => (
-                        <div
-                            key={index}
-                            className="flex-none w-[300px] h-[200px] relative rounded-xl overflow-hidden mx-2"
-                            style={{ flex: '0 0 auto' }}
-                        >
-                            <Image
-                                src={image.asset.url}
-                                alt={`${brandName} Brand Image ${index + 1}`}
-                                fill
-                                className="object-cover"
-                                draggable={false}
-                                priority={index < images.length}
-                            />
-                        </div>
-                    ))}
+        <>
+            <div className="relative overflow-hidden py-8 border border-secondary rounded-4xl">
+                <div className="overflow-hidden" ref={emblaRef}>
+                    <div className="flex cursor-grab active:cursor-grabbing">
+                        {tripleImages.map((image, index) => (
+                            <div
+                                key={index}
+                                className="flex-none w-[300px] h-[200px] relative rounded-xl overflow-hidden mx-2 group"
+                                style={{ flex: '0 0 auto' }}
+                                onClick={() => {
+                                    setSelectedImage(image.asset.url);
+                                    autoplay.stop();
+                                }}
+                            >
+                                <Image
+                                    src={image.asset.url}
+                                    alt={`${brandName} Brand Image ${index + 1}`}
+                                    fill
+                                    className="object-contain transition-transform duration-300 group-hover:scale-110"
+                                    draggable={false}
+                                    priority={index < images.length}
+                                />
+                                <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                    <span className="text-white text-sm font-medium">Click to view</span>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </div>
-        </div>
+
+            {/* Image Popup Modal */}
+            {selectedImage && (
+                <div
+                    className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
+                    onClick={() => {
+                        setSelectedImage(null);
+                        autoplay.play();
+                    }}
+                >
+                    <div className="relative max-w-7xl w-full max-h-[90vh] aspect-video">
+                        <Image
+                            src={selectedImage}
+                            alt="Selected brand image"
+                            fill
+                            className="object-contain"
+                            priority
+                        />
+                        <button
+                            className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors"
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                setSelectedImage(null);
+                                autoplay.play();
+                            }}
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            )}
+        </>
     );
 }

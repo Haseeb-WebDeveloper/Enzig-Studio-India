@@ -506,3 +506,22 @@
     line-height: 28px;
   }
 }
+
+
+
+.lora-sb-h2 {
+  font-family: "Lora", serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 52px;
+  line-height: 60px;
+}
+
+@media (max-width: 768px) {
+  .lora-sb-h2{
+    font-size: 40px;
+    line-height: 48px;
+  }
+}
+

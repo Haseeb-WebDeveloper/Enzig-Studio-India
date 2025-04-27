@@ -20,7 +20,7 @@ export default async function BrandingPage() {
         <main className="min-h-screen space-y-32">
             {/* Hero Section */}
             <section className="pt-20 px-6 bg-background text-foreground">
-                <div className="max-w-[1024px] mx-auto space-y-12 md:space-y-16">
+                <div className="max-w-4xl mx-auto space-y-12 md:space-y-16">
                     <div className="md:px-12">
                         <Image src="/branding-page.png" alt={data.title} width={1024} height={768} className="w-full h-auto" />
                     </div>
@@ -28,7 +28,7 @@ export default async function BrandingPage() {
             </section>
 
             {/* Brand Grid */}
-            <BrandPortfolio brands={data.brands} />
+            <BrandPortfolio brands={data.brands} page="branding" />
 
             {/* Testimonials */}
             <section className="bg-background text-foreground mb-0">

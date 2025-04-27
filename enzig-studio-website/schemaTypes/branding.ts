@@ -53,6 +53,12 @@ export const brandingPortfolio = defineType({
                         title: "Brand Images",
                         type: "array",
                         of: [{ type: "image" }],
+                    }),
+                    defineField({
+                        name: "showOnPortfolio",
+                        title: "Show On Portfolio",
+                        type: "boolean",
+                        initialValue: false,
                     })
                 ]
             }]

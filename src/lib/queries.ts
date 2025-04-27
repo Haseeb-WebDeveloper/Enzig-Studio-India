@@ -625,3 +625,84 @@ export const brandingPortfolioQuery = () => {
 `
 }
 
+
+
+
+export const portfolioQuery = () => {
+  return `
+*[_type == "portfolio"][0]{
+  title,
+  homeRightSideImage{
+    asset->{
+      url
+    }
+  },
+  logos[]{
+    asset->{
+      url
+    }
+  },
+  testimonials[]{
+    text,
+    name,
+    category,
+    image{
+      asset->{
+        url
+      }
+    }
+  },
+  "brands": *[_type == "brandingPortfolio"][0].brands[showOnPortfolio == true]{
+    brandName,
+    fontName,
+    feedback,
+    logo{
+      asset->{
+        url
+      }
+    },
+    clientImage{
+      asset->{
+        url
+      }
+    },
+    brandImages[]{
+      asset->{
+        url
+      }
+    }
+  },
+  contentCreationImages[]{
+    asset->{
+      url
+    }
+  },
+  "socialMediaTopImages": *[_type == "social-media"][0].topImage[]{
+    asset->{
+      url
+    }
+  },
+  "graphicsDesignImages": *[_type == "graphics-design"][0].homeImages[]{
+    asset->{
+      url
+    }
+  },
+  "uiUxImages": *[_type == "ui-ux"][0].carouselCards[]{
+   image{
+      asset->{
+        url
+      }
+    },
+    title,
+    description
+  },
+  "threeDProjectVideo": *[_type == "3d-projects"][0]{
+    video{
+      asset->{
+        url
+      }
+    }
+  }
+}
+`
+}
