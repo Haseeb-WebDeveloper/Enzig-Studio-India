@@ -32,13 +32,15 @@ interface ClientPostsProps {
   redirectPage: string;
 }
 
-export default function ClientPosts({ categories, initialPosts, redirectPage }: ClientPostsProps) {
+export default function ClientPosts({ categories, initialPosts = [], redirectPage }: ClientPostsProps) {
   const [activeCategory, setActiveCategory] = useState('all');
   
   // Filter posts based on active category
-  const filteredPosts = activeCategory === 'all'
-    ? initialPosts
-    : initialPosts.filter(post => post.category?.title.toLowerCase() === activeCategory);
+  const filteredPosts = Array.isArray(initialPosts) ? (
+    activeCategory === 'all'
+      ? initialPosts
+      : initialPosts.filter(post => post.category?.title.toLowerCase() === activeCategory)
+  ) : [];
 
   return (
     <>

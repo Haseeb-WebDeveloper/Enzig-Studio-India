@@ -38,22 +38,27 @@ const approachSteps = [
   {
     step: "Q1",
     title: "Discover",
-    description: "Every great brand starts with a story. We begin by understanding your business, audience, challenges, and vision. This helps us craft a strategic roadmap aligned with your goals.",
+    description: "Every great brand starts with a story. We begin by understanding your business, audience, challenges, and vision. This helps us craft a strategy that's not just creative, but truly aligned with your goals.",
   },
   {
     step: "Q2",
-    title: "Define",
-    description: "We analyze the data and insights gathered to define your brand's unique positioning, target audience personas, and key messaging pillars that will resonate with your market.",
+    title: "Strategize",
+    description: "Ideas without strategy are just art. We create a custom roadmap for your brand — from content planning to design direction — ensuring every piece of work has a purpose and impact.",
   },
   {
     step: "Q3",
-    title: "Design",
-    description: "Our creative team brings your brand to life through stunning visuals, engaging content, and immersive experiences that capture your brand's essence and connect with your audience.",
+    title: "Create",
+    description: "This is where ideas take shape. Our team transforms strategy into visuals — with designs, content, campaigns, packaging, or user-friendly interfaces that bring your brand to life.",
   },
   {
     step: "Q4",
-    title: "Deliver",
-    description: "We implement, test, and optimize your brand assets across all channels, ensuring consistent quality and maximum impact to drive real business results.",
+    title: "Execute",
+    description: "Execution is everything. From posting content to launching campaigns and delivering final assets — we ensure smooth execution with consistency, precision, and attention to detail.",
+  },
+  {
+    step: "Q5",
+    title: "Refine",
+    description: "We believe in growing, always. Post-execution, we track performance, gather feedback, and refine our approach — ensuring your brand stays dynamic, relevant, and ready for its next move.",
   }
 ];
 
@@ -226,8 +231,8 @@ export default function AboutPage() {
                 key={index}
                 className={`bg-foreground md:max-w-[270px] w-full p-8 rounded-md border-3 border-secondary ${card.rotation}`}
               >
-                <h3 className="montserrat-bold text-[28px] md:text-[32px] leading-[40px] mb-3 text-secondary">{card.title}</h3>
-                <p className="lora-blog-h3">{card.description}</p>
+                <h3 className="montserrat-bold text-center text-[28px] md:text-[32px] leading-[40px] mb-3 text-secondary">{card.title}</h3>
+                <p className="lora-blog-h3 text-center">{card.description}</p>
               </div>
             ))}
           </div>

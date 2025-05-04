@@ -176,8 +176,8 @@ export default function Navbar({bg, bgOnScrolled}: {bg: string, bgOnScrolled: st
                                 {item.dropdown ? (
                                     <>
                                         <button
-                                            onClick={() => toggleDropdown(item.name)}
-                                            className="flex items-center gap-1 text-[16px] lora-medium text-background leading-6 cursor-pointer"
+                                            onMouseEnter={() => toggleDropdown(item.name)}
+                                            className="flex items-center gap-1 text-[16px] lora-medium text-background leading-6 cursor-pointer "
                                         >
                                             {item.name}
                                             <ChevronDown 
@@ -188,7 +188,7 @@ export default function Navbar({bg, bgOnScrolled}: {bg: string, bgOnScrolled: st
                                         
                                         {/* Dynamic Dropdown Menu Style */}
                                         <div 
-                                            className={`absolute left-1/2 -translate-x-1/2 top-10 mt-4 w-full ${
+                                            className={`absolute left-1/2 -translate-x-1/2 top-10 mt-4 w-full  border border-background/10 ${
                                                 item.dropdown.length > 4 ? 'min-w-[720px]' : 'min-w-[320px]'
                                             } rounded-2xl bg-foreground text-background p-8 shadow-2xl ring-1 ring-border transition-all duration-300 origin-top-left 
                                             ${activeDropdown === item.name ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'}`}

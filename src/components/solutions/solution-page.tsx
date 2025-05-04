@@ -5,7 +5,7 @@ import { solutionPageQuery } from "@/lib/queries";
 import Image from "next/image";
 import { urlFor } from "@/lib/sanity";
 import useEmblaCarousel from 'embla-carousel-react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowRightIcon, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useCallback, useEffect, useState } from 'react';
 import { SolutionPageData } from "@/types/solutions-interface";
 import CTA from "@/components/section/landing/cta";
@@ -14,7 +14,7 @@ import SectionLoading from "./loading";
 import NotFound from "./not-found";
 import Testimonials from "../layout/testimonials";
 
-export default function SolutionPage({pageName}: {pageName: string}) {
+export default function SolutionPage({ pageName }: { pageName: string }) {
     const [data, setData] = useState<SolutionPageData | null>(null);
     const [emblaRef, emblaApi] = useEmblaCarousel();
     const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
@@ -48,7 +48,7 @@ export default function SolutionPage({pageName}: {pageName: string}) {
         return <SectionLoading />;
     }
 
-    
+
 
     if (data === null || data === undefined) {
         return <NotFound />;
@@ -57,7 +57,7 @@ export default function SolutionPage({pageName}: {pageName: string}) {
     return (
         <main className="relative">
             {/* Hero Section */}
-            <section className="pb-20 pt-12 px-6">
+            <section className="pb-28 pt-20 px-6">
                 <div className="max-w-[1200px] mx-auto">
                     <div className="flex flex-col md:flex-row items-center gap-12">
                         <div className="space-y-12">
@@ -67,17 +67,33 @@ export default function SolutionPage({pageName}: {pageName: string}) {
                             <p className="lora-medium text-[16px] md:text-[20px] leading-[150%]">
                                 {data.homePara}
                             </p>
-                            <div className="flex w-full flex-wrap gap-4 mt-4">
-                                {data.trustedByLogos?.map((logo, index) => (
-                                    <Image
-                                        key={index}
-                                        src={urlFor(logo).url()}
-                                        alt="Trusted by logo"
-                                        width={100}
-                                        height={100}
-                                        className="w-fit h-[60px]"
-                                    />
-                                ))}
+
+                            {/* buttons */}
+                            <div className="flex w-full items-center gap-4 mt-4 lora-sb-h4">
+                                <button className="cursor-pointer bg-primary text-background px-6 py-3 rounded-full flex gap-4 items-center">
+                                    <span>Get in Touch</span>
+                                    <ArrowRightIcon className="w-4 h-4" />
+                                </button>
+                                <button className="cursor-pointer text-primary px-4 py-2 rounded-full">
+                                    View Case Study
+                                </button>
+                            </div>
+
+                            {/* logos */}
+                            <div className="flex w-full items-center gap-4 mt-4">
+                                <p className="lora-m-h1 w-[200px]">Trusted by<br /> top brands</p>
+                                <div className="flex w-full gap-4">
+                                    {data.trustedByLogos?.map((logo, index) => (
+                                        <Image
+                                            key={index}
+                                            src={urlFor(logo).url()}
+                                            alt="Trusted by logo"
+                                            width={100}
+                                            height={100}
+                                            className="w-fit h-[60px]"
+                                        />
+                                    ))}
+                                </div>
                             </div>
                         </div>
                         <div className="h-full w-full">

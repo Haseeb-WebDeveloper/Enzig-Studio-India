@@ -272,7 +272,7 @@ export default function CaseStudyPost() {
                         <div className="space-y-2 w-full">
                           <div className="flex items-center justify-between w-full">
                             <h3 className="montserrat-m-h2">{item.question}</h3>
-                            <p className="text-xl font-medium">
+                            <p className="text-xl font-medium text-background">
                               {openFaqIndex === index ? "−" : "+"}
                             </p>
                           </div>

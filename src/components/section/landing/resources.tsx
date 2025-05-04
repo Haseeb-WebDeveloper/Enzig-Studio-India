@@ -64,7 +64,7 @@ export default function Resources() {
                             </div>
                             <div className="space-y-3 p-5">
                                 <h3 className="text-foreground montserrat-bold text-[32px] leading-[40px]">
-                                Events
+                                Tools
                                 </h3>
                                 <p className="lora-regular text-[16px] leading-[20px]">
                                 From Hosting to Managing – Seamless Event Solutions for Businesses & Brands.

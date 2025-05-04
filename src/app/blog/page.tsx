@@ -37,7 +37,7 @@ async function getInitialData() {
       client.fetch<Post>(leadingPostQuery),
       client.fetch<Category[]>(allCategoriesQuery),
       client.fetch<Post[]>(`
-        *[_type == "post" && category->title != "Featured"] | order(publishedAt desc) {
+        *[_type == "post" && category->title != "Featured"] {
           _id,
           title,
           slug,
