@@ -10,6 +10,7 @@ import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { FaSpinner } from "react-icons/fa";
 import Link from "next/link";
+// import { CarPage } from "@/components/Image-carousel-with-speed";
 
 export default function SingleProjectPage() {
     const params = useParams();
@@ -28,7 +29,8 @@ export default function SingleProjectPage() {
 
     return (
         <>
-            <section className="h-full pt-16">
+
+            <section className="h-full pt-16 bg-background text-foreground">
                 <div className=" max-w-[1024px] mx-auto space-y-12 md:space-y-16">
                     <div className="grid grid-cols-2 gap-16 items-center justify-center h-full text-background">
                         {/* text */}

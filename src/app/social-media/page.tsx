@@ -10,7 +10,7 @@ import Masonry from "@/components/layout/masonry";
 
 export default async function SocialMediaPage() {
     const data = await client.fetch(socialMediaQuery());
-    console.dir(data, { depth: null });
+    // console.dir(data, { depth: null });
 
     return (
         <>

@@ -10,7 +10,7 @@ import UiUxCarousel from "@/components/custom-carousel/ui-ux-carousel";
 
 export default async function UiUxPage() {
     const data = await client.fetch(uiUxQuery());
-    console.dir(data, { depth: null });
+    // console.dir(data, { depth: null });
 
     return (
         <>

@@ -14,7 +14,7 @@ import Navbar from "@/components/layout/navbar";
 export default async function PortfolioPage() {
     const data = await client.fetch(portfolioQuery());
 
-    console.dir({ threeDProjectVideo: data.threeDProjectVideo }, { depth: null });
+    // console.dir({ threeDProjectVideo: data.threeDProjectVideo }, { depth: null });
 
     return (
         <>

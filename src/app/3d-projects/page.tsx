@@ -10,7 +10,7 @@ import Masonry from "@/components/layout/masonry";
 
 export default async function ThreeDProjectsPage() {
     const data = await client.fetch(threeDProjectsQuery());
-    console.dir(data, { depth: null });
+    // console.dir(data, { depth: null });
 
     return (
         <>

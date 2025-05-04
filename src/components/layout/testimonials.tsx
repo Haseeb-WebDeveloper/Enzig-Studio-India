@@ -10,7 +10,7 @@ import { FaQuoteLeft } from "react-icons/fa";
 export default function Testimonials({testimonials}: {testimonials: any}) {
     const [emblaRef, emblaApi] = useEmblaCarousel();
 
-    console.dir(testimonials, { depth: null });
+    // console.dir(testimonials, { depth: null });
 
     const scrollPrev = useCallback(() => {
         if (emblaApi) emblaApi.scrollPrev();

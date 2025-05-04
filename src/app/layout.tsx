@@ -114,9 +114,9 @@ export default function RootLayout({
           <SmoothScrolling>
             <main className="relative">
               {/* Whatsapp Chat */}
-              <Link href="https://wa.me/919625831925" target="_blank" className=" fixed bottom-5 right-5 z-50">
+              {/* <Link href="https://wa.me/919625831925" target="_blank" className=" fixed bottom-5 right-5 z-50">
                 <Image src="/whatsapp-icon.png" alt="Whatsapp" width={100} height={100} className="w-[50px] h-[50px] cursor-pointer" />
-              </Link>
+              </Link> */}
               {children}
               <Footer />
             </main>
