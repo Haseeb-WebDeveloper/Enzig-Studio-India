@@ -12,7 +12,7 @@ import Image from "next/image";
 interface Logo {
   id?: string;
   description?: string;
-  image: any;
+  asset: any;
   className?: string;
 }
 
@@ -28,59 +28,39 @@ const AutoScrollCarousel = ({
     {
       id: "logo-1",
       description: "Logo 1",
-      image: "/sponsors/1.svg",
+      asset: "/sponsors/1.svg",
       className: "h-32 w-auto h-32 w-auto drop-shadow-[0_0_6px_rgba(0,0,0,0.9)",
     },
     {
       id: "logo-2",
       description: "Logo 2",
-      image: "/sponsors/2.svg",
+      asset: "/sponsors/2.svg",
       className: "h-32 w-auto h-32 w-auto drop-shadow-[0_0_6px_rgba(0,0,0,0.9)",
     },
     {
       id: "logo-3",
       description: "Logo 3",
-      image: "/sponsors/3.png",
+      asset: "/sponsors/3.png",
       className: "h-32 w-auto h-32 w-auto drop-shadow-[0_0_6px_rgba(0,0,0,0.9)",
     },
     {
       id: "logo-4",
       description: "Logo 4",
-      image: "/sponsors/7.png",
+      asset: "/sponsors/7.png",
       className: "h-32 w-auto h-32 w-auto drop-shadow-[0_0_6px_rgba(0,0,0,0.9)",
     },
     {
       id: "logo-5",
       description: "Logo 5",
-      image: "/sponsors/5.svg",
-      className: "h-32 w-auto h-32 w-auto drop-shadow-[0_0_6px_rgba(0,0,0,0.9)",
-    },
-    {
-      id: "logo-6",
-      description: "Logo 6",
-      image: "/sponsors/seva.png",
-      className: "h-24 w-auto h-24 w-auto drop-shadow-[0_0_6px_rgba(0,0,0,0.9)",
-    },
-    {
-      id: "logo-7",
-      description: "Logo 7",
-      image: "/sponsors/7.svg",
-      className: "h-32 w-auto h-32 w-auto drop-shadow-[0_0_6px_rgba(0,0,0,0.9)",
-    },
-    {
-      id: "logo-8",
-      description: "Logo 8",
-      image: "/sponsors/8.svg",
-      className: "h-32 w-auto h-32 w-auto drop-shadow-[0_0_6px_rgba(0,0,0,0.9)",
-    },
-    {
-      id: "logo-10",
-      description: "Logo 10",
-      image: "/sponsors/10.png",
+      asset: "/sponsors/5.svg",
       className: "h-32 w-auto h-32 w-auto drop-shadow-[0_0_6px_rgba(0,0,0,0.9)",
     },
   ],
 }: AutoScrollCarouselProps) => {
+
+
+  console.dir(logos, { depth: null });
+
   return (
     <section className="overflow-hidden">
       <div className="flex flex-col items-center gap-10">
