@@ -79,79 +79,84 @@ export default async function BlogPage() {
   // console.log("blogCTAImage", blogCTAImage);
 
   return (
-   <>
-    <main className="max-w-[1220px] mx-auto px-4 py-12">
-      <div className="space-y-16">
-        {/* Leading Post - Always shown regardless of category */}
-        {leadingPost && (
-          <div className="pb-12 relative">
-            <div className="w-full h-[500px] rounded-xl overflow-hidden">
-              <Image
-                src={urlFor(leadingPost.mainImage).url()}
-                alt={leadingPost.title}
-                width={1000}
-                height={1000}
-                priority
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <Link href={`/blog/${leadingPost.slug.current}`}>
-              <div className="absolute bottom-0 left-4 md:left-12 p-6 md:p-8 border border-background/50 rounded-lg max-w-lg bg-foreground text-background">
-                {leadingPost.category && (
-                  <span className="bg-secondary text-foreground text-[14px] md:text-[16px] lora-medium px-2.5 py-1.5 rounded-md">
-                    {leadingPost.category.title}
-                  </span>
-                )}
-                <h3 className="mt-4 montserrat-sb-h3">{leadingPost.title}</h3>
-                <div className="flex items-center gap-4 pt-4 border-t border-border">
-                  <div className="relative h-10 w-10 rounded-full overflow-hidden">
-                    <Image
-                      src={urlFor(leadingPost.author.image).url()}
-                      alt={leadingPost.author.name}
-                      width={1000}
-                      height={1000}
-                      className="object-cover"
-                    />
-                  </div>
-                 <div className="flex flex-col md:flex-row gap-1 md:gap-4">
-                 <p className="lora-m-h4 text-background">
-                    {leadingPost.author.name.slice(0, 12)}
-                  </p>
-                  <p className="lora-m-h4 text-background">
-                    {new Date(leadingPost.publishedAt).toLocaleDateString(
-                      "en-US",
-                      {
-                        month: "long",
-                        day: "numeric",
-                        year: "numeric",
-                      }
-                    )}
-                  </p>
-                 </div>
-                </div>
+    <>
+      <main className="max-w-[1220px] mx-auto px-4 py-12">
+        <div className="space-y-16">
+          {/* Leading Post - Always shown regardless of category */}
+          {leadingPost && (
+            <div className="pb-12 relative">
+              <div className="w-full h-[500px] rounded-xl overflow-hidden">
+                <Image
+                  src={urlFor(leadingPost.mainImage).url()}
+                  alt={leadingPost.title}
+                  width={1000}
+                  height={1000}
+                  priority
+                  className="w-full h-full object-cover"
+                />
               </div>
-            </Link>
+              <Link href={`/blog/${leadingPost.slug.current}`}>
+                <div className="absolute bottom-0 left-4 md:left-12 p-6 md:p-8 border border-background/50 rounded-lg max-w-lg bg-foreground text-background">
+                  {leadingPost.category && (
+                    <span className="bg-secondary text-foreground text-[14px] md:text-[16px] lora-medium px-2.5 py-1.5 rounded-md">
+                      {leadingPost.category.title}
+                    </span>
+                  )}
+                  <h3 className="mt-4 montserrat-sb-h3">{leadingPost.title}</h3>
+                  <div className="flex items-center gap-4 pt-4 border-t border-border">
+                    <div className="relative h-10 w-10 rounded-full overflow-hidden">
+                      <Image
+                        src={urlFor(leadingPost.author.image).url()}
+                        alt={leadingPost.author.name}
+                        width={1000}
+                        height={1000}
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="flex flex-col md:flex-row gap-1 md:gap-4">
+                      <p className="lora-m-h4 text-background">
+                        {leadingPost.author.name.slice(0, 12)}
+                      </p>
+                      <p className="lora-m-h4 text-background">
+                        {new Date(leadingPost.publishedAt).toLocaleDateString(
+                          "en-US",
+                          {
+                            month: "long",
+                            day: "numeric",
+                            year: "numeric",
+                          }
+                        )}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            </div>
+          )}
+
+          <section className="max-w-[1200px] mx-auto rounded-2xl space-y-32 bg-foreground text-background px-6 md:px-12 md:py-8 py-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-16 justify-between items-center">
+              <div className="space-y-6 md:space-y-6 w-full">
+                <p className="montserrat-extrabold text-[24px] md:text-[30px] leading-[130%]">Grow Your Business with the #1 Creative Marketing Agency!</p>
+                <p className="lora-m-h1 mb-12 md:mb-10">From strategy to design, design to market and market to results—driving ROI every step.</p>
+                <Link href="/content" className="w-full md:w-fit  text-center text-[20px] lora-medium rounded-md px-[16px] md:py-[8px] py-[16px] bg-primary text-background">
+                  Get in Touch
+                </Link>
+              </div>
+
+              <div className="w-full h-full flex justify-center items-center">
+                <Image src="/add-right-side-image.png" alt="Blog CTA Image" width={1024} height={768} className="w-full md:h-auto h-full" />
+              </div>
+            </div>
+          </section>
+
+          <div className="flex flex-col max-w-[1080px] mx-auto">
+            {/* Client-side Posts Grid with Category Filtering */}
+            <ClientPosts categories={categories} initialPosts={posts} redirectPage="blog" />
           </div>
-        )}
-
-        <div className="max-w-[1080px] mx-auto w-full h-fit border border-background/10 rounded-xl overflow-hidden">
-          <Image
-            src={urlFor(blogCTAImage.imageUrl).url()}
-            alt={blogCTAImage.title}
-            width={1000}
-            height={1000}
-            priority
-            className="w-full h-fit "
-          />
         </div>
-
-        <div className="flex flex-col max-w-[1080px] mx-auto">
-          {/* Client-side Posts Grid with Category Filtering */}
-          <ClientPosts categories={categories} initialPosts={posts} redirectPage="blog" />
-        </div>
-      </div>
-    </main>
+      </main>
       <CTA />
-   </>
+    </>
   );
 } 

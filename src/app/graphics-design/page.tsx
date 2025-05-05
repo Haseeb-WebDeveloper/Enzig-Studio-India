@@ -15,14 +15,14 @@ export default async function GraphicsDesignPage() {
     return (
         <>
             {/* Hero Section */}
-            <section className="mb-40 md:mb-40 pt-24 px-6 bg-background text-foreground">
+            <section className="mb-32 md:mb-40 pt-24 px-6 bg-background text-foreground">
                 <div className=" max-w-[1024px] mx-auto space-y-12 md:space-y-16">
                     <div className="md:px-12">
                         <Image src="/graphics-design-page.png" alt={data.title} width={1024} height={768} className="w-full h-auto" />
                     </div>
                     {data.homeImages && data.homeImages.length > 0 && (
                         <div className="space-y-4">
-                            <div className="w-full ">
+                            <div className="w-full h-full">
                                 <Image
                                     src={data.homeImages[0].asset.url}
                                     alt={data.title}
@@ -32,7 +32,7 @@ export default async function GraphicsDesignPage() {
                                 />
                             </div>
                             {data.homeImages.length > 2 && (
-                                <div className="grid grid-cols-2 gap-4">
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     <div className="">
                                         <Image
                                             src={data.homeImages[1].asset.url}
@@ -69,7 +69,7 @@ export default async function GraphicsDesignPage() {
             </section>
 
             {/* Next Page Previous Page */}
-            <div className="mb-20">
+            <div className="mb-20 mt-12">
                 <NextPre />
             </div>
 

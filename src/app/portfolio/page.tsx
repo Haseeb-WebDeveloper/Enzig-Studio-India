@@ -46,9 +46,9 @@ export default async function PortfolioPage() {
                 <BrandPortfolio brands={data.brands} page="portfolio" />
 
                 {/* Social Media Management */}
-                <section className="max-w-[1200px] px-4  space-y-10 mx-auto bg-background text-foreground">
+                <section className="max-w-[1200px] px-6 space-y-10 mx-auto bg-background text-foreground">
                     <div className="space-y-32">
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold">Social Media Management</h1>
+                        <h1 className="montserrat-eb-h2">Social Media Management</h1>
                     </div>
                     <div className="columns-1 md:columns-2 lg:columns-3 p-0 gap-0">
                         {data.socialMediaTopImages.map((item: any, index: any) => (
@@ -57,26 +57,26 @@ export default async function PortfolioPage() {
                             </div>
                         ))}
                     </div>
-                    <section className="max-w-[1200px] mx-auto rounded-2xl space-y-32 bg-foreground text-background px-12 py-8">
-                        <div className="flex gap-16 justify-between items-center">
-                            <div className="space-y-6 w-full">
-                                <p className="lora-sb-h2">Grow Your Business with the #1 Creative Marketing Agency!</p>
-                                <p>From strategy to design, design to market and market to results—driving ROI every step.</p>
+                    <section className="max-w-[1200px] mx-auto rounded-2xl space-y-32 bg-foreground text-background px-6 md:px-12 md:py-8 py-6">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 justify-between items-center">
+                            <div className="space-y-6 md:space-y-6 w-full">
+                                <p className="montserrat-extrabold text-[24px] md:text-[30px] leading-[130%]">Grow Your Business with the #1 Creative Marketing Agency!</p>
+                                <p className="lora-m-h1 mb-12 md:mb-0">From strategy to design, design to market and market to results—driving ROI every step.</p>
                                 <Link href="/content" className="w-full md:w-fit  text-center text-[20px] lora-medium rounded-md px-[16px] md:py-[8px] py-[16px] bg-primary text-background">
                                     Get in Touch
                                 </Link>
                             </div>
 
-                            <div className="w-fit">
-                                <Image src="/add-right-side-image.png" alt={data.title} width={1024} height={768} className="w-full h-auto" />
+                            <div className="w-full h-full flex justify-center items-center">
+                                <Image src="/add-right-side-image.png" alt={data.title} width={1024} height={768} className="w-full md:h-auto h-full" />
                             </div>
                         </div>
                     </section>
                 </section>
 
                 {/* Content Creation */}
-                <section className="max-w-[1200px] mx-auto space-y-10">
-                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold">Content Creation</h1>
+                <section className="max-w-[1200px] px-6 mx-auto space-y-10">
+                    <h1 className="montserrat-eb-h2">Content Creation</h1>
                     <div className="columns-1 md:columns-2 lg:columns-3 p-0 gap-0">
                         {data.contentCreationImages.map((item: any, index: any) => (
                             <div key={index}>
@@ -89,8 +89,8 @@ export default async function PortfolioPage() {
 
                 {/* Graphics Design */}
                 <section className="bg-[#6C7880] py-12">
-                    <div className="max-w-[1200px] mx-auto space-y-10">
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold">Graphics Design</h1>
+                    <div className="max-w-[1200px] px-6 mx-auto space-y-10">
+                        <h1 className="montserrat-eb-h2">Graphics Design</h1>
                         <div className="space-y-4">
                             <div className="w-full">
                                 <Image
@@ -127,14 +127,14 @@ export default async function PortfolioPage() {
 
                 {/* ui ux */}
                 <section className="mx-auto">
-                    <h1 className="max-w-[1200px] mx-auto text-4xl md:text-5xl lg:text-6xl font-bold">Graphics Design</h1>
+                    <h1 className="max-w-[1200px] px-6 mx-auto montserrat-eb-h2">Website and Apps (UI/UX)</h1>
                     <UiUxCarousel carouselCards={data.uiUxImages} />
                 </section>
 
 
                 {/* 3d */}
-                <section className="space-y-10 max-w-[1200px] mx-auto ">
-                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold">3D Projects</h1>
+                <section className="space-y-10 px-6 max-w-[1200px] mx-auto ">
+                    <h1 className="montserrat-eb-h2">3D Projects</h1>
                     <div className="w-full aspect-video">
                         <video
                             src={data.threeDProjectVideo.video.asset.url}
@@ -154,7 +154,7 @@ export default async function PortfolioPage() {
                 </section>
 
                 {/* Next Page Previous Page */}
-                <div className="mb-20">
+                <div className="mb-20 mt-12">
                     <NextPre />
                 </div>
                 {/* CTA */}

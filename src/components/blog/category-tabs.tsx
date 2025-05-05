@@ -21,7 +21,7 @@ export function CategoryTabs({
   const allCategories = [{ title: "all", description: "All posts" }, ...categories.filter(cat => cat.title !== "Featured")];
 
   return (
-    <div className="flex flex-wrap justify-start gap-6 border-b border-background/10">
+    <div className="flex flex-wrap justify-start gap-6 md:border-b border-background/10">
       {allCategories.map((category) => (
         <button
           key={category.title}

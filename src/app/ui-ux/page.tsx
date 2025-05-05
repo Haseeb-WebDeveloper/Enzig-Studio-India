@@ -19,7 +19,7 @@ export default async function UiUxPage() {
                 {/* Hero Section */}
                 <section className="pt-24 bg-background text-foreground">
                     <div className="space-y-12 md:space-y-16">
-                        <div className="md:px-12  max-w-[1024px] mx-auto ">
+                        <div className="px-12 max-w-[1024px] mx-auto ">
                             <Image src="/ui-ux-page.png" alt={data.title} width={1024} height={768} className="w-fit h-auto mx-auto" />
                         </div>
                         <div className="w-full">
@@ -45,7 +45,7 @@ export default async function UiUxPage() {
                 </section>
 
                 {/* Next Page Previous Page */}
-                <div className="mb-20">
+                <div className="mb-20 mt-12">
                     <NextPre />
                 </div>
             </div>

@@ -38,27 +38,32 @@ const approachSteps = [
   {
     step: "Q1",
     title: "Discover",
-    description: "Every great brand starts with a story. We begin by understanding your business, audience, challenges, and vision. This helps us craft a strategy that's not just creative, but truly aligned with your goals.",
+    subDescription: "Every great brand starts with a story.",
+    description: "We begin by understanding your business, audience, challenges, and vision. This helps us craft a strategy that's not just creative, but truly aligned with your goals.",
   },
   {
     step: "Q2",
     title: "Strategize",
-    description: "Ideas without strategy are just art. We create a custom roadmap for your brand — from content planning to design direction — ensuring every piece of work has a purpose and impact.",
+    subDescription: "Ideas without strategy are just art.",
+    description: "We create a custom roadmap for your brand — from content planning to design direction — ensuring every piece of work has a purpose and impact.",
   },
   {
     step: "Q3",
     title: "Create",
-    description: "This is where ideas take shape. Our team transforms strategy into visuals — with designs, content, campaigns, packaging, or user-friendly interfaces that bring your brand to life.",
+    subDescription: "This is where ideas take shape.",
+    description: "Our team transforms strategy into visuals — with designs, content, campaigns, packaging, or user-friendly interfaces that bring your brand to life.",
   },
   {
     step: "Q4",
     title: "Execute",
-    description: "Execution is everything. From posting content to launching campaigns and delivering final assets — we ensure smooth execution with consistency, precision, and attention to detail.",
+    subDescription: "Execution is everything.",
+    description: "From posting content to launching campaigns and delivering final assets — we ensure smooth execution with consistency, precision, and attention to detail.",
   },
   {
     step: "Q5",
     title: "Refine",
-    description: "We believe in growing, always. Post-execution, we track performance, gather feedback, and refine our approach — ensuring your brand stays dynamic, relevant, and ready for its next move.",
+    subDescription: "We believe in growing, always.",
+    description: "Post-execution, we track performance, gather feedback, and refine our approach — ensuring your brand stays dynamic, relevant, and ready for its next move.",
   }
 ];
 
@@ -231,7 +236,7 @@ export default function AboutPage() {
                 key={index}
                 className={`bg-foreground md:max-w-[270px] w-full p-8 rounded-md border-3 border-secondary ${card.rotation}`}
               >
-                <h3 className="montserrat-bold text-center text-[28px] md:text-[32px] leading-[40px] mb-3 text-secondary">{card.title}</h3>
+                <h3 className="montserrat-bold text-center text-[28px] md:text-[32px] leading-[40px] md:mb-3 mb-2 text-secondary">{card.title}</h3>
                 <p className="lora-blog-h3 text-center">{card.description}</p>
               </div>
             ))}
@@ -239,8 +244,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Our Approach Section */}
-      {/* Our Approach Section */}
+      {/* Our Approach Section */} 
       <section 
         ref={triggerRef} 
         className="relative bg-black overflow-hidden will-change-transform"
@@ -265,14 +269,17 @@ export default function AboutPage() {
                 }}
               >
                 <div className="max-w-3xl mx-auto text-left relative">
-                  <span className="absolute top-[-80px] left-0 text-[#a4ff00] text-4xl font-bold">
+                  <span className="montserrat-eb-h3 absolute top-[-80px] left-0 text-[#a4ff00] text-4xl font-bold">
                     {step.step}
                   </span>
                   
-                  <h3 className="font-bold text-5xl text-white mb-6">
+                  <h3 className="montserrat-eb-h3 text-white mb-6">
                     {step.title}
                   </h3>
-                  <p className="text-lg text-white/90 max-w-lg">
+                  <p className="lora-blog-h1 text-primary mb-1">
+                    {step.subDescription}
+                  </p>
+                  <p className="lora-blog-h1 text-white/90 max-w-lg">
                     {step.description}
                   </p>
                 </div>

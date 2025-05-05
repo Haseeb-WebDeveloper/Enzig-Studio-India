@@ -15,8 +15,8 @@ export default async function ThreeDProjectsPage() {
     return (
         <>
             {/* Hero Section */}
-            <section className="mb-40 md:mb-40 pt-24 px-6 bg-background text-foreground">
-                <div className=" max-w-[1024px] mx-auto space-y-12 md:space-y-16">
+            <section className="mb-32 md:mb-40 pt-24 px-6 bg-background text-foreground">
+                <div className=" max-w-[1024px] mx-auto space-y-6 md:space-y-16">
                     <div className="md:px-12">
                         <Image src="/3d-project-title.png" alt={data.title} width={1024} height={768} className="w-full h-auto" />
                     </div>
@@ -46,7 +46,7 @@ export default async function ThreeDProjectsPage() {
             </section>
 
             {/* Next Page Previous Page */}
-            <div className="mb-20">
+            <div className="mb-20 mt-12 md:mt-0">
                 <NextPre />
             </div>
 

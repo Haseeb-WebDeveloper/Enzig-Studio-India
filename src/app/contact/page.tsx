@@ -60,7 +60,8 @@ export default function ContactPage() {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
-        message: ''
+        message: '',
+        number: ''
     });
 
     const [status, setStatus] = useState({
@@ -98,7 +99,8 @@ export default function ContactPage() {
             setFormData({
                 name: '',
                 email: '',
-                message: ''
+                message: '',
+                number: ''
             });
 
             // Reset success message after 5 seconds
@@ -119,7 +121,7 @@ export default function ContactPage() {
         <main className="relative">
             {/* Hero Section with Form */}
             <section className="min-h-[90vh] 2xl:min-h-auto px-6 py-20 flex items-center">
-                <div className="relative max-w-[1100px] mx-auto w-full grid md:grid-cols-2 gap-12">
+                <div className="relative max-w-[1100px] mx-auto w-full grid md:grid-cols-2 gap-12 md:gap-20">
                     {/* Left Side - Curved Text and Tags */}
                     <div className=" flex flex-col justify-center">
                         <Image
@@ -170,17 +172,17 @@ export default function ContactPage() {
                     </div>
 
                     {/* Right Side - Contact Form */}
-                    <div className=" text-background pl-5 pb-5 bg-cover bg-center z-0" style={{ backgroundImage: 'url(/contact/mask-bg.png)' }}>
-                        <form onSubmit={handleSubmit} className="space-y-6 rounded-b-lg rounded-t-lg bg-white">
-                            <div className='space-y-6 p-10'>
+                    <div className=" text-background pl-5 pb-5  bg-cover bg-center z-0" style={{ backgroundImage: 'url(/contact/mask-bg.png)' }}>
+                        <form onSubmit={handleSubmit} className=" rounded-b-lg rounded-t-lg">
+                            <div className='space-y-6 p-10 bg-white'>
                                 <p className="lora-m-h1  text-end pl-8 pb-4"><span className='text-primary'>You can find us</span> writing a brand story or busy growing the brand to new heights.</p>
-                                
+
                                 {status.error && (
                                     <div className="bg-red-50 text-red-500 p-3 rounded-md mb-4">
                                         {status.error}
                                     </div>
                                 )}
-                                
+
                                 {status.success && (
                                     <div className="bg-green-50 text-green-500 p-3 rounded-md mb-4">
                                         Thank you for your message! We'll get back to you soon.
@@ -212,12 +214,24 @@ export default function ContactPage() {
                                     />
                                 </div>
                                 <div>
+                                    <label htmlFor="number" className="block montserrat-medium mb-2">Phone Number</label>
+                                    <input
+                                        type="tel"
+                                        id="number"
+                                        value={formData.number}
+                                        onChange={(e) => setFormData({ ...formData, number: e.target.value })}
+                                        className="w-full lora-blog-h2 border-b-[2px] border-background/50 focus:outline-none ring-0"
+                                        required
+                                        disabled={status.loading}
+                                    />
+                                </div>
+                                <div>
                                     <label htmlFor="message" className="block montserrat-medium mb-2">Message</label>
                                     <textarea
                                         id="message"
                                         value={formData.message}
                                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                                        rows={4}
+                                        rows={2}
                                         className="w-full lora-blog-h2 border-b-[2px] border-background/50 focus:outline-none ring-0"
                                         required
                                         disabled={status.loading}
@@ -261,11 +275,11 @@ export default function ContactPage() {
             </section>
 
             {/* Get in Touch Section */}
-            <section className="py-20 px-6 bg-foreground text-background">
+            <section className="py-20 px-6 bg-background text-foreground">
                 <div className="max-w-[1200px] mx-auto">
-                    <div className="w-full flex flex-col md:flex-row gap-12 items-center justify-between">
+                    <div className="w-full flex flex-col md:flex-row gap-x-12 gap-y-6 items-center justify-between">
                         <div className=''>
-                            <h2 className=" max-w-4xl montserrat-bold text-[40px] md:text-[56px] lg:text-[65px] leading-tight mb-6">
+                            <h2 className="max-w-4xl montserrat-eb-h1 mb-6">
                                 Get in touch with us. <br /> We're here to assist you.
                             </h2>
                         </div>

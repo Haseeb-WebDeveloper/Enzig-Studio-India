@@ -17,7 +17,7 @@ export default async function BrandingPage() {
     // console.dir(data, { depth: null });
 
     return (
-        <main className="min-h-screen space-y-32">
+        <main className="min-h-screen space-y-20 md:space-y-32">
             {/* Hero Section */}
             <section className="pt-20 px-6 bg-background text-foreground">
                 <div className="max-w-4xl mx-auto space-y-12 md:space-y-16">

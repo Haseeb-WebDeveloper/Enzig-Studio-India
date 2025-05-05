@@ -69,7 +69,7 @@ export default function SolutionPage({ pageName }: { pageName: string }) {
                             </p>
 
                             {/* buttons */}
-                            <div className="flex w-full items-center gap-4 mt-4 lora-sb-h4">
+                            <div className="flex w-full items-center gap-4 md:mt-4 mt-6 lora-sb-h4">
                                 <button className="cursor-pointer bg-primary text-background px-6 py-3 rounded-full flex gap-4 items-center">
                                     <span>Get in Touch</span>
                                     <ArrowRightIcon className="w-4 h-4" />
@@ -80,8 +80,9 @@ export default function SolutionPage({ pageName }: { pageName: string }) {
                             </div>
 
                             {/* logos */}
-                            <div className="flex w-full items-center gap-4 mt-4">
-                                <p className="lora-m-h1 w-[200px]">Trusted by<br /> top brands</p>
+                            <div className="flex flex-col md:flex-row w-full items-center gap-x-4 gap-y-6 md:mt-4 mt-6">
+                                <p className="lora-m-h1 w-[200px] hidden md:block">Trusted by<br /> top brands</p>
+                                <p className="lora-m-h1 text-left w-full block md:hidden">Trusted by top brands</p>
                                 <div className="flex w-full gap-4">
                                     {data.trustedByLogos?.map((logo, index) => (
                                         <Image
@@ -110,7 +111,7 @@ export default function SolutionPage({ pageName }: { pageName: string }) {
             </section>
 
             {/* Second Section */}
-            <section className="bg-foreground text-background py-20">
+            <section className="bg-foreground text-background md:py-24 py-16">
                 <div className="max-w-7xl mx-auto px-4">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                         <div className="space-y-6">
@@ -125,7 +126,7 @@ export default function SolutionPage({ pageName }: { pageName: string }) {
                         </div>
                         <div className="space-y-6 flex flex-col gap-4 justify-between">
                             {data.secondSectionContent.map((para, index) => (
-                                <p key={index} className="lora-blog-h3">{para}</p>
+                                <p key={index} className="lora-blog-h3 text-background/80">{para}</p>
                             ))}
                         </div>
                     </div>
@@ -133,7 +134,9 @@ export default function SolutionPage({ pageName }: { pageName: string }) {
             </section>
 
             {/* Testimonials Section */}
+            <div className="md:py-20 py-16 bg-background">
             <Testimonials testimonials={data.testimonials} />
+            </div>
 
             {/* Services Section */}
             <section className="py-20 px-6">
@@ -169,7 +172,7 @@ export default function SolutionPage({ pageName }: { pageName: string }) {
                             >
                                 <button
                                     onClick={() => toggleFaq(index)}
-                                    className="w-full flex items-center justify-between p-6 text-black"
+                                    className="cursor-pointer w-full flex items-center justify-between p-6 text-black"
                                 >
                                     <h3 className="text-[18px] montserrat-medium text-left">
                                         {item.question}

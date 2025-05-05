@@ -22,7 +22,7 @@ export default async function SocialMediaPage() {
                         <div className="md:px-12  max-w-[1024px] mx-auto ">
                             <Image src="/social-media-page.png" alt={data.title} width={1024} height={768} className="w-full h-auto" />
                         </div>
-                        <div className="grid grid-cols-3 gap-4">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                             {data.topImage.map((image: any, index: number) => (
                                 <div key={index} className="w-full h-full">
                                     <Image src={image.asset.url} alt={data.title} width={1024} height={768} className="w-full h-full object-cover" />
@@ -49,7 +49,7 @@ export default async function SocialMediaPage() {
                 </section>
 
                 {/* Next Page Previous Page */}
-                <div className="mb-20">
+                <div className="mb-20 mt-12">
                     <NextPre />
                 </div>
             </div>

@@ -162,6 +162,11 @@
   font-style: normal;
 }
 
+.raleway {
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
 
 
 
@@ -474,6 +479,22 @@
   }
 }
 
+
+.montserrat-eb-h1 {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+  font-size: 64px;
+  line-height: 72px;
+}
+
+@media (max-width: 768px) {
+  .montserrat-eb-h1{
+    font-size: 30px;
+    line-height: 48px;
+  }
+}
 
 .montserrat-eb-h3 {
   font-family: "Montserrat", sans-serif;

@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function NextPre() {
     return (
         <div>
-             <div className="flex justify-between items-center max-w-[1200px] mx-auto">
+             <div className="flex justify-between items-center max-w-[1200px] px-6 xl:px-0 mx-auto">
                 <Link href="/" className="lora-blog-h3 flex flex-col gap-3">
                     Previous Project
                     <Image src="/page-arrow-left.svg" alt="Previous Project" width={200} height={200} className="w-32" />

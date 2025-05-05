@@ -11,9 +11,7 @@ interface UiUxCarouselProps {
 export default function UiUxCarousel({ carouselCards }: UiUxCarouselProps) {
     const containerRef = useRef<HTMLDivElement>(null);
     const trackRef = useRef<HTMLDivElement>(null);
-    const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
-    const [isHovering, setIsHovering] = useState(false);
-  const [isDragging, setIsDragging] = useState(false);
+    const [isDragging, setIsDragging] = useState(false);
   
   // Animation refs
   const animation = useRef<gsap.core.Tween | null>(null);
@@ -134,11 +132,6 @@ export default function UiUxCarousel({ carouselCards }: UiUxCarouselProps) {
   
   // Track cursor position
   const handleMouseMove = useCallback((e: React.MouseEvent) => {
-    setCursorPosition({
-      x: e.clientX,
-      y: e.clientY,
-    });
-    
     if (isDragging && trackRef.current && animation.current) {
       e.preventDefault();
       
@@ -197,33 +190,9 @@ export default function UiUxCarousel({ carouselCards }: UiUxCarouselProps) {
       ref={containerRef}
       className="relative overflow-hidden py-10"
       onMouseMove={handleMouseMove}
-      onMouseEnter={() => setIsHovering(true)}
-      onMouseLeave={() => {
-        setIsHovering(false);
-        if (isDragging) {
-          setIsDragging(false);
-          handleMouseUp();
-        }
-      }}
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
     >
-      {/* Custom cursor */}
-      {isHovering && !isDragging && (
-        <div
-          className="pointer-events-none fixed z-50 mix-blend-difference"
-          style={{
-            left: cursorPosition.x,
-            top: cursorPosition.y,
-            transform: "translate(-50%, -50%)",
-          }}
-        >
-          <div className="w-20 h-20 rounded-full bg-white flex items-center justify-center">
-            <span className="text-black font-medium">Explore</span>
-          </div>
-        </div>
-      )}
-
       <div className="h-full">
         <div className="overflow-hidden h-[100%]">
           <div
@@ -238,9 +207,7 @@ export default function UiUxCarousel({ carouselCards }: UiUxCarouselProps) {
             {duplicatedImages.map((image, index) => (
               <div
                 key={index}
-                className={`p-4 rounded-lg bg-foreground h-full max-w-[350px] text-background ${
-                  !isDragging && "cursor-none"
-                }`}
+                className="p-4 rounded-lg bg-foreground h-full max-w-[350px] text-background"
                 style={{ flex: "0 0 auto" }}
               >
                 <Image

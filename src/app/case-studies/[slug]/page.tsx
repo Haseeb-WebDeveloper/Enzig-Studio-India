@@ -57,6 +57,23 @@ export default function CaseStudyPost() {
     document.title = `${caseStudy.title} | Enzig Studio India`;
   };
 
+  const handleShare = (platform: string) => {
+    if (!caseStudy) return;
+
+    const currentUrl = window.location.href;
+    const text = `Check out this article: ${caseStudy.title}`;
+
+    const shareUrls = {
+      whatsapp: `https://api.whatsapp.com/send?text=${encodeURIComponent(`${text} ${currentUrl}`)}`,
+      facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentUrl)}`,
+      twitter: `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(currentUrl)}`,
+      linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(currentUrl)}`,
+      threads: `https://threads.net/intent/post?text=${encodeURIComponent(`${text} ${currentUrl}`)}`
+    };
+
+    window.open(shareUrls[platform as keyof typeof shareUrls], '_blank');
+  };
+
   if (!caseStudy) {
     return <>
       <div className="max-w-6xl mx-auto px-4 py-8">
@@ -79,9 +96,9 @@ export default function CaseStudyPost() {
 
   return (
     <div className="bg-background text-foreground">
-      <div className=" px-4 py-12">
+      <div className="mt-4">
         {/* Top section with 2 columns */}
-        <div className="max-w-[1100px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12 pt-8">
+        <div className="max-w-[1100px]  px-6 md:px-0 mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 py-24">
           <div className="space-y-7">
             <div className="flex items-center justify-start">
               <Image src={urlFor(caseStudy.logo).url()} alt={caseStudy.title} width={300} height={300} className="object-contain max-h-[100px]" />
@@ -111,21 +128,21 @@ export default function CaseStudyPost() {
         </div>
 
         {/* Stats section */}
-        <div className="bg-primary text-background py-12">
-          <div className="max-w-[1100px] mx-auto flex items-center justify-between gap-8">
+        <div className="bg-primary text-background py-12 px-6 md:px-0">
+          <div className="max-w-[1100px] mx-auto grid grid-cols-2 lg:grid-cols-4 gap-8">
             {caseStudy.stats && caseStudy.stats.length > 0 && caseStudy.stats.map((stat, index) => (
-              <div className={`flex items-center gap-2 ${index < caseStudy.stats.length - 1 ? "border-r border-background/[0.05] pr-4" : ""}`}>
-              <div className="space-y-4 flex flex-col items-center">
-             <p className="montserrat-sb-h3 text-secondary">{stat.value}</p>
-             <p className="lora-m-h1 text-background">{stat.label}</p>
-             </div>
-            </div>
+              <div key={index} className={`flex items-center justify-center ${index < caseStudy.stats.length - 1 ? "md:border-r border-background pr-4" : ""}`}>
+                <div className="space-y-4 flex flex-col items-center text-center">
+                  <p className="montserrat-sb-h3 text-secondary">{stat.value}</p>
+                  <p className="lora-m-h1 text-background">{stat.label}</p>
+                </div>
+              </div>
             ))}
           </div>
         </div>
 
         {/* Post content */}
-        <div className="bg-foreground text-background py-12">
+        <div className="bg-foreground text-background py-12  px-6 md:px-0">
           <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8">
             <div className="lg:col-span-8 space-y-6">
               {/* Post metadata and author */}
@@ -220,21 +237,21 @@ export default function CaseStudyPost() {
                 <div className="bg-primary p-4 rounded-lg mb-8 space-y-3">
                   <p className="lora-b-h2 text-foreground">Share with your community!</p>
                   <div className="flex items-center gap-6 flex-wrap">
-                    <Link href="https://wa.me/919625831925" target="_blank" className="">
-                      <Image src="/social/whatsapp.png" alt="Whatsapp" width={100} height={100} className="w-[25px] h-full cursor-pointer" />
-                    </Link>
-                    <Link href="https://www.facebook.com/share/1XmpS9Hidu/?mibextid=wwXIfr" target="_blank" className="">
-                      <Image src="/social/faceook.png" alt="Facebook" width={100} height={100} className="w-[25px] h-full cursor-pointer" />
-                    </Link>
-                    <Link href="https://x.com/enzigstudio?s=21" target="_blank" className="">
-                      <Image src="/social/x.png" alt="Whatsapp" width={100} height={100} className="w-[25px] h-full cursor-pointer" />
-                    </Link>
-                    <Link href="https://www.linkedin.com/company/enzig-studio" target="_blank" className="">
-                      <Image src="/social/linkedin.png" alt="Whatsapp" width={100} height={100} className="w-[25px] h-full cursor-pointer" />
-                    </Link>
-                    <Link href="https://wa.me/919625831925" target="_blank" className="">
-                      <Image src="/social/thread.png" alt="Whatsapp" width={100} height={100} className="w-[25px] h-full cursor-pointer" />
-                    </Link>
+                    <button onClick={() => handleShare('whatsapp')} className="cursor-pointer">
+                      <Image src="/social/whatsapp.png" alt="Share on WhatsApp" width={100} height={100} className="w-[25px] h-full" />
+                    </button>
+                    <button onClick={() => handleShare('facebook')} className="cursor-pointer">
+                      <Image src="/social/faceook.png" alt="Share on Facebook" width={100} height={100} className="w-[25px] h-full" />
+                    </button>
+                    <button onClick={() => handleShare('twitter')} className="cursor-pointer">
+                      <Image src="/social/x.png" alt="Share on Twitter" width={100} height={100} className="w-[25px] h-full" />
+                    </button>
+                    <button onClick={() => handleShare('linkedin')} className="cursor-pointer">
+                      <Image src="/social/linkedin.png" alt="Share on LinkedIn" width={100} height={100} className="w-[25px] h-full" />
+                    </button>
+                    <button onClick={() => handleShare('threads')} className="cursor-pointer">
+                      <Image src="/social/thread.png" alt="Share on Threads" width={100} height={100} className="w-[25px] h-full" />
+                    </button>
                   </div>
                 </div>
 

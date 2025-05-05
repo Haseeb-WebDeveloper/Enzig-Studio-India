@@ -57,6 +57,23 @@ export default function BlogPost() {
     document.title = `${post.title} | Enzig Studio India`;
   };
 
+  const handleShare = (platform: string) => {
+    if (!post) return;
+
+    const currentUrl = window.location.href;
+    const text = `Check out this article: ${post.title}`;
+
+    const shareUrls = {
+      whatsapp: `https://api.whatsapp.com/send?text=${encodeURIComponent(`${text} ${currentUrl}`)}`,
+      facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentUrl)}`,
+      twitter: `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(currentUrl)}`,
+      linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(currentUrl)}`,
+      threads: `https://threads.net/intent/post?text=${encodeURIComponent(`${text} ${currentUrl}`)}`
+    };
+
+    window.open(shareUrls[platform as keyof typeof shareUrls], '_blank');
+  };
+
   if (!post) {
     return <>
       <div className="max-w-6xl mx-auto px-4 py-8">
@@ -211,21 +228,21 @@ raleway-medium text-[14px]">
             <div className="bg-primary p-4 rounded-lg mb-8 space-y-3">
               <p className="lora-b-h2 text-foreground">Share with your community!</p>
               <div className="flex items-center gap-6 flex-wrap">
-                <Link href="https://wa.me/919625831925" target="_blank" className="">
-                  <Image src="/social/whatsapp.png" alt="Whatsapp" width={100} height={100} className="w-[25px] h-full cursor-pointer" />
-                </Link>
-                <Link href="https://www.facebook.com/share/1XmpS9Hidu/?mibextid=wwXIfr" target="_blank" className="">
-                  <Image src="/social/faceook.png" alt="Facebook" width={100} height={100} className="w-[25px] h-full cursor-pointer" />
-                </Link>
-                <Link href="https://x.com/enzigstudio?s=21" target="_blank" className="">
-                  <Image src="/social/x.png" alt="Whatsapp" width={100} height={100} className="w-[25px] h-full cursor-pointer" />
-                </Link>
-                <Link href="https://www.linkedin.com/company/enzig-studio" target="_blank" className="">
-                  <Image src="/social/linkedin.png" alt="Whatsapp" width={100} height={100} className="w-[25px] h-full cursor-pointer" />
-                </Link>
-                <Link href="https://wa.me/919625831925" target="_blank" className="">
-                  <Image src="/social/thread.png" alt="Whatsapp" width={100} height={100} className="w-[25px] h-full cursor-pointer" />
-                </Link>
+                <button onClick={() => handleShare('whatsapp')} className="cursor-pointer">
+                  <Image src="/social/whatsapp.png" alt="Share on WhatsApp" width={100} height={100} className="w-[25px] h-full" />
+                </button>
+                <button onClick={() => handleShare('facebook')} className="cursor-pointer">
+                  <Image src="/social/faceook.png" alt="Share on Facebook" width={100} height={100} className="w-[25px] h-full" />
+                </button>
+                <button onClick={() => handleShare('twitter')} className="cursor-pointer">
+                  <Image src="/social/x.png" alt="Share on Twitter" width={100} height={100} className="w-[25px] h-full" />
+                </button>
+                <button onClick={() => handleShare('linkedin')} className="cursor-pointer">
+                  <Image src="/social/linkedin.png" alt="Share on LinkedIn" width={100} height={100} className="w-[25px] h-full" />
+                </button>
+                <button onClick={() => handleShare('threads')} className="cursor-pointer">
+                  <Image src="/social/thread.png" alt="Share on Threads" width={100} height={100} className="w-[25px] h-full" />
+                </button>
               </div>
             </div>
 

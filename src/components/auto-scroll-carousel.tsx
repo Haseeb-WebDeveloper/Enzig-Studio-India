@@ -91,7 +91,7 @@ const AutoScrollCarousel = ({
                 {[...logos, ...logos].map((logo, index) => (
                   <CarouselItem
                     key={`${logo.id}-${index}`}
-                    className=" flex pl-2 md:pl-4 basis-1/2 sm:basis-1/3 md:basis-1/4 lg:basis-1/5"
+                    className=" flex pl-2 md:pl-4 basis-[80%] md:basis-1/4 lg:basis-1/5"
                   >
                     <div className="cursor-grab mx-8 flex shrink-0 items-center justify-center">
                       <div className="w-full h-full flex items-center justify-center py-6 px-8 rounded-4xl  border border-foreground/60">

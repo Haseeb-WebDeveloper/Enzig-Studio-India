@@ -3,7 +3,7 @@ import nodemailer from 'nodemailer';
 
 export async function POST(req: Request) {
   try {
-    const { name, email, message } = await req.json();
+    const { name, email, message, number } = await req.json();
 
     // Create a transporter
     const transporter = nodemailer.createTransport({
@@ -15,6 +15,24 @@ export async function POST(req: Request) {
         pass: process.env.EMAIL_PASS,
       },
     });
+
+        // Email content for the admin
+        const adminMailOptions = {
+          from: process.env.EMAIL_USER,
+          to: process.env.ADMIN_EMAIL,
+          subject: 'New Contact Form Submission - Enzig Studio',
+          html: `
+            <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+              <h2 style="color: #333;">New Contact Form Submission</h2>
+              <div style="background-color: #f5f5f5; padding: 15px; border-radius: 5px; margin: 20px 0;">
+                <p style="margin: 5px 0;"><strong>Name:</strong> ${name}</p>
+                <p style="margin: 5px 0;"><strong>Email:</strong> ${email}</p>
+                <p style="margin: 5px 0;"><strong>Phone Number:</strong> ${number}</p>
+                <p style="margin: 5px 0;"><strong>Message:</strong> ${message}</p>
+              </div>
+            </div>
+          `,
+        };
 
     // Email content for the user (auto-reply)
     const userMailOptions = {
@@ -36,22 +54,6 @@ export async function POST(req: Request) {
       `,
     };
 
-    // Email content for the admin
-    const adminMailOptions = {
-      from: process.env.EMAIL_USER,
-      to: process.env.ADMIN_EMAIL,
-      subject: 'New Contact Form Submission - Enzig Studio',
-      html: `
-        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-          <h2 style="color: #333;">New Contact Form Submission</h2>
-          <div style="background-color: #f5f5f5; padding: 15px; border-radius: 5px; margin: 20px 0;">
-            <p style="margin: 5px 0;"><strong>Name:</strong> ${name}</p>
-            <p style="margin: 5px 0;"><strong>Email:</strong> ${email}</p>
-            <p style="margin: 5px 0;"><strong>Message:</strong> ${message}</p>
-          </div>
-        </div>
-      `,
-    };
 
     // Send emails
     await Promise.all([

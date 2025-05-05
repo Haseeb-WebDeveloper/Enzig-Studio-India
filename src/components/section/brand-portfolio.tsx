@@ -11,12 +11,12 @@ const raleway = Raleway({ subsets: ['latin'] });
 
 export const BrandPortfolio = ({ brands, page }: { brands: BrandingPortfolio['brands'], page: string }) => {
     return (
-        <section className="max-w-[1200px] mx-auto px-4 space-y-32">
+        <section className="max-w-[1200px] mx-auto px-6 space-y-32">
             {brands.map((brand, index) => (
                 <div key={index}>
                     {/* Title Section */}
                     <div className="mx-auto px-4 mb-12">
-                        {page === "portfolio" ? <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold">Branding & Identity</h1> : <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center">{brand.brandName}</h1>}
+                        {page === "portfolio" ? <h1 className="montserrat-eb-h2">Branding & Identity</h1> : <h1 className="montserrat-eb-h2 text-center">{brand.brandName}</h1>}
                     </div>
 
                     <div className="flex flex-col lg:flex-row gap-4">
@@ -24,9 +24,9 @@ export const BrandPortfolio = ({ brands, page }: { brands: BrandingPortfolio['br
                         <div className="space-y-4 w-full lg:w-[40%]">
                             {/* Brand Experience Card */}
                             <div className="bg-foreground text-background rounded-4xl p-6 space-y-4">
-                                <h3 className="text-xl text-center font-bold">ENHANCE YOUR</h3>
+                                <p className="montserrat-eb-h3 text-center">ENHANCE YOUR</p>
                                 <Image src="/brand-strip.png" alt="Brand Experience" width={400} height={400} className="w-80 mx-auto h-auto" />
-                                <p className="text-lg text-gray-400 text-center">EXPERIENCE WITH US!</p>
+                                <p className="montserrat-eb-h3 text-center">EXPERIENCE WITH US!</p>
                             </div>
 
                             {/* Brand Images Carousel */}
@@ -34,7 +34,7 @@ export const BrandPortfolio = ({ brands, page }: { brands: BrandingPortfolio['br
                         </div>
 
                         {/* Second Column - Client Feedback Card */}
-                        <div className="w-full lg:w-[35%] rounded-4xl relative overflow-hidden">
+                        <div className=" w-full lg:w-[35%] rounded-4xl relative overflow-hidden">
                             <Image
                                 src="/brand-2nd-col.png"
                                 alt="Brand column background"
@@ -44,10 +44,10 @@ export const BrandPortfolio = ({ brands, page }: { brands: BrandingPortfolio['br
                             <div className="absolute bottom-3 left-4 right-3 rounded-3xl p-6 flex gap-2 items-center bg-foreground text-background">
                                 {/* Content */}
                                 <div className="rounded-full border-background/10 border overflow-hidden">
-                                    <Image src={brand.clientImage.asset.url} alt="Client" width={400} height={400} className="object-cover w-20 h-full" />
+                                    <Image src={brand.clientImage.asset.url} alt="Client" width={400} height={400} className="object-cover w-24 h-full" />
                                 </div>
                                 <div className="w-full">
-                                    <p>{brand.feedback}</p>
+                                    <p className="lora-medium text-[16px] md:text-[18px] leading-[130%]">{brand.feedback}</p>
                                 </div>
                             </div>
                         </div>
@@ -71,7 +71,7 @@ export const BrandPortfolio = ({ brands, page }: { brands: BrandingPortfolio['br
                                 <div className="py-4 border-[2px] bg-primary border-background rounded-4xl h-full">
                                     <div className="gap-3 py-4 border-[2px] h-full border-secondary rounded-4xl bg-background">
                                         <div className="h-full rounded-4xl bg-foreground text-background items-center justify-center">
-                                            <div className="flex flex-col gap-2 items-center justify-center h-full">
+                                            <div className="flex flex-col p-2 gap-2 items-center justify-center h-full">
                                                 <div className="flex items-center justify-center">
                                                     {(brand.brandColors || []).map((color, colorIndex) => (
                                                         <div
@@ -86,7 +86,7 @@ export const BrandPortfolio = ({ brands, page }: { brands: BrandingPortfolio['br
                                                         />
                                                     ))}
                                                 </div>
-                                                <p className="text-xl text-center">Brand Colors</p>
+                                                <p className="lora-blog-h3 text-center">Brand Colors</p>
                                             </div>
                                         </div>
                                     </div>
@@ -95,8 +95,8 @@ export const BrandPortfolio = ({ brands, page }: { brands: BrandingPortfolio['br
 
                             {/* Typography */}
                             <div className="border border-secondary rounded-4xl p-6">
-                                <h3 className="text-xl font-medium mb-2">Typography</h3>
-                                <p className={`${raleway.className} text-4xl`}>{brand.fontName}</p>
+                                <h3 className="lora-blog-h3 mb-2">Typography</h3>
+                                <p className={`${raleway.className} raleway font-[600] md:text-[48px] text-[32px] leading-[130%]`}>{brand.fontName}</p>
                             </div>
                         </div>
                     </div>
@@ -133,7 +133,7 @@ function BrandCarousel({ images, brandName }: BrandCarouselProps) {
 
     return (
         <>
-            <div className="relative overflow-hidden py-8 border border-secondary rounded-4xl">
+            <div className="relative overflow-hidden md:py-8 border border-secondary rounded-4xl">
                 <div className="overflow-hidden" ref={emblaRef}>
                     <div className="flex cursor-grab active:cursor-grabbing">
                         {tripleImages.map((image, index) => (
