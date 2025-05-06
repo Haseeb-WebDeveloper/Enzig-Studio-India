@@ -90,7 +90,7 @@ export default async function ContentPage() {
 
                 {/* Next Page Previous Page */}
                 <div className="mb-20">
-                    <NextPre />
+                    <NextPre  nextPage="/ui-ux" prePage="/social-media" />
                 </div>
             </div>
 

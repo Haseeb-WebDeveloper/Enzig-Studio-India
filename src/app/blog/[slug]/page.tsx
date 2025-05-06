@@ -271,8 +271,8 @@ raleway-medium text-[14px]">
               <div key={index} className="border border-background/[0.05] rounded-lg overflow-hidden">
                 <button
                   className={`cursor-pointer w-full text-left flex justify-between items-center px-4 py-4 ${openFaqIndex === index
-                      ? "bg-purple-50 text-purple-600"
-                      : "bg-gray-50 hover:bg-gray-100"
+                    ? "bg-purple-50 text-purple-600"
+                    : "bg-gray-50 hover:bg-gray-100"
                     }`}
                   onClick={() => toggleFaq(index)}
                 >
