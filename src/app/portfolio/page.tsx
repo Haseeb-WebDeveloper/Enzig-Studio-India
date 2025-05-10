@@ -155,7 +155,7 @@ export default async function PortfolioPage() {
 
                 {/* Next Page Previous Page */}
                 <div className="mb-20 mt-12">
-                    <NextPre />
+                    <NextPre nextPage="/graphics-design" prePage="/" />
                 </div>
                 {/* CTA */}
                 <CTA />
