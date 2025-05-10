@@ -3,7 +3,7 @@ import { FaMeta, FaInstagram, FaTwitter, FaLinkedin, FaYoutube, FaTiktok, FaFigm
 
 export default function Creator() {
     return (
-        <section className="bg-background">
+        <section className="">
             <div className="max-w-[980px] mx-auto px-6 py-16 md:space-y-16 space-y-8">
                 <h3 className="text-[35px] md:text-[56px] leading-[40px] md:leading-[64px] tracking-[-3%] montserrat-extrabold text-foreground">
                     Creator & Strategist

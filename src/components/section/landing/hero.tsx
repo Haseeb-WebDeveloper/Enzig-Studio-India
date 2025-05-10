@@ -54,7 +54,7 @@ export default function Hero() {
 
 
     return (
-        <section className="flex flex-col justify-center items-center bg-background">
+        <section className="flex flex-col justify-center items-center">
             <div className="max-w-[1200px] mx-auto px-6 lg:px-20 z-20 pt-[3rem] pb-[5rem] md:py-[10vh] 2xl:py-[20vh]">
                 <div className="grid gap-16 md:gap-8 lg:grid-cols-2">
                     {/* Left Content */}

@@ -3,7 +3,7 @@ import { GoArrowRight } from "react-icons/go";
 
 export default function Resources() {
     return (
-        <section className="bg-background md:py-16">
+        <section className="md:py-16">
             <div className="max-w-[1000px] mx-auto px-6 md:px-0 py-16 md:space-y-10 space-y-8">
                 <h3 className="text-[40px] md:text-[56px] leading-[50px] md:leading-[64px] tracking-[-3%] montserrat-bold text-foreground">
                     Resources

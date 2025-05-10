@@ -55,7 +55,7 @@ export default async function Family() {
     ]
 
     return (
-        <section className="bg-background  py-[15vh] md:py-[20vh]">
+        <section className="py-[15vh] md:py-[20vh]">
             <div className="max-w-[960px] mx-auto h-full px-6 xl:px-0 z-20">
                 <div className="hidden md:grid grid-cols-[40%_20%_40%] grid-rows-[38%_24%_38%] relative gap-4">
 

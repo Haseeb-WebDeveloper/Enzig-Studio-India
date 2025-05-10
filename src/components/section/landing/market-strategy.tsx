@@ -61,7 +61,7 @@ export default function MarketStrategy() {
     const activeContent = categories[activeCategory as keyof typeof categories];
 
     return (
-        <section className="bg-background ">
+        <section className="">
             <div className="max-w-[960px] py-16 px-6 lg:px-0 mx-auto">
                 <div className="flex flex-col gap-16">
                     <div className="space-y-[16px]">

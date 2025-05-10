@@ -2,12 +2,13 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import SmoothScrolling from "@/components/Smooth-scrolling";
-import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/next";
-import Image from "next/image";
-import Link from "next/link";
 import Footer from "@/components/section/landing/footer";
-import Navbar from "@/components/layout/navbar";
+import SplashCursor from "@/components/ui/splash-curor";
+import Link from "next/link";
+import Image from "next/image";
+
+
+
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://enzigstudio.com'),
@@ -108,15 +109,18 @@ export default function RootLayout({
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
-          // enableSystem
-          // disableTransitionOnChange
         >
           <SmoothScrolling>
+            <SplashCursor
+              INITIAL_SPLATS={12} // More initial splats
+              SPLAT_RADIUS={0.3}  // Larger splats
+              VELOCITY_DISSIPATION={1.8} // Longer-lasting effects
+            />
             <main className="relative">
               {/* Whatsapp Chat */}
-              {/* <Link href="https://wa.me/919625831925" target="_blank" className=" fixed bottom-5 right-5 z-50">
+              <Link href="https://wa.me/919625831925" target="_blank" className=" fixed bottom-5 right-5 z-50">
                 <Image src="/whatsapp-icon.png" alt="Whatsapp" width={100} height={100} className="w-[50px] h-[50px] cursor-pointer" />
-              </Link> */}
+              </Link>
               {children}
               <Footer />
             </main>

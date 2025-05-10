@@ -132,7 +132,7 @@ export default function Projects() {
   };
 
   return (
-    <section className="w-full min-h-screen bg-background py-16 sm:py-24">
+    <section className="w-full min-h-screen py-16 sm:py-24">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-6 sm:py-10 md:py-20">
         <div className="flex flex-col md:flex-row gap-6 md:gap-1">
           {/* Left sidebar */}
