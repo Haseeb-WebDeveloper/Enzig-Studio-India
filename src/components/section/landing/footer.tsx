@@ -6,7 +6,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="max-w-[1200px] mx-auto bg-background p-6 pt-24 pb-6 md:pb-2">
+    <footer className="max-w-[1200px] mx-auto p-6 pt-24 pb-6 md:pb-2">
       <div className="mx-auto flex flex-col md:flex-row gap-6 justify-between">
         {/* Left section with logo and contact */}
         <div className="w-full flex flex-col justify-between space-y-6">

@@ -17,7 +17,7 @@ export default async function UiUxPage() {
 
             <div className="space-y-20">
                 {/* Hero Section */}
-                <section className="pt-24 bg-background text-foreground">
+                <section className="pt-24  ">
                     <div className="space-y-12 md:space-y-16">
                         <div className="px-12 max-w-[1024px] mx-auto ">
                             <Image src="/ui-ux-page.png" alt={data.title} width={1024} height={768} className="w-fit h-auto mx-auto" />
@@ -40,7 +40,7 @@ export default async function UiUxPage() {
                 </section>
 
                 {/* Testimonials */}
-                <section className="bg-background text-foreground mb-0">
+                <section className="  mb-0">
                     <Testimonials testimonials={data.testimonials} />
                 </section>
 

@@ -19,7 +19,7 @@ export default async function BrandingPage() {
     return (
         <main className="min-h-screen space-y-20 md:space-y-32">
             {/* Hero Section */}
-            <section className="pt-20 px-6 bg-background text-foreground">
+            <section className="pt-20 px-6  ">
                 <div className="max-w-4xl mx-auto space-y-12 md:space-y-16">
                     <div className="md:px-12">
                         <Image src="/branding-page.png" alt={data.title} width={1024} height={768} className="w-full h-auto" />
@@ -31,12 +31,12 @@ export default async function BrandingPage() {
             <BrandPortfolio brands={data.brands} page="branding" />
 
             {/* Testimonials */}
-            <section className="bg-background text-foreground mb-0">
+            <section className="  mb-0">
                 <Testimonials testimonials={data.testimonials} />
             </section>
 
             {/* Next Page Previous Page */}
-            <div className="mb-20">
+            <div className="mb-20 mt-16">
                 <NextPre nextPage="/graphics-design" prePage="/3d-projects" />
             </div>
 

@@ -134,7 +134,7 @@ export default function SolutionPage({ pageName }: { pageName: string }) {
             </section>
 
             {/* Testimonials Section */}
-            <div className="md:py-20 py-16 bg-background">
+            <div className="md:py-20 py-16">
             <Testimonials testimonials={data.testimonials} />
             </div>
 
@@ -158,7 +158,7 @@ export default function SolutionPage({ pageName }: { pageName: string }) {
             </section>
 
             {/* FAQ Section */}
-            <section className="py-20 px-6 bg-black text-white">
+            <section className="py-20 px-6">
                 <div className="max-w-[1200px] mx-auto">
                     <h2 className="montserrat-eb-h2 text-center mb-12">
                         Frequently Asked Questions

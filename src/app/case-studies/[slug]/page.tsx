@@ -95,7 +95,7 @@ export default function CaseStudyPost() {
   };
 
   return (
-    <div className="bg-background text-foreground">
+    <div className=" ">
       <div className="mt-4">
         {/* Top section with 2 columns */}
         <div className="max-w-[1100px]  px-6 md:px-0 mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 py-24">

@@ -30,7 +30,7 @@ export default function SingleProjectPage() {
     return (
         <>
 
-            <section className="h-full pt-16 bg-background text-foreground">
+            <section className="h-full pt-16  ">
                 <div className=" max-w-[1024px] mx-auto space-y-12 md:space-y-16">
                     <div className="grid grid-cols-2 gap-16 items-center justify-center h-full text-background">
                         {/* text */}

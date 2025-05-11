@@ -12,7 +12,7 @@ export default function PortfolioLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="relative min-h-screen bg-background text-foreground">
+    <div className="relative min-h-screen">
       {children}
     </div>
   );

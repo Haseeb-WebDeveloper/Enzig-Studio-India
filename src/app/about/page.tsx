@@ -144,7 +144,7 @@ export default function AboutPage() {
   return (
     <main className="relative">
       {/* Hero Section */}
-      <section className="relative bg-background h-full min-h-[620px] px-6 flex items-center justify-center">
+      <section className="relative h-full min-h-[620px] px-6 flex items-center justify-center">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0 w-full px-2">
           <Image
             src="/about/hero.png"
@@ -205,7 +205,7 @@ export default function AboutPage() {
       </section>
 
       {/* Video Section */}
-      <section className="py-28 px-6 bg-background text-foreground">
+      <section className="py-28 px-6  text-foreground">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 justify-center items-center">
             <p className="lora-medium text-center max-w-md mx-auto text-[28px] md:text-[32px] leading-[150%]">
             Enzig Studio is a creative agency specializing in branding, social media management, content creation, packaging design, print collaterals, and UI/UX design. We help businesses build bold, memorable, and impactful brand stories.
@@ -247,7 +247,7 @@ export default function AboutPage() {
       {/* Our Approach Section */} 
       <section 
         ref={triggerRef} 
-        className="relative bg-black overflow-hidden will-change-transform"
+        className="relative overflow-hidden will-change-transform"
         style={{ perspective: "1000px" }}
       >
         <div className="h-screen">

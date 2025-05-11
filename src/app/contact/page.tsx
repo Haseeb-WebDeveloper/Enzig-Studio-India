@@ -275,7 +275,7 @@ export default function ContactPage() {
             </section>
 
             {/* Get in Touch Section */}
-            <section className="py-20 px-6 bg-background text-foreground">
+            <section className="py-20 px-6  ">
                 <div className="max-w-[1200px] mx-auto">
                     <div className="w-full flex flex-col md:flex-row gap-x-12 gap-y-6 items-center justify-between">
                         <div className=''>

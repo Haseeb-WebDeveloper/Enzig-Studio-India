@@ -12,7 +12,7 @@ export default function ContactLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="relative min-h-screen bg-background text-foreground">
+    <div className="relative min-h-screen  ">
       <Navbar bg="bg-white" bgOnScrolled="bg-foreground" />
       {children}
     </div>

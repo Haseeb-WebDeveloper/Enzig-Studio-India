@@ -15,7 +15,7 @@ export default async function GraphicsDesignPage() {
     return (
         <>
             {/* Hero Section */}
-            <section className="mb-32 md:mb-40 pt-24 px-6 bg-background text-foreground">
+            <section className="mb-32 md:mb-40 pt-24 px-6  ">
                 <div className=" max-w-[1024px] mx-auto space-y-12 md:space-y-16">
                     <div className="md:px-12">
                         <Image src="/graphics-design-page.png" alt={data.title} width={1024} height={768} className="w-full h-auto" />
@@ -59,12 +59,12 @@ export default async function GraphicsDesignPage() {
             </section>
 
             {/* Image Gallery */}
-            <section className="bg-background text-foreground mb-20 ">
+            <section className="  mb-20 ">
                 <Masonry images={data.image} />
             </section>
 
             {/* Testimonials */}
-            <section className="bg-background text-foreground mb-0">
+            <section className="  mb-0">
                 <Testimonials testimonials={data.testimonials} />
             </section>
 

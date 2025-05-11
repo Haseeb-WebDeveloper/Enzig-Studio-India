@@ -17,7 +17,7 @@ export default async function SocialMediaPage() {
 
             <div className="space-y-20">
                 {/* Hero Section */}
-                <section className="pt-24 px-6 bg-background text-foreground">
+                <section className="pt-24 px-6  ">
                     <div className=" max-w-[1200px] mx-auto  space-y-12 md:space-y-16">
                         <div className="md:px-12  max-w-[1024px] mx-auto ">
                             <Image src="/social-media-page.png" alt={data.title} width={1024} height={768} className="w-full h-auto" />
@@ -44,7 +44,7 @@ export default async function SocialMediaPage() {
                 </section>
 
                 {/* Testimonials */}
-                <section className="bg-background text-foreground mb-0">
+                <section className="  mb-0">
                     <Testimonials testimonials={data.testimonials} />
                 </section>
 

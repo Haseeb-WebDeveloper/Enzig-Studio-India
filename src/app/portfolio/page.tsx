@@ -21,7 +21,7 @@ export default async function PortfolioPage() {
             <Navbar bg="bg-foreground" bgOnScrolled="bg-foreground" />
             <main className="min-h-screen space-y-32">
                 {/* Hero Section */}
-                <section className="pt-20 px-6 bg-background text-foreground">
+                <section className="pt-20 px-6 ">
                     <div className="max-w-[1200px] mx-auto  flex flex-col md:flex-row gap-12">
                         {/* left side */}
                         <div className="flex relative flex-col justify-center items-center">
@@ -46,7 +46,7 @@ export default async function PortfolioPage() {
                 <BrandPortfolio brands={data.brands} page="portfolio" />
 
                 {/* Social Media Management */}
-                <section className="max-w-[1200px] px-6 space-y-10 mx-auto bg-background text-foreground">
+                <section className="max-w-[1200px] px-6 space-y-10 mx-auto">
                     <div className="space-y-32">
                         <h1 className="montserrat-eb-h2">Social Media Management</h1>
                     </div>
@@ -61,14 +61,14 @@ export default async function PortfolioPage() {
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 justify-between items-center">
                             <div className="space-y-6 md:space-y-6 w-full">
                                 <p className="montserrat-extrabold text-[24px] md:text-[30px] leading-[130%]">Grow Your Business with the #1 Creative Marketing Agency!</p>
-                                <p className="lora-m-h1 mb-12 md:mb-0">From strategy to design, design to market and market to results—driving ROI every step.</p>
+                                <p className="lora-m-h1 mb-12 md:mb-10">From strategy to design, design to market and market to results—driving ROI every step.</p>
                                 <Link href="/content" className="w-full md:w-fit  text-center text-[20px] lora-medium rounded-md px-[16px] md:py-[8px] py-[16px] bg-primary text-background">
                                     Get in Touch
                                 </Link>
                             </div>
 
                             <div className="w-full h-full flex justify-center items-center">
-                                <Image src="/add-right-side-image.png" alt={data.title} width={1024} height={768} className="w-full md:h-auto h-full" />
+                                <Image src="/add-right-side-image.png" alt="Blog CTA Image" width={1024} height={768} className="w-full md:h-auto h-full" />
                             </div>
                         </div>
                     </section>
@@ -149,7 +149,7 @@ export default async function PortfolioPage() {
 
 
                 {/* Testimonials */}
-                <section className="bg-background text-foreground mb-0">
+                <section className="  mb-0">
                     <Testimonials testimonials={data.testimonials} />
                 </section>
 
