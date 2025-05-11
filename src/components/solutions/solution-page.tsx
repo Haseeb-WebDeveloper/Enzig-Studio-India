@@ -13,8 +13,9 @@ import { FaQuoteLeft } from "react-icons/fa";
 import SectionLoading from "./loading";
 import NotFound from "./not-found";
 import Testimonials from "../layout/testimonials";
+import Link from "next/link";
 
-export default function SolutionPage({ pageName }: { pageName: string }) {
+export default function SolutionPage({ pageName, homePageLink, homePageText }: { pageName: string, homePageLink: string, homePageText: string }) {
     const [data, setData] = useState<SolutionPageData | null>(null);
     const [emblaRef, emblaApi] = useEmblaCarousel();
     const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
@@ -70,13 +71,13 @@ export default function SolutionPage({ pageName }: { pageName: string }) {
 
                             {/* buttons */}
                             <div className="flex w-full items-center gap-4 md:mt-4 mt-6 lora-sb-h4">
-                                <button className="cursor-pointer bg-primary text-background px-6 py-3 rounded-full flex gap-4 items-center">
+                                <Link href="/contact" className="cursor-pointer bg-primary text-background px-6 py-3 rounded-full flex gap-4 items-center">
                                     <span>Get in Touch</span>
                                     <ArrowRightIcon className="w-4 h-4" />
-                                </button>
-                                <button className="cursor-pointer text-primary px-4 py-2 rounded-full">
-                                    View Case Study
-                                </button>
+                                </Link>
+                                <Link href={homePageLink} className="cursor-pointer text-primary px-4 py-2 rounded-full">
+                                    {homePageText}
+                                </Link>
                             </div>
 
                             {/* logos */}

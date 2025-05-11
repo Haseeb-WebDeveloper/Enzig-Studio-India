@@ -15,7 +15,7 @@ export default function CTA() {
                     Marketing That Works,
                     Designs That Convert
                 </h3>
-                <Link href="#" className="w-full md:w-fit  text-center text-[20px] lora-medium rounded-md px-[16px] md:py-[8px] py-[16px] bg-primary text-background">
+                <Link href="/contact" className="w-full md:w-fit  text-center text-[20px] lora-medium rounded-md px-[16px] md:py-[8px] py-[16px] bg-primary text-background">
                     Get a Quote
                 </Link>
             </div>

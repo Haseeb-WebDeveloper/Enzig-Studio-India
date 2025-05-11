@@ -29,11 +29,11 @@ export default function Footer() {
             clipPath: "polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%)"
           }}
         >
-          <Link href="#" className="text-end text-[20px] lora-medium leading-[28px]">About</Link>
+          <Link href="/about" className="text-end text-[20px] lora-medium leading-[28px]">About</Link>
           <Link href="#" className="text-end text-[20px] lora-medium leading-[28px]">Solutions</Link>
-          <Link href="#" className="text-end text-[20px] lora-medium leading-[28px]">Portfolio</Link>
+          <Link href="/portfolio" className="text-end text-[20px] lora-medium leading-[28px]">Portfolio</Link>
           <Link href="#" className="text-end text-[20px] lora-medium leading-[28px]">Our Studio</Link>
-          <Link href="#" className="text-end text-[20px] lora-medium leading-[28px]">Blog</Link>
+          <Link href="/blog" className="text-end text-[20px] lora-medium leading-[28px]">Blog</Link>
           <Link href="#" className="text-end text-[20px] lora-medium leading-[28px]">Resources</Link>
         </div>
 

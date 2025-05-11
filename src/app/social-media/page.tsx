@@ -50,7 +50,7 @@ export default async function SocialMediaPage() {
 
                 {/* Next Page Previous Page */}
                 <div className="mb-20 mt-12">
-                    <NextPre nextPage="/graphics-design" prePage="/content" />
+                    <NextPre nextPage="/content" prePage="/branding" />
                 </div>
             </div>
 

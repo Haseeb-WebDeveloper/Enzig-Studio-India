@@ -6,17 +6,22 @@ import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
 import { BrandingPortfolio } from "@/types/interface";
 import { useState } from "react";
+import Link from "next/link";
 
 const raleway = Raleway({ subsets: ['latin'] });
 
-export const BrandPortfolio = ({ brands, page }: { brands: BrandingPortfolio['brands'], page: string }) => {
+export const BrandPortfolio = ({ brands, page, link }: { brands: BrandingPortfolio['brands'], page: string, link?: string }) => {
     return (
         <section className="max-w-[1200px] mx-auto px-6 space-y-32">
             {brands.map((brand, index) => (
                 <div key={index}>
                     {/* Title Section */}
-                    <div className="mx-auto px-4 mb-12">
+                    <div className="mx-auto px-4 mb-12 flex justify-between items-center gap-3">
                         {page === "portfolio" ? <h1 className="montserrat-eb-h2">Branding & Identity</h1> : <h1 className="montserrat-eb-h2 text-center">{brand.brandName}</h1>}
+                        {link && <Link href={link} className="lora-blog-h3 flex flex-col justify-end items-center gap-3">
+                            Next Project
+                            <Image src="/page-arrow-right.svg" alt="Next Project" width={200} height={200} className="w-32" />
+                        </Link>}
                     </div>
 
                     <div className="flex flex-col lg:flex-row gap-4">

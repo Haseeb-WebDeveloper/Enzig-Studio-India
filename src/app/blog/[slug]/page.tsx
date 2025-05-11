@@ -185,9 +185,9 @@ raleway-medium text-[14px]">
 
         {/* Sidebar */}
         <div className="lg:col-span-4">
-          <div className="sticky top-12">
+          <div>
             {sidebarImage && (
-              <div className="w-full h-fit overflow-hidden mb-2">
+              <Link href="/contact" className="w-full h-fit overflow-hidden mb-2">
                 <Image
                   src={urlFor(sidebarImage).url()}
                   alt="Blog sidebar image"
@@ -195,31 +195,26 @@ raleway-medium text-[14px]">
                   height={500}
                   className="object-contain w-full h-full"
                 />
-              </div>
+              </Link>
             )}
             {/* author */}
-            <div className="bg-primary p-4 rounded-lg mb-8">
+            <div className="bg-primary p-4 rounded-lg my-8">
               <div className="flex items-center gap-3">
-                {post.author.image && (
-                  <div className="relative h-14 w-14 rounded-[20%] overflow-hidden">
-                    <Image
-                      src={urlFor(post.author.image).url()}
-                      alt={post.author.name}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                )}
+                <div className="rounded-xl bg-foreground flex items-center justify-center p-2 aspect-square">
+                  <Image
+                    src="/logo.png"
+                    alt="Enzig Studio"
+                    width={200}
+                    height={200}
+                    className="object-contain p-2 w-32 max-h-32"
+                  />
+                </div>
                 <div>
-                  <p className="montserrat-semibold text-[20px] leading-[28px]">{post.author.name}</p>
-                  {post.author.role && (
-                    <p className="montserrat-m-h2">{post.author.role}</p>
-                  )}
-                  {post.author.bio && (
-                    <div className="prose prose-p:lora-blog-h1">
-                      <PortableText value={post.author.bio} />
-                    </div>
-                  )}
+                  <p className="montserrat-bold text-[20px] leading-[28px]">Akkshhat Khurania</p>
+                  <p className="montserrat-m-h2">Founder & CEO</p>
+                  <div className="lora-blog-h2">
+                    <p>Dominate the Digital Space with the Best in the Business!</p>
+                  </div>
                 </div>
               </div>
             </div>

@@ -7,6 +7,7 @@ export default function Services() {
             title: "Smart SEO for Real Results",
             description: "From technical SEO to content optimization, we ensure your brand dominates search results and outperforms competitors. SEO strategies built for sustainable growth.",
             image: "/services/seo.png",
+            url: "/solutions/seo",
             imageWidth: 264,
             imageHeight: 269
         },
@@ -15,6 +16,7 @@ export default function Services() {
             title: "Seamless Design, Great Experiences",
             description: "Custom-built websites and apps designed for smooth performance, enhanced user experience, mobile-friendly and conversion-focused that blend aesthetics with functionality for maximum impact.",
             image: "/services/web-app.png",
+            url: "/solutions/website-and-app-development",
             imageWidth: 232,
             imageHeight: 249
         },
@@ -23,6 +25,7 @@ export default function Services() {
             title: "Stories Sell, Content Scales",
             description: "Strategic storytelling and high-impact visuals designed to make your brand stand out and drive measurable growth. Bringing brands to life through engaging podcasts, and impactful product shoots.",
             image: "/services/design-content.png",
+            url: "/solutions/content-creation",
             imageWidth: 235,
             imageHeight: 268
         },
@@ -31,6 +34,7 @@ export default function Services() {
             title: "Growth Funnels that Work",
             description: "From awareness to sales, we create powerful marketing funnels that turn leads into loyal customers. Data-driven marketing strategies that optimize every stage of your funnel.",
             image: "/services/marketing.png",
+            url: "/solutions/marketing",
             imageWidth: 213,
             imageHeight: 268
         }

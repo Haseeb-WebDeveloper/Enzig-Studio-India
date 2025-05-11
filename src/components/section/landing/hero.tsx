@@ -67,7 +67,7 @@ export default function Hero() {
                             We create impactful marketing, high-converting designs, and data-driven campaigns to grow your brand. Our aesthetic studio offers photoshoots, reels, podcasts, and more—bringing your brand to life!
                         </p>
 
-                        <Link href="#" className="w-full md:w-fit  text-center text-[20px] lora-medium rounded-md px-[16px] md:py-[8px] py-[16px] bg-primary text-background">
+                        <Link href="/contact" className="w-full md:w-fit  text-center text-[20px] lora-medium rounded-md px-[16px] md:py-[8px] py-[16px] bg-primary text-background">
                             Get in Touch
                         </Link>
 

@@ -70,7 +70,7 @@ export default async function GraphicsDesignPage() {
 
             {/* Next Page Previous Page */}
             <div className="mb-20 mt-12">
-                <NextPre nextPage="/social-media" prePage="/branding" />
+                <NextPre nextPage="/3d-projects" prePage="/content" />
             </div>
 
 

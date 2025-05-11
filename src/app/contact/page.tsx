@@ -315,6 +315,22 @@ export default function ContactPage() {
                     </div>
                 </div>
             </section>
+
+            <section className="max-w-[1200px] mx-auto rounded-2xl space-y-32 bg-foreground text-background px-6 md:px-12 md:py-8 py-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-16 justify-between items-center">
+                    <div className="space-y-6 md:space-y-6 w-full">
+                        <p className="montserrat-extrabold text-[24px] md:text-[30px] leading-[130%]">Grow Your Business with the #1 Creative Marketing Agency!</p>
+                        <p className="lora-m-h1 mb-12 md:mb-10">From strategy to design, design to market and market to results—driving ROI every step.</p>
+                        <Link href="/contact" className="w-full md:w-fit  text-center text-[20px] lora-medium rounded-md px-[16px] md:py-[8px] py-[16px] bg-primary text-background">
+                            Get in Touch
+                        </Link>
+                    </div>
+
+                    <div className="w-full h-full flex justify-center items-center">
+                        <Image src="/add-right-side-image.png" alt="Blog CTA Image" width={1024} height={768} className="w-full md:h-auto h-full" />
+                    </div>
+                </div>
+            </section>
         </main>
     );
 } 

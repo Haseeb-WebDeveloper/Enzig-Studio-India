@@ -139,7 +139,7 @@ export default async function BlogPage() {
               <div className="space-y-6 md:space-y-6 w-full">
                 <p className="montserrat-extrabold text-[24px] md:text-[30px] leading-[130%]">Grow Your Business with the #1 Creative Marketing Agency!</p>
                 <p className="lora-m-h1 mb-12 md:mb-10">From strategy to design, design to market and market to results—driving ROI every step.</p>
-                <Link href="/content" className="w-full md:w-fit  text-center text-[20px] lora-medium rounded-md px-[16px] md:py-[8px] py-[16px] bg-primary text-background">
+                <Link href="/contact" className="w-full md:w-fit  text-center text-[20px] lora-medium rounded-md px-[16px] md:py-[8px] py-[16px] bg-primary text-background">
                   Get in Touch
                 </Link>
               </div>

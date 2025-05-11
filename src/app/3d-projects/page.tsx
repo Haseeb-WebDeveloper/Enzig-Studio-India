@@ -47,7 +47,7 @@ export default async function ThreeDProjectsPage() {
 
             {/* Next Page Previous Page */}
             <div className="mb-20 mt-12 md:mt-0">
-                <NextPre nextPage="/branding" prePage="/ui-ux" />
+                <NextPre nextPage="/ui-ux" prePage="/graphics-design" />
             </div>
 
 

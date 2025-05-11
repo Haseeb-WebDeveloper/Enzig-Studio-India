@@ -43,13 +43,17 @@ export default async function PortfolioPage() {
                 </section>
 
                 {/* Brand Grid */}
-                <BrandPortfolio brands={data.brands} page="portfolio" />
+                <BrandPortfolio brands={data.brands} page="portfolio" link="/branding" />
 
                 {/* Social Media Management */}
                 <section className="max-w-[1200px] px-6 space-y-10 mx-auto">
-                    <div className="space-y-32">
+                    <Link href="/social-media" className="flex justify-between items-center gap-3">
                         <h1 className="montserrat-eb-h2">Social Media Management</h1>
-                    </div>
+                        <div className="lora-blog-h3 flex flex-col justify-end items-center gap-3">
+                            Next Project
+                            <Image src="/page-arrow-right.svg" alt="Next Project" width={200} height={200} className="w-32" />
+                        </div>
+                    </Link>
                     <div className="columns-1 md:columns-2 lg:columns-3 p-0 gap-0">
                         {data.socialMediaTopImages.map((item: any, index: any) => (
                             <div key={index}>
@@ -62,7 +66,7 @@ export default async function PortfolioPage() {
                             <div className="space-y-6 md:space-y-6 w-full">
                                 <p className="montserrat-extrabold text-[24px] md:text-[30px] leading-[130%]">Grow Your Business with the #1 Creative Marketing Agency!</p>
                                 <p className="lora-m-h1 mb-12 md:mb-10">From strategy to design, design to market and market to results—driving ROI every step.</p>
-                                <Link href="/content" className="w-full md:w-fit  text-center text-[20px] lora-medium rounded-md px-[16px] md:py-[8px] py-[16px] bg-primary text-background">
+                                <Link href="/contact" className="w-full md:w-fit  text-center text-[20px] lora-medium rounded-md px-[16px] md:py-[8px] py-[16px] bg-primary text-background">
                                     Get in Touch
                                 </Link>
                             </div>
@@ -76,7 +80,13 @@ export default async function PortfolioPage() {
 
                 {/* Content Creation */}
                 <section className="max-w-[1200px] px-6 mx-auto space-y-10">
-                    <h1 className="montserrat-eb-h2">Content Creation</h1>
+                    <Link href="/content" className="flex justify-between items-center gap-3">
+                        <h1 className="montserrat-eb-h2">Content Creation</h1>
+                            <div className="lora-blog-h3 flex flex-col justify-end items-center gap-3">
+                                Next Project
+                                <Image src="/page-arrow-right.svg" alt="Next Project" width={200} height={200} className="w-32" />
+                            </div>
+                    </Link>
                     <div className="columns-1 md:columns-2 lg:columns-3 p-0 gap-0">
                         {data.contentCreationImages.map((item: any, index: any) => (
                             <div key={index}>
@@ -90,7 +100,13 @@ export default async function PortfolioPage() {
                 {/* Graphics Design */}
                 <section className="bg-[#6C7880] py-12">
                     <div className="max-w-[1200px] px-6 mx-auto space-y-10">
-                        <h1 className="montserrat-eb-h2">Graphics Design</h1>
+                        <Link href="/graphics-design" className="flex justify-between items-center gap-3">
+                            <h1 className="montserrat-eb-h2">Graphics Design</h1>
+                            <div className="lora-blog-h3 flex flex-col justify-end items-center gap-3">
+                                Next Project
+                                <Image src="/page-arrow-right.svg" alt="Next Project" width={200} height={200} className="w-32" />
+                            </div>
+                        </Link>
                         <div className="space-y-4">
                             <div className="w-full">
                                 <Image
@@ -127,14 +143,26 @@ export default async function PortfolioPage() {
 
                 {/* ui ux */}
                 <section className="mx-auto">
-                    <h1 className="max-w-[1200px] px-6 mx-auto montserrat-eb-h2">Website and Apps (UI/UX)</h1>
+                    <Link href="/ui-ux" className="max-w-[1200px] px-6 mx-auto flex justify-between items-center gap-3">
+                        <h1 className="montserrat-eb-h2">Website and Apps (UI/UX)</h1>
+                        <div className="lora-blog-h3 flex flex-col justify-end items-center gap-3">
+                            Next Project
+                            <Image src="/page-arrow-right.svg" alt="Next Project" width={200} height={200} className="w-32" />
+                        </div>
+                    </Link>
                     <UiUxCarousel carouselCards={data.uiUxImages} />
                 </section>
 
 
                 {/* 3d */}
                 <section className="space-y-10 px-6 max-w-[1200px] mx-auto ">
-                    <h1 className="montserrat-eb-h2">3D Projects</h1>
+                    <Link href="/3d-projects" className="flex justify-between items-center gap-3">
+                        <h1 className="montserrat-eb-h2">3D Projects</h1>
+                        <div className="lora-blog-h3 flex flex-col justify-end items-center gap-3">
+                            Next Project
+                            <Image src="/page-arrow-right.svg" alt="Next Project" width={200} height={200} className="w-32" />
+                        </div>
+                    </Link>
                     <div className="w-full aspect-video">
                         <video
                             src={data.threeDProjectVideo.video.asset.url}
@@ -153,12 +181,11 @@ export default async function PortfolioPage() {
                     <Testimonials testimonials={data.testimonials} />
                 </section>
 
-                {/* Next Page Previous Page */}
-                <div className="mb-20 mt-12">
-                    <NextPre nextPage="/graphics-design" prePage="/" />
-                </div>
+
                 {/* CTA */}
-                <CTA />
+                <div className="mt-20">
+                    <CTA />
+                </div>
             </main>
         </>
     );

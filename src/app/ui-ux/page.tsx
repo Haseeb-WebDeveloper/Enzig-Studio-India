@@ -46,7 +46,7 @@ export default async function UiUxPage() {
 
                 {/* Next Page Previous Page */}
                 <div className="mb-20 mt-12">
-                    <NextPre nextPage="/3d-projects" prePage="/content" />
+                    <NextPre nextPage="/branding" prePage="/3d-projects" />
                 </div>
             </div>
 

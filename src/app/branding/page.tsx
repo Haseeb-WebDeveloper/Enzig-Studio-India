@@ -37,7 +37,7 @@ export default async function BrandingPage() {
 
             {/* Next Page Previous Page */}
             <div className="mb-20 mt-16">
-                <NextPre nextPage="/graphics-design" prePage="/3d-projects" />
+                <NextPre nextPage="/social-media" prePage="/ui-ux" />
             </div>
 
             {/* CTA */}

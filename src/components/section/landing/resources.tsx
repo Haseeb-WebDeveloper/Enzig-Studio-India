@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { GoArrowRight } from "react-icons/go";
 
 export default function Resources() {
@@ -12,7 +13,7 @@ export default function Resources() {
                     {/* 1st row */}
                     <div className="flex flex-col md:flex-row justify-between items-stretch gap-5">
                         {/* card 1 */}
-                        <div className="space-y-6 md:w-[25%] w-full min-h-[100%] bg-primary rounded-3xl p-5">
+                        <Link href="/case-studies" className="space-y-6 md:w-[25%] w-full min-h-[100%] bg-primary rounded-3xl p-5">
                             <div className="flex items-center justify-center">
                                 <Image src="/resources-edit.png" alt="Case Studies" width={100} height={100} className="w-[110px] h-[110px] object-cover" />
                             </div>
@@ -24,7 +25,7 @@ export default function Resources() {
                                     Proven Strategies, Real Results – Explore Our Success Stories.
                                 </p>
                             </div>
-                        </div>
+                        </Link>
                         {/* card 2 */}
                         <div className="space-y-6 md:w-[35%] w-full nin-h-[100%] bg-[#E018FA] rounded-3xl p-5">
                             <div className="">
@@ -32,28 +33,28 @@ export default function Resources() {
                             </div>
                             <div className="space-y-3">
                                 <h3 className="text-foreground montserrat-bold text-[32px] leading-[40px]">
-                                Video Assets
+                                    Video Assets
                                 </h3>
                                 <p className="lora-regular text-[16px] leading-[20px]">
-                                Unlock Exclusive Video Assets! Get high quality overlays, transitions, graphics, LUTs, effects, fonts & more.
+                                    Unlock Exclusive Video Assets! Get high quality overlays, transitions, graphics, LUTs, effects, fonts & more.
                                 </p>
                             </div>
                         </div>
                         {/* card 3 */}
-                        <div className="space-y-6 md:w-[40%] w-full min-h-[100%] bg-primary rounded-3xl p-5">
+                        <Link href="/blog" className="space-y-6 md:w-[40%] w-full min-h-[100%] bg-primary rounded-3xl p-5">
                             <div className="flex items-center justify-start">
                                 <Image src="/resources-blog-icon.png" alt="Case Studies" width={400} height={400} className="w-[110px] h-[110px] object-cover" />
                             </div>
                             <div className="space-y-3">
                                 <h3 className="text-background montserrat-bold text-[32px] leading-[40px]">
-                                Blogs
+                                    Blogs
                                 </h3>
                                 <p className="text-background lora-regular text-[16px] leading-[20px]">
-                                Expert insights, marketing strategies, and industry trends—stay ahead with our in-depth blogs designed to grow your brand.
+                                    Expert insights, marketing strategies, and industry trends—stay ahead with our in-depth blogs designed to grow your brand.
                                 </p>
                                 <GoArrowRight className="text-background text-5xl font-bold" />
                             </div>
-                        </div>
+                        </Link>
                     </div>
                     {/* 2nd row */}
                     <div className="flex flex-col md:flex-row justify-between items-stretch gap-5">
@@ -64,15 +65,15 @@ export default function Resources() {
                             </div>
                             <div className="space-y-3 p-5">
                                 <h3 className="text-foreground montserrat-bold text-[32px] leading-[40px]">
-                                Tools
+                                    Tools
                                 </h3>
                                 <p className="lora-regular text-[16px] leading-[20px]">
-                                From Hosting to Managing – Seamless Event Solutions for Businesses & Brands.
+                                    From Hosting to Managing – Seamless Event Solutions for Businesses & Brands.
                                 </p>
                             </div>
                         </div>
                         {/* card 2 */}
-                        <div className="space-y-6 md:w-[40%] w-full min-h-[100%] rounded-3xl p-5 relative" 
+                        <Link href="/portfolio" className="space-y-6 md:w-[40%] w-full min-h-[100%] rounded-3xl p-5 relative"
                             style={{
                                 backgroundImage: 'url(/resources-work-bg.png)',
                                 backgroundSize: 'cover',
@@ -82,34 +83,34 @@ export default function Resources() {
                         >
                             {/* Overlay */}
                             <div className="absolute inset-0 bg-black/60 rounded-3xl"></div>
-                            
+
                             <div className="flex items-center justify-start relative z-10">
                                 <Image src="/resources-work-icon.png" alt="Case Studies" width={400} height={400} className="w-fit h-32 object-contain" />
                             </div>
                             <div className="space-y-3 relative z-10">
                                 <h3 className="text-foreground montserrat-bold text-[32px] leading-[40px]">
-                                Our Work
+                                    Our Work
                                 </h3>
                                 <p className="lora-regular text-[16px] leading-[20px]">
-                                Creative solutions, strategic execution, and impactful results—see how our work transforms brands and drives success.
+                                    Creative solutions, strategic execution, and impactful results—see how our work transforms brands and drives success.
                                 </p>
                                 <GoArrowRight className="text-foreground text-5xl font-bold" />
                             </div>
-                        </div>
+                        </Link>
                         {/* card 3 */}
-                        <div className="space-y-6 md:w-[25%] w-full min-h-[100%]  bg-[#E018FA] rounded-3xl p-5 flex flex-col justify-center">
+                        <Link href="/contact" className="space-y-6 md:w-[25%] w-full min-h-[100%]  bg-[#E018FA] rounded-3xl p-5 flex flex-col justify-center">
                             <div className="flex items-center justify-start">
                                 <Image src="/resources-contact-us-icon.png" alt="Case Studies" width={100} height={100} className="w-fit h-32 object-contain" />
                             </div>
                             <div className="space-y-3">
                                 <h3 className="text-foreground montserrat-bold text-[32px] leading-[40px]">
-                                Contact Us
+                                    Contact Us
                                 </h3>
                                 <p className="lora-regular text-[16px] leading-[20px]">
-                                Let’s Talk Strategy, Design & Growth – Reach Out Now!
+                                    Let’s Talk Strategy, Design & Growth – Reach Out Now!
                                 </p>
                             </div>
-                        </div>
+                        </Link>
                     </div>
                 </div>
             </div>
