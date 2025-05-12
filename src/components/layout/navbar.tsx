@@ -43,7 +43,7 @@ const navigation = [
         href: "#",
         dropdown: [
             { name: "About Us", description: "What we actually do.", href: "/about", icon: Target },
-            { name: "Our Team", description: "Our accomplished team!", href: "/our-team", icon: Users },
+            { name: "Our Team", description: "Our accomplished team!", href: "/team", icon: Users },
             { name: "Careers", description: "Are you a problem solver?", href: "/careers", icon: Briefcase },
         ],
     },

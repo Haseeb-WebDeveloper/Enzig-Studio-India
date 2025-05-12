@@ -26,6 +26,7 @@ import { portfolio } from './portfolio'
 import { singleProjects } from './single-projects'
 import imageWithLink from './custom/image-with-link'
 import { testimonials } from './testimonials'
+import { team } from './team'
 
 
 export const schemaTypes = [
@@ -56,5 +57,6 @@ export const schemaTypes = [
     uiUx,
     brandingPortfolio,
     portfolio,
-    singleProjects
+    singleProjects,
+    team
 ]

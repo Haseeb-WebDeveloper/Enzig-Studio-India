@@ -361,7 +361,7 @@ export const solutionPageQuery = (pageName: string) => `
       url
     }
   },
-  homeImages{
+  homeImages{ 
     asset->{
       _id,
       url
@@ -646,6 +646,22 @@ export const singleProjectsQuery = `
   projectOverviewImage{
     asset->{
       url
+    }
+  }
+}
+`;
+
+export const teamQuery = `
+*[_type == "team"][0] {
+  heroSectionPara,
+  teamMembers[] {
+    name,
+    bio,
+    favouriteTools,
+    image {
+      asset->{
+        url
+      }
     }
   }
 }
