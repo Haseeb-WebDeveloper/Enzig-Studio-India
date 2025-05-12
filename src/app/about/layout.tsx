@@ -13,7 +13,7 @@ export default function AboutLayout({
 }) {
   return (
     <div className="relative min-h-screen">
-      <Navbar bg="bg-white" bgOnScrolled="bg-white" />
+      <Navbar bg="bg-foreground" bgOnScrolled="bg-foreground" />
       {children}
     </div>
   );

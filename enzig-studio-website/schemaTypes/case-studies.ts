@@ -60,7 +60,8 @@ export const caseStudies = defineType({
               title: 'Alt text',
             }
           ]
-        }
+        },
+        { type: 'imageWithLink' }
       ]
     }),
     defineField({

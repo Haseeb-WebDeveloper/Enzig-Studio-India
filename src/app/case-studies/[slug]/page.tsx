@@ -14,6 +14,8 @@ import { CaseStudy, Post } from "@/types/interface";
 import PostCard from "@/components/blog/post-card";
 import SidebarRelatedPostCard from "@/components/blog/sidebar-related-post-card";
 import RichText from "@/components/rich-text";
+import Faq from "@/components/ui/faq";
+import CTA from "@/components/section/landing/cta";
 
 
 export default function CaseStudyPost() {
@@ -207,7 +209,7 @@ export default function CaseStudyPost() {
                   </Link>
                 )}
                 {/* author */}
-                <div className="bg-primary p-4 rounded-lg my-8">
+                <div className="bg-primary p-4 rounded-lg mb-8 mt-6">
                   <div className="flex items-center gap-3">
                     <div className="rounded-xl bg-foreground flex items-center justify-center p-2 aspect-square">
                       <Image
@@ -265,42 +267,29 @@ export default function CaseStudyPost() {
 
           {/* FAQ section */}
           <div className="max-w-[1200px] mx-auto py-12">
-            {/* FAQ section */}
-            {caseStudy.faq && caseStudy.faq.length > 0 && (
-              <div className="mt-16">
-                <h2 className="montserrat-sb-h3  mb-6">
-                  Frequently Asked Questions
-                </h2>
-                <div className="space-y-2">
-                  {caseStudy.faq.map((item, index) => (
-                    <div key={index} className="border border-background/[0.05] rounded-lg overflow-hidden">
-                      <button
-                        className={`cursor-pointer w-full text-left flex justify-between items-center px-4 py-4 ${openFaqIndex === index
-                          ? "bg-purple-50 text-purple-600"
-                          : "bg-gray-50 hover:bg-gray-100"
-                          }`}
-                        onClick={() => toggleFaq(index)}
-                      >
-                        <div className="space-y-2 w-full">
-                          <div className="flex items-center justify-between w-full">
-                            <h3 className="montserrat-m-h2">{item.question}</h3>
-                            <p className="text-xl font-medium text-background">
-                              {openFaqIndex === index ? "−" : "+"}
-                            </p>
-                          </div>
-                          {openFaqIndex === index && (
-                            <div className="prose text-background prose-p:lora-blog-h1">
-                              <PortableText value={item.answer} />
-                            </div>
-                          )}
-                        </div>
-                      </button>
+            <Faq faq={caseStudy.faq} />
 
-                    </div>
-                  ))}
-                </div>
+            {/* social links */}
+            <div className="bg-primary my-12 p-6 rounded-lg flex flex-col md:flex-row justify-between items-center gap-4">
+              <p className="lora-b-h2 text-foreground flex items-center h-full">Like what you read? Share with a friend.</p>
+              <div className="flex items-center gap-6 flex-wrap">
+                <button onClick={() => handleShare('whatsapp')} className="cursor-pointer">
+                  <Image src="/social/whatsapp.png" alt="Share on WhatsApp" width={100} height={100} className="w-[25px] h-full" />
+                </button>
+                <button onClick={() => handleShare('facebook')} className="cursor-pointer">
+                  <Image src="/social/faceook.png" alt="Share on Facebook" width={100} height={100} className="w-[25px] h-full" />
+                </button>
+                <button onClick={() => handleShare('twitter')} className="cursor-pointer">
+                  <Image src="/social/x.png" alt="Share on Twitter" width={100} height={100} className="w-[25px] h-full" />
+                </button>
+                <button onClick={() => handleShare('linkedin')} className="cursor-pointer">
+                  <Image src="/social/linkedin.png" alt="Share on LinkedIn" width={100} height={100} className="w-[25px] h-full" />
+                </button>
+                <button onClick={() => handleShare('threads')} className="cursor-pointer">
+                  <Image src="/social/thread.png" alt="Share on Threads" width={100} height={100} className="w-[25px] h-full" />
+                </button>
               </div>
-            )}
+            </div>
 
             {/* Related Posts Section */}
             {caseStudy.relatedPosts && caseStudy.relatedPosts.length > 0 && (
@@ -313,10 +302,14 @@ export default function CaseStudyPost() {
                 </div>
               </div>
             )}
+
           </div>
         </div>
       </div>
 
+      <div className="py-12">
+        <CTA />
+      </div>
     </div>
   );
 }

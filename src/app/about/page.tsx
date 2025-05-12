@@ -9,7 +9,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 const tags = [
   "only",
-  "sole", 
+  "sole",
   "single unique",
   "singular",
   "unrivalled",
@@ -80,7 +80,7 @@ export default function AboutPage() {
     const ctx = gsap.context(() => {
       const section = sectionRef.current;
       const progressLine = lineRef.current;
-      
+
       if (!section || !progressLine) return;
 
       // Set initial transform to improve performance
@@ -123,7 +123,7 @@ export default function AboutPage() {
       dotRefs.current.forEach((dot, index) => {
         if (index > 0) { // Skip the first dot which is always visible
           const progress = index / (dotRefs.current.length - 1);
-          
+
           timeline.to(dot, {
             scale: 1,
             opacity: 1,
@@ -156,46 +156,49 @@ export default function AboutPage() {
           />
         </div>
         <div className="relative z-10 text-center text-white max-w-2xl mx-auto px-6 space-y-6">
-          <h1 
+          <h1
             className="montserrat-bold text-4xl md:text-6xl"
           >
             "We're not just a creative agency
           </h1>
-          <h1 
+          <h1
             className="montserrat-bold text-4xl md:text-6xl"
           >
             we're your brand's growth partner."
           </h1>
-         
+
         </div>
       </section>
 
       {/* About Section with Tags */}
       <section className="py-20 px-6 bg-foreground text-background">
         <div className=" max-w-[1000px] mx-auto">
-          <div 
+          <div
             className="mb-12 space-y-4 text-[18px] md:text-[20px]"
           >
-            <h2 className="montserrat-bold text-[60px] md:text-[72px] leading-[60px] md:leading-[72px] mb-6">Enzig</h2>
+            <div className='flex flex-col md:flex-row space-y-8 space-x-12  items-center  mb-8'>
+              <h2 className="montserrat-bold text-[60px] md:text-[72px] leading-[60px] md:leading-[72px]">Enzig</h2>
+              <p className='lora-blog-h1'>/eínzig   adverb/</p>
+            </div>
             <p className="lora-medium">
-             Enzig is derived from the German word "Einzig".
+              Enzig is derived from the German word "Einzig".
             </p>
             <p className="lora-medium">
               Einzig is a German adjective that means "only" or "sole." It can also imply "unique" or "single.". For example, "das einzig wahre" can mean "the real deal,"
             </p>
             <p className="lora-medium">
-            Enzig Studio is destined on a mission to give your brand a "unique" brand identity and make you stand out of your competitor's making you the "only" one to shine bright.
+              Enzig Studio is destined on a mission to give your brand a "unique" brand identity and make you stand out of your competitor's making you the "only" one to shine bright.
             </p>
           </div>
 
-          <div 
+          <div
             className="flex flex-wrap items-center gap-2"
           >
             <span className="text-[14px] md:text-[16px] montserrat-medium pr-3">similar:</span>
             {tags.map((tag, index) => (
               <span
                 key={index}
-                className="border border-background/30 px-3 py-1 rounded-full text-[18px] md:text-[20px] montserrat-medium"
+                className="border border-primary px-3 py-1 rounded-full text-[18px] md:text-[20px] montserrat-medium"
               >
                 {tag}
               </span>
@@ -207,10 +210,10 @@ export default function AboutPage() {
       {/* Video Section */}
       <section className="py-28 px-6  text-foreground">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 justify-center items-center">
-            <p className="lora-medium text-center max-w-md mx-auto text-[28px] md:text-[32px] leading-[150%]">
+          <p className="lora-medium text-center max-w-md mx-auto text-[28px] md:text-[32px] leading-[150%]">
             Enzig Studio is a creative agency specializing in branding, social media management, content creation, packaging design, print collaterals, and UI/UX design. We help businesses build bold, memorable, and impactful brand stories.
-            </p>
-          
+          </p>
+
           <div
             className="w-full flex justify-center items-start overflow-hidden"
           >
@@ -221,7 +224,7 @@ export default function AboutPage() {
               playsInline
               className="h-fit md:max-w-[300px] w-full aspect-[9/16]  bg-red-50"
             >
-              <source src="/about-video.mp4" type="video/mp4" />
+              <source src="/about/about.mp4" type="video/mp4" />
             </video>
           </div>
         </div>
@@ -244,17 +247,17 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Our Approach Section */} 
-      <section 
-        ref={triggerRef} 
+      {/* Our Approach Section */}
+      <section
+        ref={triggerRef}
         className="relative overflow-hidden will-change-transform"
         style={{ perspective: "1000px" }}
       >
         <div className="h-screen">
-          <div 
-            ref={sectionRef} 
+          <div
+            ref={sectionRef}
             className="relative h-screen w-[400vw] flex"
-            style={{ 
+            style={{
               willChange: "transform",
               backfaceVisibility: "hidden"
             }}
@@ -263,7 +266,7 @@ export default function AboutPage() {
               <div
                 key={index}
                 className="h-screen w-screen flex items-center justify-center p-6"
-                style={{ 
+                style={{
                   willChange: "transform",
                   transform: "translateZ(0)"
                 }}
@@ -272,7 +275,7 @@ export default function AboutPage() {
                   <span className="montserrat-eb-h3 absolute top-[-80px] left-0 text-[#a4ff00] text-4xl font-bold">
                     {step.step}
                   </span>
-                  
+
                   <h3 className="montserrat-eb-h3 text-white mb-6">
                     {step.title}
                   </h3>
@@ -294,7 +297,7 @@ export default function AboutPage() {
                 <div
                   ref={lineRef}
                   className="absolute top-0 left-0 h-full bg-[#a4ff00] origin-left"
-                  style={{ 
+                  style={{
                     willChange: "width",
                     transform: "translateZ(0)",
                     width: "0%" // Initial width
@@ -308,22 +311,22 @@ export default function AboutPage() {
           <div className="absolute bottom-32 left-0 w-full px-16">
             <div className="max-w-6xl mx-auto flex justify-between">
               {approachSteps.map((step, index) => (
-                <div 
-                  key={index} 
+                <div
+                  key={index}
                   className="flex flex-col items-center relative"
                   style={{ transform: "translateZ(0)" }}
                 >
                   {/* Green dot */}
-                  <div 
+                  <div
                     ref={(el: any) => dotRefs.current[index] = el}
                     className="w-3 h-3 bg-[#a4ff00] rounded-full absolute -top-[7px]"
-                    style={{ 
+                    style={{
                       opacity: index === 0 ? 1 : 0.5,
                       scale: index === 0 ? 1 : 0.5,
                       transition: "opacity 0.3s, scale 0.3s"
                     }}
                   ></div>
-                  
+
                   {/* Only show step name */}
                   <span className="absolute top-6 text-xl font-bold text-[#a4ff00]">
                     {step.step}

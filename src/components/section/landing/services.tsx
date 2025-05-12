@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Services() {
     const serviceCards = [
@@ -45,7 +46,8 @@ export default function Services() {
             <div className="max-w-[1200px] mx-auto px-6  py-10 md:py-20">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {serviceCards.map((card, index) => (
-                        <div
+                        <Link
+                            href={card.url}
                             key={index}
                             className="bg-foreground rounded-xl p-6 flex flex-col md:flex-row gap-4"
                         >
@@ -72,7 +74,7 @@ export default function Services() {
                                     className={`object-contain w-full h-full`}
                                 />
                             </div>
-                        </div>
+                        </Link>
                     ))}
                 </div>
             </div>

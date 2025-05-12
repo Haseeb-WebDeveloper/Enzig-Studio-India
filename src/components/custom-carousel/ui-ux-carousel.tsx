@@ -12,11 +12,10 @@ export default function UiUxCarousel({ carouselCards }: UiUxCarouselProps) {
     const containerRef = useRef<HTMLDivElement>(null);
     const trackRef = useRef<HTMLDivElement>(null);
     const [isDragging, setIsDragging] = useState(false);
+    const [isHovering, setIsHovering] = useState(false);
   
   // Animation refs
   const animation = useRef<gsap.core.Tween | null>(null);
-  const baseSpeed = useRef(35); // seconds for one complete loop (lower = faster)
-  const currentSpeed = useRef(35);
   const draggingData = useRef({
     startX: 0,
     startLeft: 0,
@@ -45,7 +44,7 @@ export default function UiUxCarousel({ carouselCards }: UiUxCarouselProps) {
         // Create the animation
         animation.current = gsap.to(trackRef.current, {
           x: `-=${trackWidth / 2}`, // Move by half the track (we have duplicated the images)
-          duration: currentSpeed.current,
+          duration: 15, // Reduced from 25 to 15 for faster animation
           ease: "none",
           repeat: -1, // Infinite looping
           paused: false,
@@ -63,40 +62,6 @@ export default function UiUxCarousel({ carouselCards }: UiUxCarouselProps) {
       }
     };
   }, [carouselCards.length]);
-
-  // Handle scroll events to adjust speed
-  useEffect(() => {
-    let scrollTimeout: NodeJS.Timeout;
-    
-    const handleScroll = () => {
-      if (isDragging || !animation.current) return;
-      
-      // Increase speed on scroll (lower duration = faster)
-      currentSpeed.current = baseSpeed.current * 0.3; // Changed from 0.5 to 0.3 for faster speed
-      
-      // Apply the new speed to the animation
-      animation.current.timeScale(3); // Changed from 2 to 3.5 for increased speed
-      
-      // Reset speed after a short delay
-      clearTimeout(scrollTimeout);
-      scrollTimeout = setTimeout(() => {
-        // Gradually reset to normal speed
-        gsap.to(animation.current, {
-          timeScale: 1,
-          duration: 0.5,
-          onUpdate: () => {
-            currentSpeed.current = baseSpeed.current / animation.current!.timeScale();
-          },
-        });
-      }, 300);
-    };
-    
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      clearTimeout(scrollTimeout);
-    };
-  }, [isDragging]);
 
   // Handle window resize
   useEffect(() => {
@@ -118,7 +83,7 @@ export default function UiUxCarousel({ carouselCards }: UiUxCarouselProps) {
         // Create new animation
         animation.current = gsap.to(trackRef.current, {
           x: `-=${trackWidth / 2}`,
-          duration: currentSpeed.current,
+          duration: 15, // Reduced from 25 to 15 for faster animation
           ease: "none",
           repeat: -1,
           paused: false,
@@ -166,7 +131,7 @@ export default function UiUxCarousel({ carouselCards }: UiUxCarouselProps) {
     
     setIsDragging(false);
     
-    if (animation.current) {
+    if (animation.current && !isHovering) {
       // Get current position
       const currentX = gsap.getProperty(trackRef.current, "x") as number;
       
@@ -178,6 +143,21 @@ export default function UiUxCarousel({ carouselCards }: UiUxCarouselProps) {
       animation.current.progress(progress);
       
       // Resume the animation
+      animation.current.play();
+    }
+  }, [isDragging, isHovering]);
+
+  // Handle hover events
+  const handleMouseEnter = useCallback(() => {
+    setIsHovering(true);
+    if (animation.current) {
+      animation.current.pause();
+    }
+  }, []);
+
+  const handleMouseLeave = useCallback(() => {
+    setIsHovering(false);
+    if (animation.current && !isDragging) {
       animation.current.play();
     }
   }, [isDragging]);
@@ -192,6 +172,8 @@ export default function UiUxCarousel({ carouselCards }: UiUxCarouselProps) {
       onMouseMove={handleMouseMove}
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
       <div className="h-full">
         <div className="overflow-hidden h-[100%]">

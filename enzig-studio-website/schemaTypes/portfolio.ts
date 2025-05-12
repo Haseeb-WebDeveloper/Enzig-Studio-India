@@ -30,32 +30,8 @@ export const portfolio = defineType({
    defineField({
     name: 'testimonials',
     title: 'Testimonials',
-    type: 'array',
-    of: [{
-      type: 'object',
-      fields: [
-        defineField({
-          name: 'text',
-          title: 'Testimonial Text',
-          type: 'text'
-        }),
-        defineField({
-          name: 'name',
-          title: 'Name',
-          type: 'string'
-        }),
-        defineField({
-          name: 'category',
-          title: 'Category',
-          type: 'string'
-        }),
-        defineField({
-          name: 'image',
-          title: 'Image',
-          type: 'image'
-        })
-      ]
-    }]
+    type: 'reference',
+    to: [{ type: 'testimonials' }]
   }),
   ],
 })

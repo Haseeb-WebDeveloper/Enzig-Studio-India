@@ -199,14 +199,14 @@ export default function Projects() {
               {/* Navigation arrows */}
               <button 
                 onClick={prevSlide}
-                className="absolute top-[20%] left-4 sm:left-8 -translate-y-1/2 bg-foreground/80 hover:bg-foreground cursor-pointer text-background rounded-full p-2 sm:p-3 transition-colors duration-300"
+                className="absolute top-[10%] left-4 sm:left-8 -translate-y-1/2 bg-foreground/80 hover:bg-foreground cursor-pointer text-background rounded-full p-2 sm:p-3 transition-colors duration-300"
               >
                 <ChevronLeft className="w-6 h-6 sm:w-8 sm:h-8 text-background/80 hover:text-background transition-colors" />
               </button>
               
               <button 
                 onClick={nextSlide}
-                className="absolute top-[20%] right-4 sm:right-8 -translate-y-1/2 bg-foreground/80 hover:bg-foreground cursor-pointer text-background rounded-full p-2 sm:p-3 transition-colors duration-300"
+                className="absolute top-[10%] right-4 sm:right-8 -translate-y-1/2 bg-foreground/80 hover:bg-foreground cursor-pointer text-background rounded-full p-2 sm:p-3 transition-colors duration-300"
               >
                 <ChevronRight className="w-6 h-6 sm:w-8 sm:h-8 text-background/80 hover:text-background transition-colors" />
               </button>

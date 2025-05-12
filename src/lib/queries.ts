@@ -141,7 +141,7 @@ export const allFaqQuery = `
 
 // leading post query
 export const leadingPostQuery = `
-*[_type == "post" && category->title == "Featured"][0]{
+*[_type == "post" && showInBlogPage == true][0]{
   _id,
   title,
   slug,
@@ -324,17 +324,7 @@ export const solutionStratergyAnalysisQuery = `
     }
   },
   secondSectionContent,
-  testimonials[]{
-    text,
-    name,
-    category,
-    image{
-      asset->{
-        _id,
-        url
-      }
-    }
-  },
+  "testimonials": testimonials->testimonials[],
   fourthSectionHeading,
   fourthSectionPara,
   services[]{
@@ -385,17 +375,7 @@ export const solutionPageQuery = (pageName: string) => `
     }
   },
   secondSectionContent,
-  testimonials[]{
-    text,
-    name,
-    category,
-    image{
-      asset->{
-        _id,
-        url
-      }
-    }
-  },
+  "testimonials": testimonials->testimonials[],
   fourthSectionHeading,
   fourthSectionPara,
   services[]{
@@ -430,16 +410,7 @@ export const threeDProjectsQuery = () => `
       url,
     }
   },
-  testimonials[] {
-    text,
-    name,
-    category,
-    image {
-      asset->{
-        url
-      }
-    }
-  }
+    "testimonials": testimonials->testimonials[],
 }
 `
 
@@ -457,16 +428,7 @@ export const graphicsDesignQuery = () => `
       url,
     }
   },
-  testimonials[] {
-    text,
-    name,
-    category,
-    image {
-      asset->{
-        url
-      }
-    }
-  }
+    "testimonials": testimonials->testimonials[],
 }
 `
 
@@ -489,16 +451,7 @@ export const socialMediaQuery = () => `
       url
     }
   },
-  testimonials[] {
-    text,
-    name,
-    category,
-    image {
-      asset->{
-        url
-      }
-    }
-  }
+     "testimonials": testimonials->testimonials[],
 }
 `;
 
@@ -536,16 +489,7 @@ export const contentQuery = () => `
       url
     }
   },
-  testimonials[] {
-    text,
-    name,
-    category,
-    image {
-      asset->{
-        url
-      }
-    }
-  }
+    "testimonials": testimonials->testimonials[],
 }
 `;
 
@@ -568,17 +512,7 @@ export const uiUxQuery = () => {
       url
     }
   },
-  testimonials[]{
-    text,
-    name,
-    category,
-    image{
-      asset->{
-        _id,
-        url
-      }
-    }
-  }
+    "testimonials": testimonials->testimonials[],
 }
   `
 }
@@ -610,17 +544,7 @@ export const brandingPortfolioQuery = () => {
       }
     }
   },
-  testimonials[]{
-    text,
-    name,
-    category,
-    image{
-      asset->{
-        _id,
-        url
-      }
-    }
-  }
+    "testimonials": testimonials->testimonials[],
 }
 `
 }
@@ -642,16 +566,7 @@ export const portfolioQuery = () => {
       url
     }
   },
-  testimonials[]{
-    text,
-    name,
-    category,
-    image{
-      asset->{
-        url
-      }
-    }
-  },
+    "testimonials": testimonials->testimonials[],
   "brands": *[_type == "brandingPortfolio"][0].brands[showOnPortfolio == true]{
     brandName,
     fontName,
@@ -726,17 +641,7 @@ export const singleProjectsQuery = `
     "image": image.asset->url,
     title
   },
-  testimonials[]{
-    text,
-    name,
-    category,
-    image{
-      asset->{
-        _id,
-        url
-      }
-    }
-  },
+    "testimonials": testimonials->testimonials[],
   projectOverviewDescription,
   projectOverviewImage{
     asset->{

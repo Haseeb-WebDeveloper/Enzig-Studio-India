@@ -21,6 +21,39 @@ const RichText: React.FC<RichTextProps> = ({ content }) => {
           />
         </div>
       ),
+      imageWithLink: ({ value }: any) => (
+        <div className="relative border w-full mb-8 rounded-lg overflow-hidden flex flex-col items-center justify-center">
+          {value.imageLink ? (
+            <a href={value.imageLink} className="w-full">
+              <Image
+                src={urlFor(value.image).url()}
+                alt={value.alt || "Blog post image"}
+                width={500}
+                height={500}
+                className="object-contain h-full w-full rounded-lg"
+              />
+            </a>
+          ) : (
+            <Image
+              src={urlFor(value.image).url()}
+              alt={value.alt || "Blog post image"}
+              width={500}
+              height={500}
+              className="object-contain h-full w-full rounded-lg"
+            />
+          )}
+
+          {value.textLink ? (
+            <a href={value.textLink} className={`w-full py-2 text-center lora-blog-h2 underline cursor-pointer`}>
+              {value.text}
+            </a>
+          ) : (
+            <p className={`w-full py-2 text-center lora-blog-h2`}>
+              {value.text}
+            </p>
+          )}
+        </div>
+      ),
     },
     block: {
       h1: ({ children }: any) => <h1 className="text-4xl font-bold my-6">{children}</h1>,

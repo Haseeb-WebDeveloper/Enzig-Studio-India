@@ -24,9 +24,14 @@ import { uiUx } from './ui-ux'
 import { brandingPortfolio } from './branding'
 import { portfolio } from './portfolio'
 import { singleProjects } from './single-projects'
+import imageWithLink from './custom/image-with-link'
+import { testimonials } from './testimonials'
+
 
 export const schemaTypes = [
     secondSectionLogo, 
+    imageWithLink,
+    testimonials,
     brandingSchema, 
     post, 
     author, 

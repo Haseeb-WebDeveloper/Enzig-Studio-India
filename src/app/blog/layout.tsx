@@ -13,8 +13,8 @@ export default function BlogLayout({
 }) {
   return (
     <div className="relative min-h-screen bg-white text-background">
-        <Navbar bg="bg-transparent" bgOnScrolled="bg-transparent" />
-        {children}
+      <Navbar bg="bg-[#FFFFF0]" bgOnScrolled="bg-[#FFFFF0]" />
+      {children}
     </div>
   );
 } 

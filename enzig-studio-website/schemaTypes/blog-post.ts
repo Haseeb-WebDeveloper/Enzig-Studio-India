@@ -52,7 +52,8 @@ export const post = defineType({
               validation: Rule => Rule.required().error('Image must have alt text')
             }
           ]
-        }
+        },
+        { type: 'imageWithLink' }
       ]
     }),
     defineField({
@@ -60,6 +61,12 @@ export const post = defineType({
       title: 'Category',
       type: 'reference',
       to: [{type: 'category'}]
+    }),
+    defineField({
+      name: 'showInBlogPage',
+      title: 'Show in Blog Page',
+      type: 'boolean',
+      initialValue: false
     }),
     defineField({
       name: 'author',

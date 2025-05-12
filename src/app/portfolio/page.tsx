@@ -22,17 +22,15 @@ export default async function PortfolioPage() {
             <main className="min-h-screen space-y-32">
                 {/* Hero Section */}
                 <section className="pt-20 px-6 ">
-                    <div className="max-w-[1200px] mx-auto  flex flex-col md:flex-row gap-12">
+                    <div className="max-w-[1200px] mx-auto flex flex-col md:flex-row gap-12">
                         {/* left side */}
                         <div className="flex relative flex-col justify-center items-center">
-                            <Image src="/portfolio-page.png" alt={data.title} width={1024} height={768} className="z-2 w-full h-auto" />
-                            <Image src="/portfolio-portfolio.png" alt={data.title} width={1024} height={768} className="px-32 z-0 absolute top-1/2 -translate-y-1/2 left-0 w-full h-fit" />
+                            <Image src="/portfolio-page.png" alt={data.title} width={1024} height={768} className="absolute top-1/2 -translate-y-1/2 left-0 z-2 w-[120%] h-auto" />
+                            <Image src="/portfolio-portfolio.png" alt={data.title} width={1024} height={768} className=" md:px-32 px-8 w-full" />
                         </div>
 
                         {/* right side */}
-                        <div className="md:w-1/2">
-                            <Image src={data.homeRightSideImage.asset.url} alt={data.title} width={1024} height={768} className="w-full h-auto" />
-                        </div>
+                        <Image src={data.homeRightSideImage.asset.url} alt={data.title} width={1024} height={768} className="md:w-fit w-full h-auto" />
                     </div>
 
                     {/* logos carousel */}
@@ -82,10 +80,10 @@ export default async function PortfolioPage() {
                 <section className="max-w-[1200px] px-6 mx-auto space-y-10">
                     <Link href="/content" className="flex justify-between items-center gap-3">
                         <h1 className="montserrat-eb-h2">Content Creation</h1>
-                            <div className="lora-blog-h3 flex flex-col justify-end items-center gap-3">
-                                Next Project
-                                <Image src="/page-arrow-right.svg" alt="Next Project" width={200} height={200} className="w-32" />
-                            </div>
+                        <div className="lora-blog-h3 flex flex-col justify-end items-center gap-3">
+                            Next Project
+                            <Image src="/page-arrow-right.svg" alt="Next Project" width={200} height={200} className="w-32" />
+                        </div>
                     </Link>
                     <div className="columns-1 md:columns-2 lg:columns-3 p-0 gap-0">
                         {data.contentCreationImages.map((item: any, index: any) => (

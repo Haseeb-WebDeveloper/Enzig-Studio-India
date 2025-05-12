@@ -12,8 +12,8 @@ export default function CaseStudyLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="relative min-h-screen bg-foreground text-background">
-       <Navbar bg="bg-transparent" bgOnScrolled="bg-transparent" />
+    <div className="relative min-h-screen bg-white text-background">
+       <Navbar bg="bg-[#FFFFF0]" bgOnScrolled="bg-[#FFFFF0]" />
       {children}
     </div>
   );

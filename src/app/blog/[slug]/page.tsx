@@ -4,17 +4,16 @@ import { client } from "@/lib/sanity";
 import { urlFor } from "@/lib/sanity";
 import { allPostsQuery, blogSidebarImageQuery, singlePostQuery } from "@/lib/queries";
 import Image from "next/image";
-import { PortableText } from "@portabletext/react";
 import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
 import { Calendar, ChevronDown, Loader2 } from "lucide-react";
-import { Metadata } from "next";
 import { useEffect, useState } from "react";
 import { Post } from "@/types/interface";
 import PostCard from "@/components/blog/post-card";
 import SidebarRelatedPostCard from "@/components/blog/sidebar-related-post-card";
 import RichText from "@/components/rich-text";
-
+import Faq from "@/components/ui/faq";
+import CTA from "@/components/section/landing/cta";
 
 export default function BlogPost() {
   const params = useParams();
@@ -30,9 +29,7 @@ export default function BlogPost() {
   const fetchPost = async () => {
     try {
       const post = await client.fetch(singlePostQuery, { slug: params.slug });
-      // console.log("post", post);
       if (!post) {
-        // console.log("Post not found");
         return;
       }
       setPost(post);
@@ -75,235 +72,224 @@ export default function BlogPost() {
   };
 
   if (!post) {
-    return <>
+    return (
       <div className="max-w-6xl mx-auto px-4 py-8">
         <div className="flex items-center justify-center h-screen">
           <Loader2 size={32} className="animate-spin" />
         </div>
       </div>
-    </>;
+    );
   }
-
-
-  // console.log("content", post.content);
 
   const toggleFaq = (index: number) => {
     if (openFaqIndex === index) {
-      setOpenFaqIndex(null); // Close if already open
+      setOpenFaqIndex(null);
     } else {
-      setOpenFaqIndex(index); // Open the clicked item
+      setOpenFaqIndex(index);
     }
   };
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-8">
-      {/* Breadcrumb navigation */}
-      <div className="flex items-center gap-2 text-sm py-3 border-b border-gray-100
-raleway-medium text-[14px]">
-        <Link href="/" className="">Home</Link>
-        <span className="text-gray-400">/</span>
-        <Link href="/blog" className=" ">Blog</Link>
-        <span className="text-gray-400">/</span>
-        <span className=" font-medium raleway-medium">{post.title.slice(0, 100)}</span>
-      </div>
+    <>
+      <div className="max-w-6xl mx-auto px-4 py-8">
+        {/* Breadcrumb navigation */}
+        <div className="flex items-center gap-2 text-sm py-3 border-b border-gray-100 raleway-medium text-[14px]">
+          <Link href="/" className="">Home</Link>
+          <span className="text-gray-400">/</span>
+          <Link href="/blog" className="">Blog</Link>
+          <span className="text-gray-400">/</span>
+          <span className="font-medium raleway-medium">{post.title.slice(0, 100)}</span>
+        </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mt-6">
-        <div className="lg:col-span-8 space-y-6">
-          {/* Main image with overlaid category and title */}
-          {post.mainImage && (
-            <div className="relative h-[400px] w-full overflow-hidden">
-              <Image
-                src={urlFor(post.mainImage).url()}
-                alt={post.title}
-                fill
-                className="object-cover"
-                priority
-              />
-              {post.category && (
-                <div className="absolute top-4 left-4">
-                  <span className="montserrat-m-h2 bg-foreground text-background backdrop-blur-sm px-3 py-1 text-sm rounded">
-                    {post.category.title}
-                  </span>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mt-6">
+          <div className="lg:col-span-8 space-y-6">
+            {/* Main image with category */}
+            {post.mainImage && (
+              <>
+                <div className="relative h-[400px] w-full overflow-hidden">
+                  <Image
+                    src={urlFor(post.mainImage).url()}
+                    alt={post.title}
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+                  {post.category && (
+                    <div className="absolute top-4 left-4">
+                      <span className="montserrat-m-h2 bg-foreground text-background backdrop-blur-sm px-3 py-1 text-sm rounded">
+                        {post.category.title}
+                      </span>
+                    </div>
+                  )}
                 </div>
-              )}
-              <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
-                <h1 className="text-white drop-shadow-xl  montserrat-sb-h3">
+                <h1 className="montserrat-sb-h3 mt-6">
                   {post.title}
                 </h1>
-              </div>
-              {/* overlay */}
-              {/* <div className="absolute inset-0 bg-gradient-to-t from-black/80 from-[1%] to-transparent"></div> */}
-            </div>
-          )}
-
-          {/* Post metadata and author */}
-          <div className="flex items-center py-3 px-4 gap-4 border border-background/[0.05] rounded-lg">
-            {post.author.image && (
-              <div className="relative h-12 w-12 rounded-[29%] overflow-hidden">
-                <Image
-                  src={urlFor(post.author.image).url()}
-                  alt={post.author.name}
-                  fill
-                  className="object-cover"
-                />
-              </div>
+              </>
             )}
-            <div>
-              <p className="montserrat-m-h2">{post.author.name}</p>
-              {post.author.role && (
-                <p className="lora-m-h4 text-secondary">{post.author.role}</p>
-              )}
-            </div>
-          </div>
-          {/* updated at */}
-          <div>
-            <p className="lora-m-h4 text-gray-500 flex items-center gap-2">
-              <Calendar size={16} />
-              {post.updatedAt ? (
-                <>Updated on {new Date(post.updatedAt).toLocaleDateString("en-US", {
-                  day: "numeric",
-                  month: "long",
-                  year: "numeric",
-                })}</>
-              ) : (
-                <>Published on {new Date(post.publishedAt).toLocaleDateString("en-US", {
-                  day: "numeric",
-                  month: "long",
-                  year: "numeric",
-                })}</>
-              )}
-            </p>
-          </div>
 
-          {/* Post content */}
-          <div className="prose prose-lg max-w-none text-wrap mb-12 overflow-x-hidden prose-p:lora-blog-h1 prose-h2-montserrat-sb-h3 ">
-            {post.content && (
-              <RichText content={post.content} />
-            )}
-          </div>
-        </div>
-
-        {/* Sidebar */}
-        <div className="lg:col-span-4">
-          <div>
-            {sidebarImage && (
-              <Link href="/contact" className="w-full h-fit overflow-hidden mb-2">
-                <Image
-                  src={urlFor(sidebarImage).url()}
-                  alt="Blog sidebar image"
-                  width={500}
-                  height={500}
-                  className="object-contain w-full h-full"
-                />
-              </Link>
-            )}
-            {/* author */}
-            <div className="bg-primary p-4 rounded-lg my-8">
-              <div className="flex items-center gap-3">
-                <div className="rounded-xl bg-foreground flex items-center justify-center p-2 aspect-square">
+            {/* Post metadata and author */}
+            <div className="flex items-center py-3 px-4 gap-4 border border-background/[0.05] rounded-lg">
+              {post.author.image && (
+                <div className="relative h-12 w-12 rounded-[29%] overflow-hidden">
                   <Image
-                    src="/logo.png"
-                    alt="Enzig Studio"
-                    width={200}
-                    height={200}
-                    className="object-contain p-2 w-32 max-h-32"
+                    src={urlFor(post.author.image).url()}
+                    alt={post.author.name}
+                    fill
+                    className="object-cover"
                   />
                 </div>
-                <div>
-                  <p className="montserrat-bold text-[20px] leading-[28px]">Akkshhat Khurania</p>
-                  <p className="montserrat-m-h2">Founder & CEO</p>
-                  <div className="lora-blog-h2">
-                    <p>Dominate the Digital Space with the Best in the Business!</p>
+              )}
+              <div>
+                <p className="montserrat-m-h2">{post.author.name}</p>
+                {post.author.role && (
+                  <p className="lora-m-h4 text-secondary">{post.author.role}</p>
+                )}
+              </div>
+            </div>
+
+            {/* updated at */}
+            <div>
+              <p className="lora-m-h4 text-gray-500 flex items-center gap-2">
+                <Calendar size={16} />
+                {post.updatedAt ? (
+                  <>Updated on {new Date(post.updatedAt).toLocaleDateString("en-US", {
+                    day: "numeric",
+                    month: "long",
+                    year: "numeric",
+                  })}</>
+                ) : (
+                  <>Published on {new Date(post.publishedAt).toLocaleDateString("en-US", {
+                    day: "numeric",
+                    month: "long",
+                    year: "numeric",
+                  })}</>
+                )}
+              </p>
+            </div>
+
+            {/* Post content */}
+            <div className="prose prose-lg max-w-none text-wrap mb-12 overflow-x-hidden prose-p:lora-blog-h1 prose-h2-montserrat-sb-h3">
+              {post.content && (
+                <RichText content={post.content} />
+              )}
+            </div>
+          </div>
+
+          {/* Sidebar */}
+          <div className="lg:col-span-4">
+            <div>
+              {sidebarImage && (
+                <Link href="/contact" className="w-full h-fit overflow-hidden mb-2">
+                  <Image
+                    src={urlFor(sidebarImage).url()}
+                    alt="Blog sidebar image"
+                    width={500}
+                    height={500}
+                    className="object-contain w-full h-full"
+                  />
+                </Link>
+              )}
+
+              {/* author */}
+              <div className="bg-primary p-4 rounded-lg mb-8 mt-6">
+                <div className="flex items-center gap-3">
+                  <div className="rounded-xl bg-foreground flex items-center justify-center p-2 aspect-square">
+                    <Image
+                      src="/logo.png"
+                      alt="Enzig Studio"
+                      width={200}
+                      height={200}
+                      className="object-contain p-2 w-32 max-h-32"
+                    />
+                  </div>
+                  <div>
+                    <p className="montserrat-bold text-[20px] leading-[28px]">Akkshhat Khurania</p>
+                    <p className="montserrat-m-h2">Founder & CEO</p>
+                    <div className="lora-blog-h2">
+                      <p>Dominate the Digital Space with the Best in the Business!</p>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            {/* social links */}
-            <div className="bg-primary p-4 rounded-lg mb-8 space-y-3">
-              <p className="lora-b-h2 text-foreground">Share with your community!</p>
-              <div className="flex items-center gap-6 flex-wrap">
-                <button onClick={() => handleShare('whatsapp')} className="cursor-pointer">
-                  <Image src="/social/whatsapp.png" alt="Share on WhatsApp" width={100} height={100} className="w-[25px] h-full" />
-                </button>
-                <button onClick={() => handleShare('facebook')} className="cursor-pointer">
-                  <Image src="/social/faceook.png" alt="Share on Facebook" width={100} height={100} className="w-[25px] h-full" />
-                </button>
-                <button onClick={() => handleShare('twitter')} className="cursor-pointer">
-                  <Image src="/social/x.png" alt="Share on Twitter" width={100} height={100} className="w-[25px] h-full" />
-                </button>
-                <button onClick={() => handleShare('linkedin')} className="cursor-pointer">
-                  <Image src="/social/linkedin.png" alt="Share on LinkedIn" width={100} height={100} className="w-[25px] h-full" />
-                </button>
-                <button onClick={() => handleShare('threads')} className="cursor-pointer">
-                  <Image src="/social/thread.png" alt="Share on Threads" width={100} height={100} className="w-[25px] h-full" />
-                </button>
+              {/* social links */}
+              <div className="bg-primary p-4 rounded-lg mb-8 space-y-3">
+                <p className="lora-b-h2 text-foreground">Share with your community!</p>
+                <div className="flex items-center gap-6 flex-wrap">
+                  <button onClick={() => handleShare('whatsapp')} className="cursor-pointer">
+                    <Image src="/social/whatsapp.png" alt="Share on WhatsApp" width={100} height={100} className="w-[25px] h-full" />
+                  </button>
+                  <button onClick={() => handleShare('facebook')} className="cursor-pointer">
+                    <Image src="/social/faceook.png" alt="Share on Facebook" width={100} height={100} className="w-[25px] h-full" />
+                  </button>
+                  <button onClick={() => handleShare('twitter')} className="cursor-pointer">
+                    <Image src="/social/x.png" alt="Share on Twitter" width={100} height={100} className="w-[25px] h-full" />
+                  </button>
+                  <button onClick={() => handleShare('linkedin')} className="cursor-pointer">
+                    <Image src="/social/linkedin.png" alt="Share on LinkedIn" width={100} height={100} className="w-[25px] h-full" />
+                  </button>
+                  <button onClick={() => handleShare('threads')} className="cursor-pointer">
+                    <Image src="/social/thread.png" alt="Share on Threads" width={100} height={100} className="w-[25px] h-full" />
+                  </button>
+                </div>
               </div>
-            </div>
 
-            {/* related posts */}
-            <div className="mb-8">
-              <h2 className="lora-medium text-[20px] leading-[28px] mb-3">The Latest</h2>
-              <div className="gap-4">
-                {post.relatedPosts && post.relatedPosts.length > 0 && post.relatedPosts.map((relatedPost) => (
-                  <SidebarRelatedPostCard post={relatedPost} key={relatedPost._id} redirectPage="blog" />
-                ))}
+              {/* related posts */}
+              <div className="mb-8">
+                <h2 className="lora-medium text-[20px] leading-[28px] mb-3">The Latest</h2>
+                <div className="gap-4">
+                  {post.relatedPosts && post.relatedPosts.length > 0 && post.relatedPosts.map((relatedPost) => (
+                    <SidebarRelatedPostCard post={relatedPost} key={relatedPost._id} redirectPage="blog" />
+                  ))}
+                </div>
               </div>
             </div>
           </div>
         </div>
+
+        {/* FAQ section */}
+        {post.faq && <Faq faq={post.faq} />}
+
+        {/* social links */}
+        <div className="bg-primary my-12 p-6 rounded-lg flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="lora-b-h2 text-foreground flex items-center h-full">Like what you read? Share with a friend.</p>
+          <div className="flex items-center gap-6 flex-wrap">
+            <button onClick={() => handleShare('whatsapp')} className="cursor-pointer">
+              <Image src="/social/whatsapp.png" alt="Share on WhatsApp" width={100} height={100} className="w-[25px] h-full" />
+            </button>
+            <button onClick={() => handleShare('facebook')} className="cursor-pointer">
+              <Image src="/social/faceook.png" alt="Share on Facebook" width={100} height={100} className="w-[25px] h-full" />
+            </button>
+            <button onClick={() => handleShare('twitter')} className="cursor-pointer">
+              <Image src="/social/x.png" alt="Share on Twitter" width={100} height={100} className="w-[25px] h-full" />
+            </button>
+            <button onClick={() => handleShare('linkedin')} className="cursor-pointer">
+              <Image src="/social/linkedin.png" alt="Share on LinkedIn" width={100} height={100} className="w-[25px] h-full" />
+            </button>
+            <button onClick={() => handleShare('threads')} className="cursor-pointer">
+              <Image src="/social/thread.png" alt="Share on Threads" width={100} height={100} className="w-[25px] h-full" />
+            </button>
+          </div>
+        </div>
+
+        {/* Related Posts Section */}
+        {post.relatedPosts && post.relatedPosts.length > 0 && (
+          <div className="mt-16">
+            <h2 className="text-3xl font-bold mb-8">Related Articles</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {post.relatedPosts.map((relatedPost) => (
+                <PostCard post={relatedPost} key={relatedPost._id} />
+              ))}
+            </div>
+          </div>
+        )}
+
       </div>
 
-      {/* FAQ section */}
-      {/* FAQ section */}
-      {post.faq && post.faq.length > 0 && (
-        <div className="mt-16">
-          <h2 className="montserrat-sb-h3  mb-6">
-            Frequently Asked Questions
-          </h2>
-          <div className="space-y-2">
-            {post.faq.map((item, index) => (
-              <div key={index} className="border border-background/[0.05] rounded-lg overflow-hidden">
-                <button
-                  className={`cursor-pointer w-full text-left flex justify-between items-center px-4 py-4 ${openFaqIndex === index
-                    ? "bg-purple-50 text-purple-600"
-                    : "bg-gray-50 hover:bg-gray-100"
-                    }`}
-                  onClick={() => toggleFaq(index)}
-                >
-                  <div className="space-y-2 w-full">
-                    <div className="flex items-center justify-between w-full">
-                      <h3 className="montserrat-m-h2">{item.question}</h3>
-                      <p className="text-xl font-medium text-background">
-                        {openFaqIndex === index ? "−" : "+"}
-                      </p>
-                    </div>
-                    {openFaqIndex === index && (
-                      <div className="prose text-background prose-p:lora-blog-h1">
-                        <PortableText value={item.answer} />
-                      </div>
-                    )}
-                  </div>
-                </button>
-
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
-
-      {/* Related Posts Section */}
-      {post.relatedPosts && post.relatedPosts.length > 0 && (
-        <div className="mt-16">
-          <h2 className="text-3xl font-bold mb-8">Related Articles</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {post.relatedPosts.map((relatedPost) => (
-              <PostCard post={relatedPost} key={relatedPost._id} />
-            ))}
-          </div>
-        </div>
-      )}
-
-    </div>
+      <div className="py-12">
+        <CTA />
+      </div>
+    </>
   );
 }

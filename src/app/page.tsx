@@ -20,7 +20,7 @@ export default function Home() {
         <div className="z-[-10] absolute top-0 right-0 w-full md:w-1/2 h-full">
           <Image src="/hero-gradient.webp" alt="Hero Background" width={1000} height={1000} className="z-[-1] w-full h-full object-cover" />
         </div>
-        <Navbar bg="bg-white" bgOnScrolled="bg-white" />
+        <Navbar bg="bg-foreground" bgOnScrolled="bg-foreground" />
         <Hero />
       </div>
       <Family />

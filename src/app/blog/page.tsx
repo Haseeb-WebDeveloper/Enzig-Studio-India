@@ -96,7 +96,7 @@ export default async function BlogPage() {
                 />
               </div>
               <Link href={`/blog/${leadingPost.slug.current}`}>
-                <div className="absolute bottom-0 left-4 md:left-12 p-6 md:p-8 border border-background/50 rounded-lg max-w-lg bg-foreground text-background">
+                <div className="absolute bottom-0 left-4 md:left-12 p-6 md:p-8 border border-background/20 shadow rounded-lg max-w-lg bg-[#F8F8F8] text-background">
                   {leadingPost.category && (
                     <span className="bg-secondary text-foreground text-[14px] md:text-[16px] lora-medium px-2.5 py-1.5 rounded-md">
                       {leadingPost.category.title}
@@ -134,7 +134,7 @@ export default async function BlogPage() {
             </div>
           )}
 
-          <section className="max-w-[1200px] mx-auto rounded-2xl space-y-32 bg-foreground text-background px-6 md:px-12 md:py-8 py-6">
+          <section className="max-w-[1200px] mx-auto rounded-2xl space-y-32 bg-[#FFFFF0] text-background px-6 md:px-12 md:py-8 py-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-16 justify-between items-center">
               <div className="space-y-6 md:space-y-6 w-full">
                 <p className="montserrat-extrabold text-[24px] md:text-[30px] leading-[130%]">Grow Your Business with the #1 Creative Marketing Agency!</p>

@@ -11,15 +11,15 @@ export default function PostCard({ post, redirectPage }: any) {
                 href={`/${redirectPage}/${post.slug.current}`}
                 className="group h-full"
             >
-                <article className="bg-foreground/70 rounded-lg overflow-hidden border border-black/[0.04] transition-all duration-300 flex flex-col p-2 gap-2">
+                <article className="bg-[#F8F8F8] rounded-lg overflow-hidden border border-black/[0.04] transition-all duration-300 flex flex-col p-2 gap-2">
                     {post.mainImage && (
-                        <div className="h-48 w-full overflow-hidden">
+                        <div className="h-48 w-full overflow-hidden rounded-[10px]">
                             <Image
                                 src={urlFor(post.mainImage).url()}
                                 alt={post.title}
                                 width={1000}
                                 height={1000}
-                                className="rounded-[10px] transition-transform duration-300 group-hover:scale-105"
+                                className="rounded-[10px] transition-transform duration-300"
                             />
                         </div>
                     )}

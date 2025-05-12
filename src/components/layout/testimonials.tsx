@@ -6,6 +6,7 @@ import { ChevronLeft } from "lucide-react";
 import Image from "next/image";
 import { useCallback } from "react";
 import { FaQuoteLeft } from "react-icons/fa";
+import { urlFor } from "@/lib/sanity";
 
 export default function Testimonials({testimonials}: {testimonials: any}) {
     const [emblaRef, emblaApi] = useEmblaCarousel();
@@ -44,7 +45,7 @@ export default function Testimonials({testimonials}: {testimonials: any}) {
                                             </div>
                                             <div className="relative h-[500px] w-full">
                                                 <Image
-                                                    src={testimonial.image?.asset.url}
+                                                    src={urlFor(testimonial.image?.asset._ref).url()}
                                                     alt={testimonial.name}
                                                     fill
                                                     className="object-cover"

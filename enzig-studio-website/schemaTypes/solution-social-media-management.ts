@@ -1,7 +1,7 @@
-import {defineType, defineField} from 'sanity'
+import { defineType, defineField } from 'sanity'
 
 export const solutionSocialMediaManagement = defineType({
-  name: 'solutionSocialMediaManagement', 
+  name: 'solutionSocialMediaManagement',
   title: 'Solution Social Media Management',
   type: 'document',
   fields: [
@@ -20,7 +20,7 @@ export const solutionSocialMediaManagement = defineType({
       name: 'trustedByLogos',
       title: 'Trusted By Logos',
       type: 'array',
-      of: [{type: 'image'}]
+      of: [{ type: 'image' }]
     }),
     defineField({
       name: 'homeImages',
@@ -43,7 +43,7 @@ export const solutionSocialMediaManagement = defineType({
       name: 'secondSectionContent',
       title: 'Second Section Content',
       type: 'array',
-      of: [{type: 'string'}],
+      of: [{ type: 'string' }],
       validation: Rule => Rule.length(3)
     }),
 
@@ -51,32 +51,8 @@ export const solutionSocialMediaManagement = defineType({
     defineField({
       name: 'testimonials',
       title: 'Testimonials',
-      type: 'array',
-      of: [{
-        type: 'object',
-        fields: [
-          defineField({
-            name: 'text',
-            title: 'Testimonial Text',
-            type: 'text'
-          }),
-          defineField({
-            name: 'name',
-            title: 'Name',
-            type: 'string'
-          }),
-          defineField({
-            name: 'category',
-            title: 'Category',
-            type: 'string'
-          }),
-          defineField({
-            name: 'image',
-            title: 'Image',
-            type: 'image'
-          })
-        ]
-      }]
+      type: 'reference',
+      to: [{ type: 'testimonials' }]
     }),
 
     // Fourth section
@@ -121,7 +97,7 @@ export const solutionSocialMediaManagement = defineType({
       name: 'faq',
       title: 'FAQ',
       type: 'array',
-      of: [{type: 'reference', to: {type: 'faq'}}]
+      of: [{ type: 'reference', to: { type: 'faq' } }]
     })
   ],
 })

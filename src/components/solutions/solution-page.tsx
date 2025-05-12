@@ -14,6 +14,7 @@ import SectionLoading from "./loading";
 import NotFound from "./not-found";
 import Testimonials from "../layout/testimonials";
 import Link from "next/link";
+import Faq from "../ui/faq";
 
 export default function SolutionPage({ pageName, homePageLink, homePageText }: { pageName: string, homePageLink: string, homePageText: string }) {
     const [data, setData] = useState<SolutionPageData | null>(null);
@@ -54,6 +55,8 @@ export default function SolutionPage({ pageName, homePageLink, homePageText }: {
     if (data === null || data === undefined) {
         return <NotFound />;
     }
+
+    console.log(data);
 
     return (
         <main className="relative">
@@ -159,44 +162,8 @@ export default function SolutionPage({ pageName, homePageLink, homePageText }: {
             </section>
 
             {/* FAQ Section */}
-            <section className="py-20 px-6">
-                <div className="max-w-[1200px] mx-auto">
-                    <h2 className="montserrat-eb-h2 text-center mb-12">
-                        Frequently Asked Questions
-                    </h2>
-
-                    <div className="space-y-4 max-w-[1000px] mx-auto">
-                        {data.faq?.map((item, index) => (
-                            <div
-                                key={index}
-                                className="bg-white rounded-[20px] overflow-hidden"
-                            >
-                                <button
-                                    onClick={() => toggleFaq(index)}
-                                    className="cursor-pointer w-full flex items-center justify-between p-6 text-black"
-                                >
-                                    <h3 className="text-[18px] montserrat-medium text-left">
-                                        {item.question}
-                                    </h3>
-                                    <span className="text-[#E91E63] text-2xl font-bold">
-                                        {openFaqIndex === index ? '−' : '+'}
-                                    </span>
-                                </button>
-                                {openFaqIndex === index && (
-                                    <div className="px-6 pb-6">
-                                        <div className="text-black">
-                                            {item.answer.map((block, blockIndex) => (
-                                                <p key={blockIndex} className="lora-blog-h1 text-black/70">
-                                                    {block.children.map(child => child.text).join('')}
-                                                </p>
-                                            ))}
-                                        </div>
-                                    </div>
-                                )}
-                            </div>
-                        ))}
-                    </div>
-                </div>
+            <section className="py-20 px-6 max-w-[1200px] mx-auto">
+                <Faq faq={data.faq} />
             </section>
 
             <CTA />
