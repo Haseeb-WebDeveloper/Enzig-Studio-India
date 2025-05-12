@@ -111,11 +111,11 @@ export default function RootLayout({
           defaultTheme="dark"
         >
           <SmoothScrolling>
-            {/* <SplashCursor
+            <SplashCursor
               INITIAL_SPLATS={12} // More initial splats
               SPLAT_RADIUS={0.3}  // Larger splats
               VELOCITY_DISSIPATION={1.8} // Longer-lasting effects
-            /> */}
+            />
             <main className="relative">
               {/* Whatsapp Chat */}
               <Link href="https://wa.me/919625831925" target="_blank" className=" fixed bottom-5 right-5 z-50">
