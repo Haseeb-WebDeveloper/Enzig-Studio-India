@@ -12,7 +12,7 @@ export default function Faq({ faq }: { faq: any }) {
         <>
             {faq && faq.length > 0 && (
                 <div >
-                    <h2 className="montserrat-sb-h2 text-center mb-8">
+                    <h2 className="montserrat-bold text-[28px] md:text-[54px] leading-[130%] text-center mb-8">
                         Frequently Asked Questions
                     </h2>
                     <div className="space-y-2">

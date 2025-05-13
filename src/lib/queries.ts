@@ -622,6 +622,48 @@ export const portfolioQuery = () => {
 `
 }
 
+
+export const homePortfolioQuery = () => {
+  return `
+*[_type == "portfolio"][0]{
+  "brands": *[_type == "brandingPortfolio"][0].brands[showOnPortfolio == true]{
+    brandImages[]{
+      asset->{
+        url
+      }
+    }
+  },
+  "socialMedia": *[_type == "social-media"][0].topImage[]{
+    asset->{
+      url
+    }
+  },
+  "digitalArt": *[_type == "graphics-design"][0].homeImages[]{
+    asset->{
+      url
+    }
+  },
+  "webApp": *[_type == "ui-ux"][0].carouselCards[]{
+   image{
+      asset->{
+        url
+      }
+    },
+    title,
+    description
+  },
+  "3dProject": *[_type == "3d-projects"][0]{
+    video{
+      asset->{
+        url
+      }
+    }
+  }
+}
+`
+} 
+
+
 // singleProjectsQuery.ts
 export const singleProjectsQuery = `
 *[_type == "single-projects" && slug.current == $slug][0]{

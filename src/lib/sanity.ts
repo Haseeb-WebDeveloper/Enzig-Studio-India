@@ -1,6 +1,6 @@
 import { createClient } from 'next-sanity';
 import imageUrlBuilder from '@sanity/image-url';
-import { brandForLandingQuery, secondSectionLogoQuery } from './queries';
+import { brandForLandingQuery, homePortfolioQuery, secondSectionLogoQuery } from './queries';
 
 export const client = createClient({
     projectId: "6odvfcqu",
@@ -44,6 +44,16 @@ export async function sanityFetch(query: string) {
     return data;
   } catch (error) {
     console.error('Error fetching data:', error);
+    return [];
+  }
+}
+
+export async function fetchHomePortfolio() {
+  try {
+    const data = await client.fetch(homePortfolioQuery());
+    return data;
+  } catch (error) {
+    console.error('Error fetching home portfolio:', error);
     return [];
   }
 }

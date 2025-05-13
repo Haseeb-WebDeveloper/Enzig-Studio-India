@@ -20,11 +20,16 @@ export default function BlogPost() {
   const [post, setPost] = useState<Post | null>(null);
   const [sidebarImage, setSidebarImage] = useState<any>(null);
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     fetchPost();
     fetchSidebarImage();
   }, [params.slug]);
+
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
+  }, []);
 
   const fetchPost = async () => {
     try {
@@ -98,7 +103,7 @@ export default function BlogPost() {
           <span className="text-gray-400">/</span>
           <Link href="/blog" className="">Blog</Link>
           <span className="text-gray-400">/</span>
-          <span className="font-medium raleway-medium">{post.title.slice(0, 100)}</span>
+          <span className="font-medium raleway-medium">{isMobile ? post.title.slice(0, 30) + '...' : post.title}</span>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mt-6">
@@ -106,12 +111,12 @@ export default function BlogPost() {
             {/* Main image with category */}
             {post.mainImage && (
               <>
-                <div className="relative h-[400px] w-full overflow-hidden">
+                <div className="relative aspect-video w-full overflow-hidden">
                   <Image
                     src={urlFor(post.mainImage).url()}
                     alt={post.title}
                     fill
-                    className="object-cover"
+                    className="object-contain aspect-video"
                     priority
                   />
                   {post.category && (
@@ -192,7 +197,7 @@ export default function BlogPost() {
               )}
 
               {/* author */}
-              <div className="bg-primary p-4 rounded-lg mb-8 mt-6">
+              <div className="bg-primary p-4 rounded-lg mb-6 md:mb-8 mt-6">
                 <div className="flex items-center gap-3">
                   <div className="rounded-xl bg-foreground flex items-center justify-center p-2 aspect-square">
                     <Image
@@ -214,7 +219,7 @@ export default function BlogPost() {
               </div>
 
               {/* social links */}
-              <div className="bg-primary p-4 rounded-lg mb-8 space-y-3">
+              <div className="bg-primary p-4 rounded-lg mb-6 md:mb-8 space-y-3">
                 <p className="lora-b-h2 text-foreground">Share with your community!</p>
                 <div className="flex items-center gap-6 flex-wrap">
                   <button onClick={() => handleShare('whatsapp')} className="cursor-pointer">
@@ -236,7 +241,7 @@ export default function BlogPost() {
               </div>
 
               {/* related posts */}
-              <div className="mb-8">
+              <div className="mb-6 md:mb-8">
                 <h2 className="lora-medium text-[20px] leading-[28px] mb-3">The Latest</h2>
                 <div className="gap-4">
                   {post.relatedPosts && post.relatedPosts.length > 0 && post.relatedPosts.map((relatedPost) => (
@@ -249,7 +254,9 @@ export default function BlogPost() {
         </div>
 
         {/* FAQ section */}
-        {post.faq && <Faq faq={post.faq} />}
+        <div className="mt-12 md:mt-2">
+          {post.faq && <Faq faq={post.faq} />}
+        </div>
 
         {/* social links */}
         <div className="bg-primary my-12 p-6 rounded-lg flex flex-col md:flex-row justify-between items-center gap-4">
