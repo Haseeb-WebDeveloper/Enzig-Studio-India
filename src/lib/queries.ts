@@ -462,7 +462,8 @@ export const uiUxQuery = () => {
       }
     },
     title,
-    description
+    description,
+    slug
   },
   secondSectionImage[]{
     asset->{
