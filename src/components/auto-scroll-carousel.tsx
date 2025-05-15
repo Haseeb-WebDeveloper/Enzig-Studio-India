@@ -59,8 +59,6 @@ const AutoScrollCarousel = ({
 }: AutoScrollCarouselProps) => {
 
 
-  console.dir(logos, { depth: null });
-
   return (
     <section className="overflow-hidden">
       <div className="flex flex-col items-center gap-10">

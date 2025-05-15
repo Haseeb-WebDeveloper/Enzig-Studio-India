@@ -298,59 +298,6 @@ export const singleCaseStudyQuery = `
 `
 
 
-
-// solution stratergy analysis
-export const solutionStratergyAnalysisQuery = `
-*[_type == "solutionStratergyAnalysis"][0]{
-  homeHeading,
-  homePara,
-  trustedByLogos[]{
-    asset->{
-      _id,
-      url
-    }
-  },
-  homeImages{
-    asset->{
-      _id,
-      url
-    }
-  },
-  secondSectionHeading,
-  secondSectionImage{
-    asset->{
-      _id,
-      url
-    }
-  },
-  secondSectionContent,
-  "testimonials": testimonials->testimonials[],
-  fourthSectionHeading,
-  fourthSectionPara,
-  services[]{
-    title,
-    para,
-    icon{
-      asset->{
-        _id,
-        url
-      }
-    }
-  },
-  faq[]->{
-    _id,
-    question,
-    answer
-  }
-}
-`
-
-
-
-
-
-
-
 export const solutionPageQuery = (pageName: string) => `
 *[_type == "${pageName}"][0]{
   homeHeading,
@@ -375,6 +322,16 @@ export const solutionPageQuery = (pageName: string) => `
     }
   },
   secondSectionContent,
+  thirdSectionHeading,
+  thirdSectionItems[]{
+    title,
+    image{
+      asset->{
+        url
+      }
+    },
+    link
+  },
   "testimonials": testimonials->testimonials[],
   fourthSectionHeading,
   fourthSectionPara,

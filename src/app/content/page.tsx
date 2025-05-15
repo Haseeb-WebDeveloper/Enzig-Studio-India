@@ -11,7 +11,6 @@ import Carousel1 from "@/components/custom-carousel/carousel-1";
 
 export default async function ContentPage() {
     const data = await client.fetch(contentQuery());
-    console.dir(data, { depth: null });
 
     return (
         <>

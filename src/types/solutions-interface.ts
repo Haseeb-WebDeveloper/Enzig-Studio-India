@@ -1,9 +1,9 @@
-interface SanityImageAsset {
+export interface SanityImageAsset {
     _id: string;
     url: string;
   }
   
-  interface ImageWithAsset {
+  export interface ImageWithAsset {
     asset: SanityImageAsset;
   }
   
@@ -60,6 +60,12 @@ interface SanityImageAsset {
     trustedByLogos: ImageWithAsset[];
     homeImages: ImageWithAsset;
     secondSectionHeading: string;
+    thirdSectionHeading: string;
+    thirdSectionItems: {
+        title: string;
+        image: ImageWithAsset;
+        link: string;
+    }[];
     fourthSectionHeading: string;
     fourthSectionPara: string;
     services: Service[];

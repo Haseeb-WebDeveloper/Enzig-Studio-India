@@ -12,7 +12,6 @@ export const metadata = {
 
 export default async function TeamPage() {
     const teamMembers = await client.fetch(teamQuery);
-    console.log(teamMembers);
 
     return (
         <>

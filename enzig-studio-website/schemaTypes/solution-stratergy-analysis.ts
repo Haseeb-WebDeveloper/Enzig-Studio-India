@@ -47,7 +47,39 @@ export const solutionStratergyAnalysis = defineType({
       validation: Rule => Rule.length(3)
     }),
 
-    // Third section - Testimonials
+    // Third section 
+    defineField({
+      name: 'thirdSectionHeading',
+      title: 'Third Section Heading',
+      type: 'string'
+    }),
+    defineField({
+      name: 'thirdSectionItems',
+      title: 'Third Section Items',
+      type: 'array',
+      of: [{
+        type: 'object',
+        fields: [
+          defineField({
+            name: 'title',
+            title: 'Title',
+            type: 'string'
+          }),
+          defineField({
+            name: 'image',
+            title: 'Image',
+            type: 'image'
+          }),
+          defineField({
+            name: 'link',
+            title: 'Link',
+            type: 'string'
+          })
+        ]
+      }]
+    }),
+
+    // Testimonials
     defineField({
       name: 'testimonials',
       title: 'Testimonials',

@@ -14,6 +14,7 @@ import NotFound from "./not-found";
 import Testimonials from "../layout/testimonials";
 import Link from "next/link";
 import Faq from "../ui/faq";
+import SolutionsCarousel from "../custom-carousel/solutions-page-carousel";
 
 export default function SolutionPage({ pageName, homePageLink, homePageText }: { pageName: string, homePageLink: string, homePageText: string }) {
     const [data, setData] = useState<SolutionPageData | null>(null);
@@ -54,8 +55,6 @@ export default function SolutionPage({ pageName, homePageLink, homePageText }: {
     if (data === null || data === undefined) {
         return <NotFound />;
     }
-
-    console.log(data);
 
     return (
         <main className="relative">
@@ -133,6 +132,14 @@ export default function SolutionPage({ pageName, homePageLink, homePageText }: {
                             ))}
                         </div>
                     </div>
+                </div>
+            </section>
+
+            {/* Third Section */}
+            <section className="md:pb-20 pb-16 pt-16 px-4 bg-foreground">
+                <div className="bg-background max-w-7xl px-4 md:px-0 pt-16 pb-2 mx-auto rounded-2xl">
+                    <h2 className="px-8 max-w-4xl mx-auto montserrat-sb-h3 mb-8 text-center">{data.thirdSectionHeading}</h2>
+                    <SolutionsCarousel carouselCards={data.thirdSectionItems} />
                 </div>
             </section>
 

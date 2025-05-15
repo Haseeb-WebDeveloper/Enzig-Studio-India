@@ -1,7 +1,7 @@
-import {defineType, defineField} from 'sanity'
+import { defineType, defineField } from 'sanity'
 
 export const solutionLogoBranding = defineType({
-  name: 'solutionLogoBranding', 
+  name: 'solutionLogoBranding',
   title: 'Solution Logo Branding',
   type: 'document',
   fields: [
@@ -20,7 +20,7 @@ export const solutionLogoBranding = defineType({
       name: 'trustedByLogos',
       title: 'Trusted By Logos',
       type: 'array',
-      of: [{type: 'image'}]
+      of: [{ type: 'image' }]
     }),
     defineField({
       name: 'homeImages',
@@ -43,17 +43,50 @@ export const solutionLogoBranding = defineType({
       name: 'secondSectionContent',
       title: 'Second Section Content',
       type: 'array',
-      of: [{type: 'string'}],
+      of: [{ type: 'string' }],
       validation: Rule => Rule.length(3)
     }),
 
-    // Third section - Testimonials
+    // Third section 
+    defineField({
+      name: 'thirdSectionHeading',
+      title: 'Third Section Heading',
+      type: 'string'
+    }),
+    defineField({
+      name: 'thirdSectionItems',
+      title: 'Third Section Items',
+      type: 'array',
+      of: [{
+        type: 'object',
+        fields: [
+          defineField({
+            name: 'title',
+            title: 'Title',
+            type: 'string'
+          }),
+          defineField({
+            name: 'image',
+            title: 'Image',
+            type: 'image'
+          }),
+          defineField({
+            name: 'link',
+            title: 'Link',
+            type: 'string'
+          })
+        ]
+      }]
+    }),
+
+
+    // Testimonials
     defineField({
       name: 'testimonials',
       title: 'Testimonials',
       type: 'reference',
       to: [{ type: 'testimonials' }]
-    }), 
+    }),
 
     // Fourth section
     defineField({
@@ -97,7 +130,7 @@ export const solutionLogoBranding = defineType({
       name: 'faq',
       title: 'FAQ',
       type: 'array',
-      of: [{type: 'reference', to: {type: 'faq'}}]
+      of: [{ type: 'reference', to: { type: 'faq' } }]
     })
   ],
 })
