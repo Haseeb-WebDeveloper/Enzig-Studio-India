@@ -24,13 +24,15 @@ export default async function PortfolioPage() {
                 <section className="pt-20 px-6 ">
                     <div className="max-w-[1200px] mx-auto flex flex-col md:flex-row gap-12">
                         {/* left side */}
-                        <div className="flex relative flex-col justify-center items-center">
+                        <div className="md:w-[60%] w-full flex relative flex-col justify-center items-center">
                             <Image src="/portfolio-page.png" alt={data.title} width={1024} height={768} className="absolute top-1/2 -translate-y-1/2 left-0 z-2 w-[120%] h-auto" />
                             <Image src="/portfolio-portfolio.png" alt={data.title} width={1024} height={768} className=" md:px-32 px-8 w-full" />
                         </div>
 
                         {/* right side */}
-                        <Image src={data.homeRightSideImage.asset.url} alt={data.title} width={1024} height={768} className="md:w-fit w-full h-auto" />
+                        <div className="md:w-[40%] w-full">
+                            <Image src={data.homeRightSideImage.asset.url} alt={data.title} width={1024} height={768} className="w-full h-auto" />
+                        </div>
                     </div>
 
                     {/* logos carousel */}

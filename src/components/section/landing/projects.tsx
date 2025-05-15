@@ -5,6 +5,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import Image from 'next/image';
 import { sanityFetch } from '@/lib/sanity';
 import { homePortfolioQuery } from '@/lib/queries';
+import Link from 'next/link';
 
 export default function Projects() {
   const [currentProject, setCurrentProject] = useState(0);
@@ -49,10 +50,30 @@ export default function Projects() {
       case 'webApp':
         return projectsData.webApp && projectsData.webApp[index] ? {
           title: projectsData.webApp[index].title,
-          description: projectsData.webApp[index].description
+          description: projectsData.webApp[index].description,
+          slug: projectsData.webApp[index].slug
         } : null;
       default:
         return null;
+    }
+  };
+
+  const getProjectUrl = (type: string, index: number) => {
+    if (!projectsData) return '#';
+    
+    switch (type) {
+      case 'webApp':
+        return projectsData.webApp && projectsData.webApp[index]?.slug ? `/portfolio/${projectsData.webApp[index].slug.current}` : '#';
+      case 'digitalArt':
+        return '/graphics-design';
+      case '3dProject':
+        return '/3d-projects';
+      case 'socialMedia':
+        return '/social-media';
+      case 'branding':
+        return '/branding';
+      default:
+        return '#';
     }
   };
 
@@ -66,31 +87,36 @@ export default function Projects() {
       name: 'Web & App Development',
       icon: '/projects/web-app-development.svg',
       projectsImageUrl: getProjectImages('webApp'),
-      popup: getProjectPopup('webApp', currentSlide)
+      popup: getProjectPopup('webApp', currentSlide),
+      getUrl: (index: number) => getProjectUrl('webApp', index)
     },
     {
       id: 2,
       name: 'Digital Art & Illustration',
       icon: '/projects/digital-art-illustration.svg',
-      projectsImageUrl: getProjectImages('digitalArt')
+      projectsImageUrl: getProjectImages('digitalArt'),
+      getUrl: (index: number) => getProjectUrl('digitalArt', index)
     },
     {
       id: 3,
       name: '3D Modeling & Animation',
       icon: '/projects/3d-modeling-animation.svg',
-      projectsImageUrl: getProjectImages('3dProject')
+      projectsImageUrl: getProjectImages('3dProject'),
+      getUrl: (index: number) => getProjectUrl('3dProject', index)
     },
     {
       id: 4,
       name: 'Social Media Management',
       icon: '/projects/social-media-managment.svg',
-      projectsImageUrl: getProjectImages('socialMedia')
+      projectsImageUrl: getProjectImages('socialMedia'),
+      getUrl: (index: number) => getProjectUrl('socialMedia', index)
     },
     {
       id: 5,
       name: 'Branding & Identity',
       icon: '/projects/branding-identity.svg',
-      projectsImageUrl: getProjectImages('branding')
+      projectsImageUrl: getProjectImages('branding'),
+      getUrl: (index: number) => getProjectUrl('branding', index)
     },
   ];
 
@@ -166,27 +192,29 @@ export default function Projects() {
           <div className="w-full md:w-[70%] relative h-[300px] md:h-auto">
             <div className="relative h-full rounded-2xl sm:rounded-3xl bg-foreground/10 overflow-hidden">
               {projects[currentProject]?.projectsImageUrl?.length > 0 && (
-                isVideoUrl(projects[currentProject].projectsImageUrl[currentSlide]) ? (
-                  <video
-                    ref={videoRef}
-                    src={projects[currentProject].projectsImageUrl[currentSlide]}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="object-contain object-center transition-all duration-300 w-full md:h-[500px] h-full my-auto"
-                  />
-                ) : (
-                  <Image
-                    src={projects[currentProject].projectsImageUrl[currentSlide]}
-                    alt={projects[currentProject].name}
-                    width={1000}
-                    height={1000}
-                    priority
-                    quality={100}
-                    className="object-contain object-center transition-all duration-300 w-full md:h-[500px] h-full my-auto"
-                  />
-                )
+                <Link href={projects[currentProject].getUrl(currentSlide)}>
+                  {isVideoUrl(projects[currentProject].projectsImageUrl[currentSlide]) ? (
+                    <video
+                      ref={videoRef}
+                      src={projects[currentProject].projectsImageUrl[currentSlide]}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="object-contain object-center transition-all duration-300 w-full md:h-[500px] h-full my-auto cursor-pointer"
+                    />
+                  ) : (
+                    <Image
+                      src={projects[currentProject].projectsImageUrl[currentSlide]}
+                      alt={projects[currentProject].name}
+                      width={1000}
+                      height={1000}
+                      priority
+                      quality={100}
+                      className="object-contain object-center transition-all duration-300 w-full md:h-[500px] h-full my-auto cursor-pointer"
+                    />
+                  )}
+                </Link>
               )}
 
               {/* Popup for Web & App Development */}

@@ -16,6 +16,7 @@ export default function CreativityContent() {
                 "Brand Growth & Recognition"
             ],
             button: "Learn more with our expert team",
+            buttonLink: "/solutions/logo-and-branding",
             image: "/creativity-content/branding.png",
             logo: "/creativity-content/branding-logo.svg",
         },
@@ -27,6 +28,7 @@ export default function CreativityContent() {
                 "Scroll-Stopping Visuals & Graphics"
             ],
             button: "Learn more with our expert team",
+            buttonLink: "/solutions/content-creation",
             image: "/creativity-content/content-creation.png",
             logo: "/creativity-content/content-creation-logo.svg", 
         },
@@ -38,6 +40,7 @@ export default function CreativityContent() {
                 "Content Planning & Scheduling"
             ],
             button: "Learn more with our expert team",
+            buttonLink: "/solutions/social-media-management",
             image: "/creativity-content/smm.png",
             logo: "/creativity-content/smm-logo.svg",
         },
@@ -49,6 +52,7 @@ export default function CreativityContent() {
                 "Industry-Specific Solutions"
             ],
             button: "Learn more with our expert team",
+            buttonLink: "/solutions/packaging-and-printing",
             image: "/creativity-content/packaging-print.png",
             logo: "/creativity-content/packaging-print-logo.svg",
         }
@@ -125,7 +129,7 @@ export default function CreativityContent() {
                                         ))}
                                     </div>
                                     <div className="flex flex-col gap-2 text-[16px] lora-regular">
-                                        <Link href="/" className="underline">{activeContent.button}</Link>
+                                        <Link href={activeContent.buttonLink} className="underline">{activeContent.button}</Link>
                                     </div>
                                 </div>
                                 <div className="md:absolute md:bottom-0 md:right-0 px-2">

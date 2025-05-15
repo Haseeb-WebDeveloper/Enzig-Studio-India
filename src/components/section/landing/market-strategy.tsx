@@ -12,10 +12,11 @@ export default function MarketStrategy() {
             title: "Strategies",
             features: [
                 "Multi-Platform Expertise",
-                "Performance Optimization", 
+                "Performance Optimization",
                 "Data Driven Growth Strategies"
             ],
             button: "Learn more with our expert team",
+            buttonLink: "/solutions/strategy-analysis",
             image: "/market-strategy/strategy.png",
             logo: "/market-strategy/strategy-logo.svg",
         },
@@ -27,8 +28,9 @@ export default function MarketStrategy() {
                 "Smart Bidding, Better ROI"
             ],
             button: "Learn more with our expert team",
+            buttonLink: "/solutions/marketing",
             image: "/market-strategy/google-ads.png",
-            logo: "/market-strategy/google-ads-logo.svg", 
+            logo: "/market-strategy/google-ads-logo.svg",
         },
         metaAds: {
             title: "Meta Ads",
@@ -38,6 +40,7 @@ export default function MarketStrategy() {
                 "High-Conversion Ad Strategies"
             ],
             button: "Learn more with our expert team",
+            buttonLink: "/solutions/marketing",
             image: "/market-strategy/meta-ads.png",
             logo: "/market-strategy/meta-ads-logo.svg",
         },
@@ -49,6 +52,7 @@ export default function MarketStrategy() {
                 "Customer Behavior Analysis"
             ],
             button: "Learn more with our expert team",
+            buttonLink: "/solutions/strategy-analysis",
             image: "/market-strategy/analysis-roi.png",
             logo: "/market-strategy/analysis-roi-logo.svg",
         }
@@ -84,28 +88,28 @@ export default function MarketStrategy() {
                         <div className="flex gap-12 md:gap-20 flex-col">
                             {/* logo */}
                             <div className="w-full flex flex-row overflow-x-auto md:overflow-x-visible pt-8 px-6 md:pt-0 md:px-0 gap-12 items-center justify-between">
-                                <button 
+                                <button
                                     onClick={() => handleCategoryClick('strategies')}
                                     className={`cursor-pointer flex-shrink-0 flex gap-[8px] items-center pb-2 ${activeCategory === 'strategies' ? 'border-b-[5px] border-primary' : 'border-b-[5px] border-transparent'}`}
                                 >
                                     <Image src="/market-strategy/strategy-logo.svg" alt="Strategies Logo" width={100} height={100} className="md:w-[22px] md:h-[22px] w-[16px] h-[16px]" />
                                     <p className="text-[14px] md:text-[20px] montserrat-bold">Strategies</p>
                                 </button>
-                                <button 
+                                <button
                                     onClick={() => handleCategoryClick('googleAds')}
                                     className={`cursor-pointer flex-shrink-0 flex gap-[8px] items-center pb-2 ${activeCategory === 'googleAds' ? 'border-b-[5px] border-primary' : 'border-b-[5px] border-transparent'}`}
                                 >
                                     <Image src="/market-strategy/google-ads-logo.svg" alt="Google Ads Logo" width={100} height={100} className="md:w-[22px] md:h-[22px] w-[16px] h-[16px]" />
                                     <p className="text-[14px] md:text-[20px] montserrat-bold">Google Ads</p>
                                 </button>
-                                <button 
+                                <button
                                     onClick={() => handleCategoryClick('metaAds')}
                                     className={`cursor-pointer flex-shrink-0 flex gap-[8px] items-center pb-2 ${activeCategory === 'metaAds' ? 'border-b-[5px] border-primary' : 'border-b-[5px] border-transparent'}`}
                                 >
                                     <Image src="/market-strategy/meta-ads-logo.svg" alt="Meta Ads Logo" width={100} height={100} className="md:w-[22px] md:h-[22px] w-[16px] h-[16px]" />
                                     <p className="text-[14px] md:text-[20px] montserrat-bold">Meta Ads</p>
                                 </button>
-                                <button 
+                                <button
                                     onClick={() => handleCategoryClick('analysisRoi')}
                                     className={`cursor-pointer flex-shrink-0 flex gap-[8px] items-center pb-2 ${activeCategory === 'analysisRoi' ? 'border-b-[5px] border-primary' : 'border-b-[5px] border-transparent'}`}
                                 >
@@ -125,7 +129,7 @@ export default function MarketStrategy() {
                                         ))}
                                     </div>
                                     <div className="flex flex-col gap-2 text-[16px] lora-regular">
-                                        <Link href="/" className="underline">{activeContent.button}</Link>
+                                        <Link href={activeContent.buttonLink} className="underline">{activeContent.button}</Link>
                                     </div>
                                 </div>
                                 <div className="md:absolute md:bottom-0 md:right-0 px-2">

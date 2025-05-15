@@ -9,7 +9,6 @@ import { ArrowRightIcon, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useCallback, useEffect, useState } from 'react';
 import { SolutionPageData } from "@/types/solutions-interface";
 import CTA from "@/components/section/landing/cta";
-import { FaQuoteLeft } from "react-icons/fa";
 import SectionLoading from "./loading";
 import NotFound from "./not-found";
 import Testimonials from "../layout/testimonials";

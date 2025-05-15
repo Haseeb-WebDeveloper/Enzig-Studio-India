@@ -19,7 +19,7 @@ export default function SingleProjectPage() {
     useEffect(() => {
         const fetchProject = async () => {
             if (!params.slug) return; // guard check
-            const data = await client.fetch(singleProjectsQuery, { slug: params.slug });
+            const data = await client.fetch(singleProjectsQuery(params.slug as string));
             setProject(data);
         }
         fetchProject();

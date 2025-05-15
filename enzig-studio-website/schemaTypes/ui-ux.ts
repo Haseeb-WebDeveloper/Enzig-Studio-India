@@ -31,6 +31,11 @@ export const uiUx = defineType({
           name: 'description',
           type: 'text',
           title: 'Description'
+        }),
+        defineField({
+          name: 'slug',
+          type: 'slug',
+          title: 'Slug'
         })
       ]
     }],

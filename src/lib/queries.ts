@@ -609,7 +609,8 @@ export const portfolioQuery = () => {
       }
     },
     title,
-    description
+    description,
+    slug
   },
   "threeDProjectVideo": *[_type == "3d-projects"][0]{
     video{
@@ -650,7 +651,8 @@ export const homePortfolioQuery = () => {
       }
     },
     title,
-    description
+    description,
+    slug
   },
   "3dProject": *[_type == "3d-projects"][0]{
     video{
@@ -661,12 +663,12 @@ export const homePortfolioQuery = () => {
   }
 }
 `
-} 
+}
 
 
 // singleProjectsQuery.ts
-export const singleProjectsQuery = `
-*[_type == "single-projects" && slug.current == $slug][0]{
+export const singleProjectsQuery = (slug: string) => `
+*[_type == "single-projects" && slug.current == "${slug}"][0]{
   title,
   description,
   "slug": slug.current,
