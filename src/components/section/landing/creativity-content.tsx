@@ -40,7 +40,7 @@ export default function CreativityContent() {
                 "Content Planning & Scheduling"
             ],
             button: "Learn more with our expert team",
-            buttonLink: "/solutions/social-media-management",
+            buttonLink: "/solutions/social-media-management-management",
             image: "/creativity-content/smm.png",
             logo: "/creativity-content/smm-logo.svg",
         },

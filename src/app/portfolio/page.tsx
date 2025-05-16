@@ -114,7 +114,7 @@ export default async function PortfolioPage() {
                                     alt="Graphics Design"
                                     width={1024}
                                     height={768}
-                                    className="w-full h-full object-cover rounded-4xl"
+                                    className="w-full h-full object-cover rounded-4xl aspect-video"
                                 />
                             </div>
                             <div className="grid grid-cols-2 gap-4">

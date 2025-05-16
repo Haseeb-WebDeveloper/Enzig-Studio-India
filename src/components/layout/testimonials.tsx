@@ -11,6 +11,9 @@ import { urlFor } from "@/lib/sanity";
 export default function Testimonials({testimonials}: {testimonials: any}) {
     const [emblaRef, emblaApi] = useEmblaCarousel();
 
+    console.log(testimonials)
+
+
     // console.dir(testimonials, { depth: null });
 
     const scrollPrev = useCallback(() => {
@@ -23,6 +26,7 @@ export default function Testimonials({testimonials}: {testimonials: any}) {
 
     // Ensure testimonials is an array and has items before rendering
     const testimonialsArray = Array.isArray(testimonials) ? testimonials : [];
+
 
     return (
         <>

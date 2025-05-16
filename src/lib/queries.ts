@@ -332,7 +332,7 @@ export const solutionPageQuery = (pageName: string) => `
     },
     link
   },
-  "testimonials": testimonials->testimonials[],
+  "testimonials": testimonials->testimonial[],
   fourthSectionHeading,
   fourthSectionPara,
   services[]{
@@ -367,7 +367,7 @@ export const threeDProjectsQuery = () => `
       url,
     }
   },
-    "testimonials": testimonials->testimonials[],
+    "testimonials": testimonials->testimonial[],
 }
 `
 
@@ -385,7 +385,7 @@ export const graphicsDesignQuery = () => `
       url,
     }
   },
-    "testimonials": testimonials->testimonials[],
+    "testimonials": testimonials->testimonial[],
 }
 `
 
@@ -408,7 +408,7 @@ export const socialMediaQuery = () => `
       url
     }
   },
-     "testimonials": testimonials->testimonials[],
+     "testimonials": testimonials->testimonial[],
 }
 `;
 
@@ -446,7 +446,7 @@ export const contentQuery = () => `
       url
     }
   },
-    "testimonials": testimonials->testimonials[],
+    "testimonials": testimonials->testimonial[],
 }
 `;
 
@@ -470,7 +470,7 @@ export const uiUxQuery = () => {
       url
     }
   },
-    "testimonials": testimonials->testimonials[],
+    "testimonials": testimonials->testimonial[],
 }
   `
 }
@@ -502,7 +502,7 @@ export const brandingPortfolioQuery = () => {
       }
     }
   },
-    "testimonials": testimonials->testimonials[],
+    "testimonials": testimonials->testimonial[],
 }
 `
 }
@@ -524,7 +524,7 @@ export const portfolioQuery = () => {
       url
     }
   },
-    "testimonials": testimonials->testimonials[],
+    "testimonials": testimonials->testimonial[],
   "brands": *[_type == "brandingPortfolio"][0].brands[showOnPortfolio == true]{
     brandName,
     fontName,
@@ -643,7 +643,7 @@ export const singleProjectsQuery = (slug: string) => `
     "image": image.asset->url,
     title
   },
-    "testimonials": testimonials->testimonials[],
+    "testimonials": testimonials->testimonial[],
   projectOverviewDescription,
   projectOverviewImage{
     asset->{

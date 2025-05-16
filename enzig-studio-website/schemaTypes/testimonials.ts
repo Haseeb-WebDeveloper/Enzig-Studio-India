@@ -8,15 +8,48 @@ export const testimonials = defineType({
   fields: [
     defineField({
       name: 'groupTitle',
-      title: 'Group Title / Slug',
+      title: 'Group Title',
       type: 'string',
-      description: 'For example: solution-strategy-analysis',
+      description: 'For example: Testimonial for all pages.',
     }),
     defineField({
-      name: 'testimonials',
+      name: 'testimonial',
       title: 'Testimonials',
-      type: 'reference',
-      to: [{ type: 'testimonials' }]
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            {
+              name: 'text',
+              title: 'Testimonial Text',
+              type: 'text',
+              validation: Rule => Rule.required()
+            },
+            {
+              name: 'name',
+              title: 'Client Name',
+              type: 'string',
+              validation: Rule => Rule.required()
+            },
+            {
+              name: 'category',
+              title: 'Role/Position',
+              type: 'string',
+              validation: Rule => Rule.required()
+            },
+            {
+              name: 'image',
+              title: 'Client Image',
+              type: 'image',
+              options: {
+                hotspot: true
+              },
+              validation: Rule => Rule.required()
+            }
+          ]
+        }
+      ]
     }),
   ],
 })

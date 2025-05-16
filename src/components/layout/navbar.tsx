@@ -55,7 +55,7 @@ const navigation = [
             { name: "Marketing", description: "Google Ads, Meta Ads", href: "/solutions/marketing", icon: Zap },
             { name: "Packaging And Printing", description: "Designs that sell impact.", href: "/solutions/packaging-and-printing", icon: Package },
             { name: "Logo And Branding", description: "Identity that stands out.", href: "/solutions/logo-and-branding", icon: Palette },
-            { name: "Social Media Management", description: "Engage. Grow. Dominate.", href: "/solutions/social-media", icon: Hash },
+            { name: "Social Media Management", description: "Engage. Grow. Dominate.", href: "/solutions/social-media-management", icon: Hash },
             { name: "Content Creation", description: "Stories that captivate audiences.", href: "/solutions/content-creation", icon: Edit3 },
             { name: "Website And App Development", description: "Crafting seamless digital experiences.", href: "/solutions/website-and-app-development", icon: Monitor },
             { name: "Search Engine Optimization (SEO)", description: "Rank higher, grow faster.", href: "/solutions/seo", icon: Globe },
